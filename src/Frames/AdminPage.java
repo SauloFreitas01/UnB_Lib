@@ -57,6 +57,8 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -252,23 +254,23 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel17)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel17)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, 160));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 160, 160));
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel16.setText("Atrasos");
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, -1, 30));
+        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, 30));
 
         jPanel6.setBackground(new java.awt.Color(227, 227, 227));
         jPanel6.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 102, 0)));
@@ -281,24 +283,24 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 200, 160));
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 180, 160));
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel19.setText("Livros no Acervo");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, 30));
+        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 30));
 
         jPanel7.setBackground(new java.awt.Color(227, 227, 227));
         jPanel7.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 0, 157)));
@@ -311,24 +313,24 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel20)
-                .addGap(38, 38, 38))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel20)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, 170));
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 170, 160));
 
         jLabel21.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel21.setText("Membros");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, 30));
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, 30));
 
         jPanel8.setBackground(new java.awt.Color(227, 227, 227));
         jPanel8.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 102, 0)));
@@ -342,7 +344,7 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jLabel22)
                 .addGap(34, 34, 34))
         );
@@ -354,13 +356,35 @@ public class AdminPage extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, 160));
+        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 170, 160));
 
         jLabel23.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         jLabel23.setText("Empréstimos");
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, 30));
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, 30));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 980, 650));
+        jTable1.setBackground(new java.awt.Color(227, 227, 227));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"53", "Effective Java", "Joshua Bloch", "12"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome Livro", "Gênero", "Autor", "Quantidade"
+            }
+        ));
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable1.setSelectionBackground(new java.awt.Color(80, 80, 80));
+        jTable1.setShowGrid(true);
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 590, 290));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 980, 650));
 
         pack();
         setLocationRelativeTo(null);
@@ -437,5 +461,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
