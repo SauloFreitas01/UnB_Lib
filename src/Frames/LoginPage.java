@@ -42,6 +42,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(254, 254, 254));
+        setPreferredSize(new java.awt.Dimension(882, 710));
         setSize(new java.awt.Dimension(600, 710));
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
@@ -71,7 +72,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel6.setMinimumSize(new java.awt.Dimension(800, 810));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 580, 540));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 157));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 147));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
