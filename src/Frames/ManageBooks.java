@@ -89,7 +89,7 @@ public class ManageBooks extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel9.setText("Nome do livrro");
+        jLabel9.setText("Nome do livro");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, -1));
 
         jTextField8.setBackground(new java.awt.Color(0, 0, 107));

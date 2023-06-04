@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/Lucas/Desktop/UnB_Lib/src/Frames/LoginPage.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/UnB_Lib/src/Frames/ManageBooks.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/UnB_Lib/src/Frames/SignUpPage.java</file>
-=======
-            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/AdminPage.java</file>
+            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/ManageBooks.java</file>
+            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/TeacherPage.java</file>
+            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/ManageMembers.java</file>
             <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/SignUpPage.java</file>
+            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/IssueBook.java</file>
             <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/LoginPage.java</file>
->>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
