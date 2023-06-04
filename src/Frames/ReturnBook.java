@@ -8,12 +8,12 @@ package Frames;
  *
  * @author Lucas
  */
-public class IssueBook extends javax.swing.JFrame {
+public class ReturnBook extends javax.swing.JFrame {
 
     /**
      * Creates new form IssueBook
      */
-    public IssueBook() {
+    public ReturnBook() {
         initComponents();
     }
 
@@ -74,7 +74,7 @@ public class IssueBook extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 157));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 0));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 25)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,7 +211,7 @@ public class IssueBook extends javax.swing.JFrame {
 
         mainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 280, 720));
 
-        jPanel4.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 157));
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 157));
 
@@ -430,10 +430,10 @@ public class IssueBook extends javax.swing.JFrame {
         jLabel29.setText("Data de devolução");
         mainPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 180, -1));
 
-        jButton4.setBackground(new java.awt.Color(0, 102, 0));
+        jButton4.setBackground(new java.awt.Color(0, 0, 157));
         jButton4.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(254, 254, 254));
-        jButton4.setText("Realizar empréstimo");
+        jButton4.setText("Realizar devolução");
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,20 +485,21 @@ public class IssueBook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IssueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IssueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IssueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IssueBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IssueBook().setVisible(true);
+                new ReturnBook().setVisible(true);
             }
         });
     }
