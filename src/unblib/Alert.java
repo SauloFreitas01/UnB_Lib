@@ -2,18 +2,20 @@ package unblib;
 
 
 import java.util.*;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Alert{
     //Atributes
-    private Date issueDate;
+    private LocalDate issueDate;
     private Member member;
     private String bookName;
-    private Date returnDate;
+    private LocalDate returnDate;
     private int fine;
 
     
     //Constructor
-    public Alert(Date issueDate, Member member, String bookName, Date returnDate, int fine) {
+    public Alert(LocalDate issueDate, Member member, String bookName, LocalDate returnDate, int fine) {
         this.issueDate = issueDate;
         this.member = member;
         this.bookName = bookName;
@@ -23,11 +25,11 @@ public class Alert{
     
 
     //Getters e setters for issueDate, member, bookName, returnDate and fine
-    public Date getIssueDate() {
+    public LocalDate getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(Date issueDate) {
+    public void setIssueDate(LocalDate issueDate) {
         this.issueDate = issueDate;
     }
 
@@ -47,11 +49,11 @@ public class Alert{
         this.bookName = bookName;
     }
 
-    public Date getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -65,11 +67,14 @@ public class Alert{
 
     
     //Métodos
-    public void fineCal() {
-        // Calculate the fine logic goes here
-    }
-
-    public void viewAlert() {
-        // Display the alert details logic goes here
+    public void fineCal(){
+        long dif = ChronoUnit.DAYS.between(issueDate, returnDate);
+        double multa = 0.0;
+        
+        if (dif > 7){
+            multa = dif * 1.0;
+        }
+        
+        System.out.println("A multa pelo atraso de " + dif + " dias é: R$" + multa);
     }
 }
