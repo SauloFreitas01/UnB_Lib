@@ -157,8 +157,9 @@ public class ManageBooks extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 600));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(254, 254, 254));
 
+        jTable1.setBackground(new java.awt.Color(227, 227, 227));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"53", "Effective Java", "Joshua Bloch", "12"},

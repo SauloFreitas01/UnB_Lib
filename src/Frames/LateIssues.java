@@ -8,12 +8,12 @@ package Frames;
  *
  * @author saulo
  */
-public class Records extends javax.swing.JFrame {
+public class LateIssues extends javax.swing.JFrame {
 
     /**
      * Creates new form Records
      */
-    public Records() {
+    public LateIssues() {
         initComponents();
     }
 
@@ -32,11 +32,6 @@ public class Records extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
-        jLabel29 = new javax.swing.JLabel();
-        rSDateChooser3 = new rojeru_san.componentes.RSDateChooser();
-        jButton6 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
@@ -65,8 +60,8 @@ public class Records extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Library_32px.png"))); // NOI18N
-        jLabel3.setText("Registro de Empréstimos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 260, 60));
+        jLabel3.setText("Registro de Atrasos");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 220, 60));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,43 +85,9 @@ public class Records extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(254, 254, 254));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel28.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel28.setText("Data de devolução");
-        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 180, 30));
-
-        rSDateChooser2.setColorBackground(new java.awt.Color(0, 0, 157));
-        rSDateChooser2.setColorButtonHover(new java.awt.Color(0, 0, 177));
-        rSDateChooser2.setColorDiaActual(new java.awt.Color(0, 102, 0));
-        rSDateChooser2.setColorForeground(new java.awt.Color(0, 102, 0));
-        rSDateChooser2.setPlaceholder("Escolher Data");
-        jPanel3.add(rSDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 250, 40));
-
-        jLabel29.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel29.setText("Data do empréstimo");
-        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 180, 30));
-
-        rSDateChooser3.setColorBackground(new java.awt.Color(0, 0, 157));
-        rSDateChooser3.setColorButtonHover(new java.awt.Color(0, 0, 177));
-        rSDateChooser3.setColorDiaActual(new java.awt.Color(0, 102, 0));
-        rSDateChooser3.setColorForeground(new java.awt.Color(0, 102, 0));
-        rSDateChooser3.setPlaceholder("Escolher Data");
-        jPanel3.add(rSDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 250, -1));
-
-        jButton6.setBackground(new java.awt.Color(0, 102, 0));
-        jButton6.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(254, 254, 254));
-        jButton6.setText("Buscar");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 210, 40));
-
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"53", "Effective Java", "Joshua Block", "03/06/2023", "10/06/2023", "pendente"},
+                {"53", "Effective Java", "Joshua Block", "03/06/2023", "10/06/2023", "atrasado"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -164,7 +125,7 @@ public class Records extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 720, 340));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 720, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,10 +153,6 @@ public class Records extends javax.swing.JFrame {
         System.exit(0); // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -213,29 +170,27 @@ public class Records extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Records.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LateIssues.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Records.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LateIssues.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Records.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LateIssues.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Records.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LateIssues.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Records().setVisible(true);
+                new LateIssues().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -243,8 +198,6 @@ public class Records extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser2;
-    private rojeru_san.componentes.RSDateChooser rSDateChooser3;
     private rojeru_san.complementos.RSTableMetro rSTableMetro1;
     // End of variables declaration//GEN-END:variables
 }
