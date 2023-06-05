@@ -1,27 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package unblib;
 
-/**
- *
- * @author saulo
- */
-public class Book {
-  
+
+public class Book{
+    //Atributes
     private String name;
     private String author;
     private int stock;
     private String genre;
 
+    
+    //Constructor
     public Book(String name, String author, int stock, String genre) {
         this.name = name;
         this.author = author;
         this.stock = stock;
         this.genre = genre;
     }
+    
 
+    //Getters and setters
     public String getName() {
         return name;
     }

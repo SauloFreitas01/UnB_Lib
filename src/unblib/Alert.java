@@ -1,22 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package unblib;
 
-/**
- *
- * @author saulo
- */
-import java.util.Date;
 
-public class Alert {
+import java.util.*;
+
+public class Alert{
+    //Atributes
     private Date issueDate;
     private Member member;
     private String bookName;
     private Date returnDate;
     private int fine;
 
+    
+    //Constructor
+    public Alert(Date issueDate, Member member, String bookName, Date returnDate, int fine) {
+        this.issueDate = issueDate;
+        this.member = member;
+        this.bookName = bookName;
+        this.returnDate = returnDate;
+        this.fine = fine;
+    }
+    
+
+    //Getters e setters for issueDate, member, bookName, returnDate and fine
     public Date getIssueDate() {
         return issueDate;
     }
@@ -57,6 +63,8 @@ public class Alert {
         this.fine = fine;
     }
 
+    
+    //Métodos
     public void fineCal() {
         // Calculate the fine logic goes here
     }
