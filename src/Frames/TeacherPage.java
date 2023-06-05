@@ -26,149 +26,246 @@ public class TeacherPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlTeacher = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
+        Name = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        ID = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        Email = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        Password = new javax.swing.JLabel();
+        jPassword = new javax.swing.JPasswordField();
+        Books = new javax.swing.JLabel();
+        txtBooks = new javax.swing.JTextField();
+        Papers = new javax.swing.JLabel();
+        txtPapers = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        Teacher = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Professor");
-        setPreferredSize(new java.awt.Dimension(885, 712));
-        setSize(new java.awt.Dimension(600, 710));
+        setPreferredSize(new java.awt.Dimension(882, 710));
+        setSize(new java.awt.Dimension(882, 710));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(254, 254, 254));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlTeacher.setBackground(new java.awt.Color(0, 107, 0));
+        pnlTeacher.setAlignmentX(0.0F);
+        pnlTeacher.setAlignmentY(0.0F);
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 204));
-        jLabel2.setFont(new java.awt.Font("JetBrains Mono NL Light", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel2.setText(" UnB");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 40));
+        btnBack.setBackground(new java.awt.Color(19, 62, 121));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-return.png"))); // NOI18N
+        btnBack.setText("Voltar");
+        btnBack.setToolTipText("Voltar");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 204));
-        jLabel1.setFont(new java.awt.Font("JetBrains Mono NL Light", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel1.setText("Lib");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 6, -1, 40));
+        Name.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Name.setForeground(new java.awt.Color(19, 62, 121));
+        Name.setText("Nome:");
 
-        jLabel5.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel5.setText("Bem vindo à Biblioteca da UnB");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 52, -1, -1));
+        txtName.setToolTipText("Digite seu nome");
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/library.png"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        jLabel6.setMaximumSize(new java.awt.Dimension(800, 810));
-        jLabel6.setMinimumSize(new java.awt.Dimension(800, 810));
-        jLabel6.setPreferredSize(new java.awt.Dimension(831, 850));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 520, 580));
+        ID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ID.setForeground(new java.awt.Color(19, 62, 121));
+        ID.setText("ID:");
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 712));
+        txtID.setToolTipText("Digite seu ID");
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 157));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Email.setForeground(new java.awt.Color(19, 62, 121));
+        Email.setText("Email:");
 
-        jLabel8.setFont(new java.awt.Font("Sitka Display", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Professor");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 245, -1));
+        txtEmail.setToolTipText("Digite seu email");
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel3.setText("Nome");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, -1));
+        Password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Password.setForeground(new java.awt.Color(19, 62, 121));
+        Password.setText("Senha:");
 
-        jLabel4.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel4.setText("Informe seus dados");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        Books.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Books.setForeground(new java.awt.Color(19, 62, 121));
+        Books.setText("Livros:");
 
-        jLabel7.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel7.setText("Senha");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 120, -1));
+        txtBooks.setToolTipText("Digite seu nome");
+        txtBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBooksActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel9.setText("ID");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 80, -1));
+        Papers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Papers.setForeground(new java.awt.Color(19, 62, 121));
+        Papers.setText("Artigos:");
 
-        jLabel11.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel11.setText("Email");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 120, -1));
+        txtPapers.setToolTipText("Digite seu nome");
+        txtPapers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPapersActionPerformed(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(0, 107, 0));
-        jButton1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
+        jButton1.setBackground(new java.awt.Color(19, 62, 121));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Solicitar");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 200, 50));
 
-        jTextField5.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 200, 30));
+        Teacher.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Teacher.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Teacher.setText("Empréstimo de livros para professores");
 
-        jTextField6.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 200, 30));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/unb-icon.png"))); // NOI18N
 
-        jTextField7.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 200, 30));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(19, 62, 121));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("UnB Lib");
 
-        jTextField8.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 200, 30));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/library-icon-teacher.png"))); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel13.setText("Book List");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, -1));
+        javax.swing.GroupLayout pnlTeacherLayout = new javax.swing.GroupLayout(pnlTeacher);
+        pnlTeacher.setLayout(pnlTeacherLayout);
+        pnlTeacherLayout.setHorizontalGroup(
+            pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTeacherLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTeacherLayout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Books, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Papers, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                .addComponent(Password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtName)
+                            .addComponent(txtID)
+                            .addComponent(txtEmail)
+                            .addComponent(jPassword)
+                            .addComponent(txtBooks)
+                            .addComponent(txtPapers))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))))
+                .addGap(272, 272, 272))
+        );
+        pnlTeacherLayout.setVerticalGroup(
+            pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTeacherLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Teacher, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlTeacherLayout.createSequentialGroup()
+                        .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlTeacherLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Books, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBooks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Papers, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPapers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlTeacherLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(217, Short.MAX_VALUE))
+        );
 
-        jTextField10.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 200, 30));
+        getContentPane().add(pnlTeacher, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, -1));
 
-        jLabel15.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel15.setText("Paper List");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 120, -1));
-
-        jTextField11.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField11.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 200, 30));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 270, 710));
+        jPanel1.setBackground(new java.awt.Color(19, 62, 121));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 160, 710));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBooksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBooksActionPerformed
+
+    private void txtPapersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPapersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPapersActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -211,26 +308,25 @@ public class TeacherPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Books;
+    private javax.swing.JLabel Email;
+    private javax.swing.JLabel ID;
+    private javax.swing.JLabel Name;
+    private javax.swing.JLabel Papers;
+    private javax.swing.JLabel Password;
+    private javax.swing.JLabel Teacher;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JPasswordField jPassword;
+    private javax.swing.JPanel pnlTeacher;
+    private javax.swing.JTextField txtBooks;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPapers;
     // End of variables declaration//GEN-END:variables
 }
