@@ -1,6 +1,6 @@
 package unblib;
 
-import java.time.LocalDate;
+import java.util.*;
 
 
 public class Teacher extends Member{
@@ -56,7 +56,7 @@ public class Teacher extends Member{
     public void checkoutBook(Book book, Teacher teacher) {
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
-            book.setIssueDate(new LocalDate());
+            book.setIssueDate(new Date());
             book.setMember(teacher);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + teacher.getName());
         }else{
@@ -66,7 +66,7 @@ public class Teacher extends Member{
 
     public void returnBook(Book book, Teacher teacher) {
         book.setStock(book.getStock() + 1);
-        book.setReturnDate(new LocalDate());
+        book.setReturnDate(new Date());
         book.setMember(teacher);
         System.out.println("O livro " + book.getName() + " foi devolvido por " + teacher.getName());
     }

@@ -1,6 +1,6 @@
 package unblib;
 
-import java.time.LocalDate;
+import java.util.*;
 
 public class Book{
     //Atributes
@@ -8,8 +8,8 @@ public class Book{
     private String author;
     private int stock;
     private String genre;
-    private LocalDate issueDate;
-    private LocalDate returnDate;    
+    private Date issueDate;
+    private Date returnDate;    
     private boolean inLibrarian;
     private Member member;
 
@@ -48,19 +48,19 @@ public class Book{
         this.stock = stock;
     }
 
-    public LocalDate getIssueDate() {
+    public Date getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(LocalDate issueDate) {
+    public void setIssueDate(Date issueDate) {
         this.issueDate = issueDate;
     }
 
-    public LocalDate getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 

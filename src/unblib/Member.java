@@ -1,6 +1,6 @@
 package unblib;
 
-import java.time.LocalDate;
+import java.util.*;
 
 
 public class Member{
@@ -42,7 +42,7 @@ public class Member{
     public void requestBook(Book book, Member member){
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
-            book.setIssueDate(new LocalDate());
+            book.setIssueDate(new Date());
             book.setMember(member);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
         }else{
@@ -52,7 +52,7 @@ public class Member{
     
     public void returnBook(Book book, Member member){
         book.setStock(book.getStock() + 1);
-        book.setReturnDate(new LocalDate());
+        book.setReturnDate(new Date());
         book.setMember(member);
         System.out.println("O livro " + book.getName() + " foi devolvido por " + member.getName());
     }
