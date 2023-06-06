@@ -1,5 +1,7 @@
 package unblib;
 
+import java.time.LocalDate;
+
 
 public class Member{
     //Atributes
@@ -7,7 +9,11 @@ public class Member{
     private String id;
     
     
-    //Constructor
+    //Constructors
+    public Member(){
+        
+    }
+    
     public Member(String name, String id) {
         this.name = name;
         this.id = id;
@@ -33,11 +39,21 @@ public class Member{
     
     
     //Methods
-    public void requestBook(){
-        
+    public void requestBook(Book book, Member member){
+        if (book.getStock() > 0){
+            book.setStock(book.getStock() - 1);
+            book.setIssueDate(new LocalDate());
+            book.setMember(member);
+            System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
+        }else{
+            System.out.println("O livro " + book.getName() + " não está disponível!");
+        }
     }
     
-    public void returnBook(){
-        
+    public void returnBook(Book book, Member member){
+        book.setStock(book.getStock() + 1);
+        book.setReturnDate(new LocalDate());
+        book.setMember(member);
+        System.out.println("O livro " + book.getName() + " foi devolvido por " + member.getName());
     }
 }

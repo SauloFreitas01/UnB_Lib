@@ -1,5 +1,7 @@
 package unblib;
 
+import java.time.LocalDate;
+
 
 public class Student extends Member{
     //Atributes
@@ -44,11 +46,21 @@ public class Student extends Member{
 
     
     //Methods
-    public void checkoutBook() {
-        // Implementation for checking out a book
+    public void checkoutBook(Book book, Student student) {
+        if (book.getStock() > 0){
+            book.setStock(book.getStock() - 1);
+            book.setIssueDate(new LocalDate());
+            book.setMember(student);
+            System.out.println("O livro " + book.getName() + " foi emprestado para " + student.getName());
+        }else{
+            System.out.println("O livro " + book.getName() + " não está disponível!");
+        }
     }
 
-    public void returnBook() {
-        // Implementation for returning a book
+    public void returnBook(Book book, Student student) {
+        book.setStock(book.getStock() + 1);
+        book.setReturnDate(new LocalDate());
+        book.setMember(student);
+        System.out.println("O livro " + book.getName() + " foi devolvido por " + student.getName());
     }
 }

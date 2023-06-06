@@ -1,5 +1,7 @@
 package unblib;
 
+import java.util.*;
+import java.time.LocalDate;
 
 public class Library{
     //Atributes
@@ -50,7 +52,19 @@ public class Library{
         this.paperCatalog = paperCatalog;
     }
 
-    //Methods
+    //Método para emprestar livro
+    public void emprestarLivro(Book book, Member member){
+        if (book.getStock() > 0){
+            book.setStock(book.getStock() - 1);
+            book.setIssueDate(new Date());
+            book.setMember(member);
+            System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
+        }else{
+            System.out.println("O livro " + book.getName() + " não está disponível!");
+        }
+    }
+
+    //Method to update info
     public void updateInfo(String name, String address) {
         this.name = name;
         this.address = address;
@@ -58,33 +72,47 @@ public class Library{
     }
 
     //Method to issue books
-    public void issueBooks() {
-        //Implementation for issuing books
-        System.out.println("Books issued.");
+    public void issueBooks(Book book, Member member) {
+        if (book.getStock() > 0){
+            book.setStock(book.getStock() - 1);
+            book.setIssueDate(new LocalDate());
+            book.setMember(member);
+            System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
+        }else{
+            System.out.println("O livro " + book.getName() + " não está disponível!");
+        }
     }
 
     //Method to issue papers
-    public void issuePaper() {
-        //Implementation for issuing papers
-        System.out.println("Papers issued.");
+    public void issuePaper(Book book, Member member) {
+        book.setStock(book.getStock() + 1);
+        book.setReturnDate(new LocalDate());
+        book.setMember(member);
+        System.out.println("O livro " + book.getName() + " foi devolvido por " + member.getName());
     }
 
     //Method to display member information
-    public void memberInfo() {
-        //Implementation to display member information
-        System.out.println("Member information displayed.");
+    public void memberInfo(Member member) {
+        System.out.println("Nome: " + member.getName());
+        System.out.println("ID: " + member.getId());
     }
 
     //Method to search for a book
-    public void searchBook() {
-        //Implementation to search for a book
-        System.out.println("Book searched.");
+    public void searchBook(Book book) {
+        if(book.isInLibrarian()){
+            System.out.println("Livro encontrado na Biblioteca!");
+        }else{
+            System.out.println("Livro não encontrado na Biblioteca");
+        }
     }
 
     //Method to return a book
-    public void returnBook() {
-        //Implementation to return a book
-        System.out.println("Book returned.");
+    public Book returnBook(Book book) {
+        if(book.isInLibrarian()){
+            return book;
+        }else{
+            return null;
+        }
     }
 
     //Method to delete an alert
