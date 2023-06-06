@@ -371,7 +371,7 @@ public class ReturnBook extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddNewBookIcons/icons8_Books_52px_1.png"))); // NOI18N
-        jLabel6.setText("Empréstimo Livros");
+        jLabel6.setText("Devolução Livros");
         mainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 250, 50));
 
         jTextField7.setForeground(new java.awt.Color(255, 255, 255));
