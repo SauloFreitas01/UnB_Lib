@@ -36,9 +36,11 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        loginButton = new javax.swing.JButton();
+        formularioLoginEmail = new javax.swing.JTextField();
+        formularioLoginSenha = new javax.swing.JPasswordField();
+        jLabel13 = new javax.swing.JLabel();
+        formularioLoginParaTelaRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(254, 254, 254));
@@ -97,25 +99,47 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel12.setText("Senha");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 120, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 0));
-        jButton2.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(254, 254, 254));
-        jButton2.setText("Login");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setBackground(new java.awt.Color(0, 102, 0));
+        loginButton.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(254, 254, 254));
+        loginButton.setText("Login");
+        loginButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 200, 50));
+        jPanel3.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 200, 50));
 
-        jTextField6.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 200, 30));
+        formularioLoginEmail.setBackground(new java.awt.Color(0, 0, 107));
+        formularioLoginEmail.setForeground(new java.awt.Color(255, 255, 255));
+        formularioLoginEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                formularioLoginEmailActionPerformed(evt);
+            }
+        });
+        jPanel3.add(formularioLoginEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 200, 30));
 
-        jTextField8.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 200, 30));
+        formularioLoginSenha.setBackground(new java.awt.Color(0, 0, 107));
+        formularioLoginSenha.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(formularioLoginSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 200, 30));
+
+        jLabel13.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel13.setText("Já é usuário ?");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
+
+        formularioLoginParaTelaRegistro.setBackground(new java.awt.Color(0, 102, 0));
+        formularioLoginParaTelaRegistro.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        formularioLoginParaTelaRegistro.setForeground(new java.awt.Color(254, 254, 254));
+        formularioLoginParaTelaRegistro.setText("Clique Aqui");
+        formularioLoginParaTelaRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        formularioLoginParaTelaRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                formularioLoginParaTelaRegistroActionPerformed(evt);
+            }
+        });
+        jPanel3.add(formularioLoginParaTelaRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 200, 50));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, -10, 270, 710));
 
@@ -138,10 +162,49 @@ public class LoginPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    
+    // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        String email;
+        String senhaFormatada;
+        
+        // CONSTANTE APENAS PARA TESTES:
+        String adminEmail = "docente";
+        String adminSenha = "12345";
+        
+         // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
+        email = formularioLoginEmail.getText();
+        formularioLoginEmail.setText("");
+        
+        /* A senha é formatada pois o input senha é entregue pela biblioteca como
+        um array de chars.
+        */
+        senhaFormatada = String.valueOf(formularioLoginSenha.getPassword());
+        formularioLoginSenha.setText("");
+        
+        /* Metodo para mudar para a tela de admin caso o usuario e senha estejam corretos
+        AVISO: FALTA ADICIONAR FORMATAÇÃO DE EMAIL
+        */
+        
+        if (email.equals(adminEmail) && senhaFormatada.equals(adminSenha)) {
+            AdminPage trocaTelaAdmin = new AdminPage();
+            this.dispose();
+            trocaTelaAdmin.setVisible(true);
+        }
+    }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void formularioLoginEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioLoginEmailActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formularioLoginEmailActionPerformed
+
+    private void formularioLoginParaTelaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioLoginParaTelaRegistroActionPerformed
+        // TODO add your handling code here:
+        SignUpPage trocaTelaRegistro = new SignUpPage();
+        this.dispose();
+        trocaTelaRegistro.setVisible(true);
+    }//GEN-LAST:event_formularioLoginParaTelaRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,9 +243,12 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField formularioLoginEmail;
+    private javax.swing.JButton formularioLoginParaTelaRegistro;
+    private javax.swing.JPasswordField formularioLoginSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -191,7 +257,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
 }
