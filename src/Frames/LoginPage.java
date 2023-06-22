@@ -167,6 +167,7 @@ public class LoginPage extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         String email;
+        String senha;
         String senhaFormatada;
         
         // CONSTANTE APENAS PARA TESTES:
