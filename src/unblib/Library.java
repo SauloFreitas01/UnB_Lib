@@ -6,12 +6,12 @@ public class Library{
     //Atributes
     private String name;
     private String address;
-    private Book bookCatalog;
-    private Paper paperCatalog;
-
+    private Book[] bookCatalog;
+    private Paper[] paperCatalog;
+    private Member[] memberList;
     
     //Constructor
-    public Library(String name, String address, Book bookCatalog, Paper paperCatalog) {
+    public Library(String name, String address, Book[] bookCatalog, Paper[] paperCatalog) {
         this.name = name;
         this.address = address;
         this.bookCatalog = bookCatalog;
