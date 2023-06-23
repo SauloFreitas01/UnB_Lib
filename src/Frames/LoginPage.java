@@ -4,6 +4,8 @@
  */
 package Frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author saulo
@@ -126,13 +128,14 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel13.setText("Já é usuário ?");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
+        jLabel13.setText("Não possui conta?");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, -1, -1));
 
         formularioLoginParaTelaRegistro.setBackground(new java.awt.Color(0, 102, 0));
         formularioLoginParaTelaRegistro.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         formularioLoginParaTelaRegistro.setForeground(new java.awt.Color(254, 254, 254));
-        formularioLoginParaTelaRegistro.setText("Clique Aqui");
+        formularioLoginParaTelaRegistro.setText("Cadastre-se");
+        formularioLoginParaTelaRegistro.setToolTipText("");
         formularioLoginParaTelaRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         formularioLoginParaTelaRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +174,7 @@ public class LoginPage extends javax.swing.JFrame {
         String senhaFormatada;
         
         // CONSTANTE APENAS PARA TESTES:
-        String adminEmail = "docente";
+        String adminEmail = "docente@gmail.com";
         String adminSenha = "12345";
         
          // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
@@ -188,11 +191,19 @@ public class LoginPage extends javax.swing.JFrame {
         AVISO: FALTA ADICIONAR FORMATAÇÃO DE EMAIL
         */
         
-        if (email.equals(adminEmail) && senhaFormatada.equals(adminSenha)) {
-            AdminPage trocaTelaAdmin = new AdminPage();
-            this.dispose();
-            trocaTelaAdmin.setVisible(true);
+        // VALIDACAO EMAIL
+        if (email.contains("@gmail.com")) {
+             if (email.equals(adminEmail) && senhaFormatada.equals(adminSenha)) {
+                AdminPage trocaTelaAdmin = new AdminPage();
+                this.dispose();
+                trocaTelaAdmin.setVisible(true);
+            } else {
+                 JOptionPane.showMessageDialog(null,  "Email ou senha inválidos", "Informações inválidas", JOptionPane.ERROR_MESSAGE);
+             }
+        } else {
+            JOptionPane.showMessageDialog(null,  "Formato de email inválido", "Email inválido", JOptionPane.ERROR_MESSAGE );
         }
+      
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void formularioLoginEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioLoginEmailActionPerformed
