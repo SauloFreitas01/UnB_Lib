@@ -5,6 +5,7 @@
 package Frames;
 
 import javax.swing.JOptionPane;
+import static unblib.Controle.validadorEmail;
 
 /**
  *
@@ -193,7 +194,7 @@ public class LoginPage extends javax.swing.JFrame {
         */
         
         // VALIDACAO EMAIL
-        if (email.contains("@gmail.com")) {
+        if (validadorEmail(email)) {
              if (email.equals(adminEmail) && senhaFormatada.equals(adminSenha)) {
                 AdminPage trocaTelaAdmin = new AdminPage();
                 this.dispose();
