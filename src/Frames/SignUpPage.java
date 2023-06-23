@@ -4,6 +4,11 @@
  */
 package Frames;
 
+import javax.swing.JOptionPane;
+import static unblib.Controle.validadorEmail;
+import static unblib.Controle.validadorMatricula;
+import static unblib.Controle.validadorNome;
+
 /**
  *
  * @author saulo
@@ -36,17 +41,17 @@ public class SignUpPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        formularioRegistroTipoUsuario = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        formularioRegistroParaTelaLogin = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        cadastroButton = new javax.swing.JButton();
+        formularioRegistroNome = new javax.swing.JTextField();
+        formularioRegistroMatricula = new javax.swing.JTextField();
+        formularioRegistroEmail = new javax.swing.JTextField();
+        formularioRegistroSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(254, 254, 254));
@@ -106,16 +111,16 @@ public class SignUpPage extends javax.swing.JFrame {
         jLabel7.setText("Email");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 120, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 107));
-        jComboBox1.setForeground(new java.awt.Color(254, 254, 254));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discente", "Docente" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(251, 251, 251)));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        formularioRegistroTipoUsuario.setBackground(new java.awt.Color(0, 0, 107));
+        formularioRegistroTipoUsuario.setForeground(new java.awt.Color(254, 254, 254));
+        formularioRegistroTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discente", "Docente" }));
+        formularioRegistroTipoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(251, 251, 251)));
+        formularioRegistroTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                formularioRegistroTipoUsuarioActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 200, 30));
+        jPanel3.add(formularioRegistroTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 200, 30));
 
         jLabel9.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 254, 254));
@@ -132,45 +137,50 @@ public class SignUpPage extends javax.swing.JFrame {
         jLabel12.setText("Senha");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 0));
-        jButton1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setText("Clique Aqui");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        formularioRegistroParaTelaLogin.setBackground(new java.awt.Color(0, 102, 0));
+        formularioRegistroParaTelaLogin.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        formularioRegistroParaTelaLogin.setForeground(new java.awt.Color(254, 254, 254));
+        formularioRegistroParaTelaLogin.setText("Clique Aqui");
+        formularioRegistroParaTelaLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        formularioRegistroParaTelaLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                formularioRegistroParaTelaLoginActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 200, 50));
+        jPanel3.add(formularioRegistroParaTelaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 200, 50));
 
         jLabel13.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(254, 254, 254));
         jLabel13.setText("Já é usuário ?");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 0));
-        jButton2.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(254, 254, 254));
-        jButton2.setText("Cadastrar");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 200, 50));
+        cadastroButton.setBackground(new java.awt.Color(0, 102, 0));
+        cadastroButton.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        cadastroButton.setForeground(new java.awt.Color(254, 254, 254));
+        cadastroButton.setText("Cadastrar");
+        cadastroButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        cadastroButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cadastroButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 200, 50));
 
-        jTextField5.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 200, 30));
+        formularioRegistroNome.setBackground(new java.awt.Color(0, 0, 107));
+        formularioRegistroNome.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(formularioRegistroNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 200, 30));
 
-        jTextField6.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 200, 30));
+        formularioRegistroMatricula.setBackground(new java.awt.Color(0, 0, 107));
+        formularioRegistroMatricula.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(formularioRegistroMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 200, 30));
 
-        jTextField7.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 200, 30));
+        formularioRegistroEmail.setBackground(new java.awt.Color(0, 0, 107));
+        formularioRegistroEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(formularioRegistroEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 200, 30));
 
-        jTextField8.setBackground(new java.awt.Color(0, 0, 107));
-        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 200, 30));
+        formularioRegistroSenha.setBackground(new java.awt.Color(0, 0, 107));
+        formularioRegistroSenha.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(formularioRegistroSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 200, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, -10, 270, 710));
 
@@ -195,13 +205,33 @@ public class SignUpPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void formularioRegistroTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioRegistroTipoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_formularioRegistroTipoUsuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void formularioRegistroParaTelaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioRegistroParaTelaLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        LoginPage trocaTelaLogin = new LoginPage();
+        this.dispose();
+        trocaTelaLogin.setVisible(true);
+    }//GEN-LAST:event_formularioRegistroParaTelaLoginActionPerformed
+
+    private void cadastroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroButtonActionPerformed
+        // TODO add your handling code here:
+        //Extrair os inputs do usuario **FASE DE TESTE**   
+        String tipoUsuario = formularioRegistroTipoUsuario.getSelectedItem().toString();
+        String matricula = formularioRegistroMatricula.getText();
+        String nome = formularioRegistroNome.getText();
+        String email = formularioRegistroEmail.getText();
+        String senha = String.valueOf(formularioRegistroSenha.getPassword());
+        
+        //Validação do registro
+        if (validadorNome(nome) && validadorMatricula(matricula) && validadorEmail(email)) {
+            //ADICIONAR SERILIZAÇÃO **
+        } else {
+            JOptionPane.showMessageDialog(null, "Informações inválidas", "Erro Cadastro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_cadastroButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,9 +269,13 @@ public class SignUpPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton cadastroButton;
+    private javax.swing.JTextField formularioRegistroEmail;
+    private javax.swing.JTextField formularioRegistroMatricula;
+    private javax.swing.JTextField formularioRegistroNome;
+    private javax.swing.JButton formularioRegistroParaTelaLogin;
+    private javax.swing.JPasswordField formularioRegistroSenha;
+    private javax.swing.JComboBox<String> formularioRegistroTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -256,9 +290,5 @@ public class SignUpPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
