@@ -164,6 +164,7 @@ public class LoginPage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
@@ -214,7 +215,7 @@ public class LoginPage extends javax.swing.JFrame {
     private void formularioLoginParaTelaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioLoginParaTelaRegistroActionPerformed
         // TODO add your handling code here:
         SignUpPage trocaTelaRegistro = new SignUpPage();
-        this.dispose();
+        this.dispose(); 
         trocaTelaRegistro.setVisible(true);
     }//GEN-LAST:event_formularioLoginParaTelaRegistroActionPerformed
 
