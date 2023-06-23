@@ -10,11 +10,12 @@ public class Alert{
     private Member member;
     private String bookName;
     private LocalDate returnDate;
+    private String status;
     private int fine;
 
     
     //Constructor
-    public Alert(LocalDate issueDate, Member member, String bookName, LocalDate returnDate, int fine) {
+    public Alert(LocalDate issueDate, Member member, String bookName, LocalDate returnDate,String status ,int fine) {
         this.issueDate = issueDate;
         this.member = member;
         this.bookName = bookName;
