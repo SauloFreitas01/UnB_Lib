@@ -64,6 +64,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnPaginaInicial.setBackground(new java.awt.Color(0, 102, 0));
         btnPaginaInicial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnPaginaInicial.setForeground(new java.awt.Color(254, 254, 254));
         btnPaginaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/home_24px.png"))); // NOI18N
         btnPaginaInicial.setText("Página Inicial");
         btnPaginaInicial.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -76,6 +77,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnAcervo.setBackground(new java.awt.Color(0, 102, 0));
         btnAcervo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAcervo.setForeground(new java.awt.Color(254, 254, 254));
         btnAcervo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Book_26px.png"))); // NOI18N
         btnAcervo.setText("Acervo");
         btnAcervo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -88,6 +90,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnMembros.setBackground(new java.awt.Color(0, 102, 0));
         btnMembros.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnMembros.setForeground(new java.awt.Color(254, 254, 254));
         btnMembros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Conference_26px.png"))); // NOI18N
         btnMembros.setText("Membros");
         btnMembros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -100,6 +103,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnEmprestimo.setBackground(new java.awt.Color(0, 102, 0));
         btnEmprestimo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEmprestimo.setForeground(new java.awt.Color(254, 254, 254));
         btnEmprestimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Sell_26px.png"))); // NOI18N
         btnEmprestimo.setText("Empréstimo");
         btnEmprestimo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -112,6 +116,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnDevolucao.setBackground(new java.awt.Color(0, 102, 0));
         btnDevolucao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnDevolucao.setForeground(new java.awt.Color(254, 254, 254));
         btnDevolucao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Return_Purchase_26px.png"))); // NOI18N
         btnDevolucao.setText("Devolução");
         btnDevolucao.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -124,6 +129,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnRegistros.setBackground(new java.awt.Color(0, 102, 0));
         btnRegistros.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRegistros.setForeground(new java.awt.Color(254, 254, 254));
         btnRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_View_Details_26px.png"))); // NOI18N
         btnRegistros.setText("Registros");
         btnRegistros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -136,6 +142,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnEmitidos.setBackground(new java.awt.Color(0, 102, 0));
         btnEmitidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEmitidos.setForeground(new java.awt.Color(254, 254, 254));
         btnEmitidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Book_26px.png"))); // NOI18N
         btnEmitidos.setText("Emitidos");
         btnEmitidos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -148,6 +155,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnAtrasados.setBackground(new java.awt.Color(0, 102, 0));
         btnAtrasados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAtrasados.setForeground(new java.awt.Color(254, 254, 254));
         btnAtrasados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Library_26px_1.png"))); // NOI18N
         btnAtrasados.setText("Atrasados");
         btnAtrasados.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -160,6 +168,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnLogout.setBackground(new java.awt.Color(0, 102, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(254, 254, 254));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Exit_26px.png"))); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
