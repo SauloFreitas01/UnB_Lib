@@ -8,7 +8,10 @@ public class Book{
     private String genre;
     private String author;
     private int stock;
+    private Date issueDate;
+    private Date returnDate;    
     private boolean inLibrarian;
+    private Member member;
 
     
     //Constructor
@@ -45,6 +48,21 @@ public class Book{
         this.stock = stock;
     }
 
+    public Date getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(Date issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
 
     public String getGenre() {
         return genre;
@@ -53,7 +71,14 @@ public class Book{
     public void setGenre(String genre) {
         this.genre = genre;
     }
+    
+    public Member getMember() {
+        return member;
+    }
 
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public boolean isInLibrarian() {
         return inLibrarian;

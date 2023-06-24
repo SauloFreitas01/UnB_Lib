@@ -103,7 +103,7 @@ public class Library{
         // Iterate over the book catalog
         for (Book book : bookCatalog) {
             // Check if the book has the matching id
-            if (book.getName() == name) {
+            if (book.getName().equals(name)) {
                 // Remove the book from the catalog
                 bookCatalog.remove(book);
                 break; // Stop iterating after removing the book
