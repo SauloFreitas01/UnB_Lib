@@ -168,6 +168,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         btnLogout.setBackground(new java.awt.Color(0, 102, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(254, 254, 254));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Exit_26px.png"))); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
