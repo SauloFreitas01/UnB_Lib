@@ -5,29 +5,26 @@ import java.util.*;
 
 public class Teacher extends Member{
     //Atributes
-    private String email;
-    private String password;
-    private Book bookList;
-    private Paper paperList;
+    private ArrayList paperList;
 
     //Constructors
-    public Teacher(String name, String id, String email, String password) {
-        super(name, id);
-        this.email = email;
-        this.password = password;
+
+    public Teacher() {
+        
     }
 
+    public Teacher(String name, String id, String email) {
+        super(name, id, email);
+    }
 
+    public Teacher(String name, String id, String email, String password, ArrayList bookList, ArrayList paperList) {
+        super(name, id, email, password, bookList);
+        this.paperList = paperList;
+    }
+    
+    
     //Getters e setters for email and password
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
+    /*public String getPassword() {
         return password;
     }
 
@@ -41,13 +38,13 @@ public class Teacher extends Member{
 
     public void setBookList(Book bookList) {
         this.bookList = bookList;
-    }
+    }*/
 
-    public Paper getPaperList() {
+    public ArrayList getPaperList() {
         return paperList;
     }
 
-    public void setPaperList(Paper paperList) {
+    public void setPaperList(ArrayList paperList) {
         this.paperList = paperList;
     }
 
