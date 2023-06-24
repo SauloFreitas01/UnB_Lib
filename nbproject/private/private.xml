@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/unblib/Student.java</file>
-            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/unblib/Library.java</file>
-            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/Frames/SignUpPage.java</file>
-            <file>file:/C:/Users/saulo/Documents/NetBeansProjects/UnB_Lib/src/unblib/Member.java</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/UnB_Lib/src/Frames/AdminPage.java</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/UnB_Lib/src/Frames/ManageMembers.java</file>
+            <file>file:/C:/Users/Marcelo/Documents/GitHub/UnB_Lib/src/Frames/ManageBooks.java</file>
         </group>
     </open-files>
 </project-private>
