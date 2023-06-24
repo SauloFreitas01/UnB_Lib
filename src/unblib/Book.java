@@ -5,6 +5,7 @@ import java.util.*;
 public class Book{
     //Atributes
     private String name;
+    private String genre;
     private String author;
     private int stock;
     private String genre;
@@ -12,11 +13,11 @@ public class Book{
 
     
     //Constructor
-    public Book(String name, String author, int stock, String genre) {
+    public Book(String name, String genre, String author, int stock) {
         this.name = name;
+        this.genre = genre;
         this.author = author;
         this.stock = stock;
-        this.genre = genre;
     }
     
 
