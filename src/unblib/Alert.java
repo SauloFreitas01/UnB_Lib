@@ -22,6 +22,10 @@ public class Alert{
         this.returnDate = returnDate;
         this.fine = fine;
     }
+
+    Alert() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 
     //Getters e setters for issueDate, member, bookName, returnDate and fine
