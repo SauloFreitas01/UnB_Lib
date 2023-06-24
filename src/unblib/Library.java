@@ -9,23 +9,22 @@ public class Library{
     //list.add("1");
     private String name;
     private String address;
-    private Book[] bookCatalog;
-    private Paper[] paperCatalog;
-    private Member[] memberList;
-    private Alert[] issueList;
-    private Alert[] lateList;
+    List<Book> bookCatalog = new ArrayList<Book>();
+    List<Paper> paperCatalog = new ArrayList<Paper>();
+    List<Member> memberList = new ArrayList<Member>();
+    List<Alert> recordList = new ArrayList<Alert>();
+    
     
     
     //Constructor
-    public Library(String name, String address, Book[] bookCatalog, 
-            Paper[] paperCatalog, Member[] memberList, Alert[] issueList,Alert[] lateList) {
+    public Library(String name, String address, List<Book> bookCatalog, 
+            List<Paper> paperCatalog, List<Member> memberList, List<Alert> recordList) {
         this.name = name;
         this.address = address;
         this.bookCatalog = bookCatalog;
         this.paperCatalog = paperCatalog;
         this.memberList = memberList;
-        this.issueList = issueList;
-        this.lateList = lateList;
+        this.recordList = recordList;
     }
 
     
@@ -47,65 +46,77 @@ public class Library{
         this.address = address;
     }
 
-    public Book[] getBookCatalog() {
+    public List<Book> getBookCatalog() {
         return bookCatalog;
     }
 
-    public void setBookCatalog(Book[] bookCatalog) {
+    public void setBookCatalog(List<Book> bookCatalog) {
         this.bookCatalog = bookCatalog;
     }
 
-    public Paper[] getPaperCatalog() {
+    public List<Paper> getPaperCatalog() {
         return paperCatalog;
     }
 
-    public void setPaperCatalog(Paper[] paperCatalog) {
+    public void setPaperCatalog(List<Paper> paperCatalog) {
         this.paperCatalog = paperCatalog;
     }
 
     
-    
-    public Member[] getMemberList() {
+    public List<Member> getMemberList() {
         return memberList;
     }
 
-    public void setMemberList(Member[] memberList) {
+    public void setMemberList(List<Member> memberList) {
         this.memberList = memberList;
     }
-    public Alert[] getIssueList() {
-        return issueList;
+    public List<Alert> getRecordList() {
+        return recordList;
     }
 
-    public void setIssueList(Alert[] issueList) {
-        this.issueList = issueList;
+    public void setRecordList(List<Alert> recordList) {
+        this.recordList = recordList;
     }
 
-    public Alert[] getLateList() {
-        return lateList;
-    }
-
-    public void setLateList(Alert[] lateList) {
-        this.lateList = lateList;
-    }
-    
 
     //Method to update info
-    public void updateInfo(String name, String address) {
+    public void updateLibInfo(String name, String address) {
         this.name = name;
         this.address = address;
         System.out.println("Library information updated.");
     }
 
-    public void addBook(Book book){
+    public void addBook(Book newBook){
     // insert book into book catalog
+        this.bookCatalog.add(newBook);
     }
     
+    public void updateBook(Book book, String name,String author,int stock,String genre){
+        book.setName(name);
+        book.setAuthor(author);
+        book.setStock(stock);
+        book.setGenre(genre);
+    }
+    //remove book given its id
+    
+    public static void removeBookById(List<Book> bookCatalog, String name) {
+        // Iterate over the book catalog
+        for (Book book : bookCatalog) {
+            // Check if the book has the matching id
+            if (book.getName() == name) {
+                // Remove the book from the catalog
+                bookCatalog.remove(book);
+                break; // Stop iterating after removing the book
+            }
+        }
+    }
     
     //Method to issue books
     //empresta livro a usuario
     public void issueBooks(Book book, Member member) {
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
+            
             book.setIssueDate(new Date());
             book.setMember(member);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
@@ -141,17 +152,23 @@ public class Library{
         System.out.println("O livro " + book.getName() + " foi devolvido por " + member.getName());
     }
 
+    //adds member to memberList
+    public void addMember(Member newMember){
+        this.memberList.add(newMember);
+    }
     //Method to display member information
     public void memberInfo(Member member) {
         System.out.println("Nome: " + member.getName());
         System.out.println("ID: " + member.getId());
     }
 
-   
+   // method to update member
+     public static void updateMember(Member member, String name, int age, String email) {
+        // Update the properties of the member object
+     }    
+   //method to delete member 
 
     //Method to delete an alert
-    public void deleteAlert() {
-        //Implementation to delete an alert
-        System.out.println("Alert deleted.");
-    }
+    //deprecated?
+  
 }

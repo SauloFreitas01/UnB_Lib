@@ -8,10 +8,7 @@ public class Book{
     private String author;
     private int stock;
     private String genre;
-    private Date issueDate;
-    private Date returnDate;    
     private boolean inLibrarian;
-    private Member member;
 
     
     //Constructor
