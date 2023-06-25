@@ -1,9 +1,10 @@
 package unblib;
 
+import java.io.Serializable;
 import java.util.*;
 
 
-public class Member{
+public class Member implements Serializable{
     //Atributes
     private String name;
     private String id;
