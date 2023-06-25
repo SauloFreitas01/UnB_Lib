@@ -4,8 +4,17 @@
  */
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.lerArquivo;
 import static unblib.Controle.validadorEmail;
+import static unblib.Controle.verificarCredenciaisLogin;
+import unblib.Member;
 
 /**
  *
@@ -195,13 +204,21 @@ public class LoginPage extends javax.swing.JFrame {
         
         // VALIDACAO EMAIL
         if (validadorEmail(email)) {
-             if (email.equals(adminEmail) && senhaFormatada.equals(adminSenha)) {
-                AdminPage trocaTelaAdmin = new AdminPage();
-                this.dispose();
-                trocaTelaAdmin.setVisible(true);
-            } else {
-                 JOptionPane.showMessageDialog(null,  "Email ou senha inválidos", "Informações inválidas", JOptionPane.ERROR_MESSAGE);
-             }
+            try {
+                ArrayList<Member> listaUsuarios = lerArquivo("usuarios.bin");
+                if (verificarCredenciaisLogin(email, senhaFormatada, listaUsuarios)) {
+                    AdminPage trocaTelaAdmin = new AdminPage();
+                    this.dispose();
+                    trocaTelaAdmin.setVisible(true);
+                } else {
+                     JOptionPane.showMessageDialog(null,  "Email ou senha inválidos", "Informações inválidas", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
         } else {
             JOptionPane.showMessageDialog(null,  "Formato de email inválido", "Email inválido", JOptionPane.ERROR_MESSAGE );
         }
@@ -223,7 +240,22 @@ public class LoginPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException, FileNotFoundException, ClassNotFoundException {
+        // TESTE
+        ArrayList<Member> listaUsers = new ArrayList<>();
+        escreverArquivo(listaUsers, "usuarios.bin");
+        //
+        Member membroTeste = new Member();
+        membroTeste.setEmail("docente@gmail.com");
+        membroTeste.setPassword("12345");
+        membroTeste.setId("15264654564");
+        membroTeste.setName("docente");
+        membroTeste.setTipo("Docente");
+        
+        ArrayList<Member> listaUsuarios = lerArquivo("usuarios.bin");
+        listaUsuarios.add(membroTeste);
+        escreverArquivo(listaUsuarios, "usuarios.bin");
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
