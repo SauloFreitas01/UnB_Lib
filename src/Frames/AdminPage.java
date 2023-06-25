@@ -1,12 +1,58 @@
 package Frames;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import unblib.Book;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.inicializarListaLivros;
+import static unblib.Controle.lerArquivoLivros;
+
 
 public class AdminPage extends javax.swing.JFrame {
 
-    public AdminPage() {
+    public AdminPage() throws IOException {
         initComponents();
+        
+        File livros = new File("livros.bin");
+                
+        /* Verifica se o arquivo livros.bin já foi criado, caso já tenha sido criado ele simplesmente pega a lista e
+        caso contrário ele cria uma nova lista com os valores predefinidos do metodo inicializarListaLivros().
+        */
+        if (livros.isFile()) {
+            try {
+                ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
+                this.escreverListaLivros(listaLivros);
+                this.qtdLivrosAcervo(listaLivros);
+            } catch (IOException ex) {
+                Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                    
+        } else {
+            ArrayList<Book> listaLivros = inicializarListaLivros();
+            this.escreverListaLivros(listaLivros);
+            this.qtdLivrosAcervo(listaLivros);
+            escreverArquivo(listaLivros, "livros.bin");
+        }
     }
 
+    // Escreve lista de livros na tabela
+    public void escreverListaLivros(ArrayList<Book> listaLivros) {
+        DefaultTableModel modelo = (DefaultTableModel) tblBooks.getModel();
+        
+        for(Book livro : listaLivros) {
+            modelo.addRow(new Object[]{livro.getName(), livro.getAuthor(), livro.getGenre(), livro.getStock()});
+        }
+    }
+    
+    public void qtdLivrosAcervo(ArrayList<Book> listaLivros) {
+        qtdLivrosAcervo.setText(String.valueOf(listaLivros.size()));
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -31,7 +77,7 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txtAcervo = new javax.swing.JLabel();
         pnlAcervo = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        qtdLivrosAcervo = new javax.swing.JLabel();
         txtMembros = new javax.swing.JLabel();
         pnlMembros = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -221,9 +267,9 @@ public class AdminPage extends javax.swing.JFrame {
         pnlAcervo.setBackground(new java.awt.Color(227, 227, 227));
         pnlAcervo.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 102, 0)));
 
-        jLabel18.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Book_Shelf_50px.png"))); // NOI18N
-        jLabel18.setText("10");
+        qtdLivrosAcervo.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
+        qtdLivrosAcervo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Book_Shelf_50px.png"))); // NOI18N
+        qtdLivrosAcervo.setText("10");
 
         javax.swing.GroupLayout pnlAcervoLayout = new javax.swing.GroupLayout(pnlAcervo);
         pnlAcervo.setLayout(pnlAcervoLayout);
@@ -231,14 +277,14 @@ public class AdminPage extends javax.swing.JFrame {
             pnlAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAcervoLayout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qtdLivrosAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         pnlAcervoLayout.setVerticalGroup(
             pnlAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAcervoLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qtdLivrosAcervo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -306,18 +352,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         tblBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Autor", "Gênero", "Quantidade"
@@ -420,7 +455,11 @@ public class AdminPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminPage().setVisible(true);
+                try {
+                    new AdminPage().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -436,7 +475,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JButton btnRegistros;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel pnlAcervo;
@@ -446,6 +484,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlEmprestimos;
     private javax.swing.JPanel pnlMembros;
     private javax.swing.JPanel pnlUnBLib;
+    private javax.swing.JLabel qtdLivrosAcervo;
     private javax.swing.JScrollPane scrollBooks;
     private rojeru_san.complementos.RSTableMetro tblBooks;
     private javax.swing.JLabel txtAcervo;

@@ -1,8 +1,9 @@
 package unblib;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Book{
+public class Book implements Serializable{
     //Atributes
     private String name;
     private String genre;

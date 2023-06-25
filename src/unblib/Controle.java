@@ -49,6 +49,13 @@ public class Controle {
         ous.close();
     }
     
+    public static ArrayList<Book> lerArquivoLivros(String nomeArquivo) throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream input = new FileInputStream(nomeArquivo);
+        ObjectInputStream objectInput = new ObjectInputStream(input);
+        ArrayList<Book> listaUsuarios = (ArrayList<Book>)objectInput.readObject();
+        return listaUsuarios;
+    }
+    
     public static boolean verificarCredenciaisLogin(String email, String senha, ArrayList<Member> listaUsuarios) {
         for (Member usuario : listaUsuarios) {
             if (email.equals(usuario.getEmail()) && senha.equals(usuario.getPassword())) {
@@ -57,5 +64,21 @@ public class Controle {
         }
         return false;
     }
-
+    
+    public static ArrayList<Book> inicializarListaLivros() {
+        ArrayList<Book> listaLivros = new ArrayList<>();
+        
+        listaLivros.add(new Book("Effective Java", "Programação", "Joshua Bloch", 7));
+        listaLivros.add(new Book("Game of Thrones", "Fantasia", "George R.R. Martin", 5));
+        listaLivros.add(new Book("Crafting Interpreters", "Programação", "Robert Nystrom", 3));
+        listaLivros.add(new Book("The Faithful Executioner", "Biografia", "Joel F. Harrington", 2));
+        listaLivros.add(new Book("Introduction to Graph Theory", "Matemática", "Richard J. Trudeau", 4));
+        listaLivros.add(new Book("At the Mountains of Madness", "Terror", "H.P Lovecraft", 6));
+        listaLivros.add(new Book("The Black Cat", "Terror", "Edgar Allan Poe", 3));
+        listaLivros.add(new Book("The Divine Comedy", "Poesia", "Dante Alighieri", 1));
+        listaLivros.add(new Book("War and Peace", "Romance", "Leo Tolstoy", 2));
+        listaLivros.add(new Book("The Kamarazov Brothers", "Romance", "Fyodor Dostoevsky", 5));
+        
+        return listaLivros;
+    }
 }
