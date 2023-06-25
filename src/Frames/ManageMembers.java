@@ -77,9 +77,9 @@ public class ManageMembers extends javax.swing.JFrame {
         btnNovo = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         pnlMembers = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        dadoMembros = new javax.swing.JLabel();
+        scrMembers = new javax.swing.JScrollPane();
         tblMembers = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,9 +88,9 @@ public class ManageMembers extends javax.swing.JFrame {
         pnlDados.setPreferredSize(new java.awt.Dimension(320, 712));
         pnlDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dadoUser.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoUser.setForeground(new java.awt.Color(254, 254, 254));
-        dadoUser.setText("Usuário");
+        dadoUser.setText("Usuário:");
         pnlDados.add(dadoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, -1));
 
         cmbUser.setBackground(new java.awt.Color(0, 0, 107));
@@ -103,11 +103,11 @@ public class ManageMembers extends javax.swing.JFrame {
                 cmbUserActionPerformed(evt);
             }
         });
-        pnlDados.add(cmbUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 200, 30));
+        pnlDados.add(cmbUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 240, 30));
 
-        dadoNome.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoNome.setForeground(new java.awt.Color(254, 254, 254));
-        dadoNome.setText("Nome");
+        dadoNome.setText("Nome:");
         pnlDados.add(dadoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, -1));
 
         txtNome.setBackground(new java.awt.Color(0, 0, 107));
@@ -120,18 +120,18 @@ public class ManageMembers extends javax.swing.JFrame {
         });
         pnlDados.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 30));
 
-        dadoID.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoID.setForeground(new java.awt.Color(254, 254, 254));
-        dadoID.setText("ID");
+        dadoID.setText("ID:");
         pnlDados.add(dadoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 120, -1));
 
         txtID.setBackground(new java.awt.Color(0, 0, 107));
         txtID.setForeground(new java.awt.Color(255, 255, 255));
         pnlDados.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 240, 30));
 
-        dadoEmail.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoEmail.setForeground(new java.awt.Color(254, 254, 254));
-        dadoEmail.setText("Email");
+        dadoEmail.setText("Email:");
         pnlDados.add(dadoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, -1));
 
         txtEmail.setBackground(new java.awt.Color(0, 0, 107));
@@ -142,7 +142,7 @@ public class ManageMembers extends javax.swing.JFrame {
         btnDeletar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDeletar.setForeground(new java.awt.Color(254, 254, 254));
         btnDeletar.setText("Deletar");
-        btnDeletar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDeletar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnDeletar.setBorderPainted(false);
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +155,7 @@ public class ManageMembers extends javax.swing.JFrame {
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(254, 254, 254));
         btnSalvar.setText("Salvar");
-        btnSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSalvar.setBorderPainted(false);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +168,7 @@ public class ManageMembers extends javax.swing.JFrame {
         btnAtualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAtualizar.setForeground(new java.awt.Color(254, 254, 254));
         btnAtualizar.setText("Atualizar");
-        btnAtualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAtualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnAtualizar.setBorderPainted(false);
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +181,7 @@ public class ManageMembers extends javax.swing.JFrame {
         btnNovo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNovo.setForeground(new java.awt.Color(254, 254, 254));
         btnNovo.setText("Novo");
-        btnNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNovo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnNovo.setBorderPainted(false);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,9 +206,15 @@ public class ManageMembers extends javax.swing.JFrame {
 
         getContentPane().add(pnlDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 712));
 
-        pnlMembers.setBackground(new java.awt.Color(204, 204, 204));
+        pnlMembers.setBackground(new java.awt.Color(254, 254, 254));
         pnlMembers.setPreferredSize(new java.awt.Dimension(882, 712));
         pnlMembers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dadoMembros.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        dadoMembros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dadoMembros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddNewBookIcons/icons8_Contact_52px.png"))); // NOI18N
+        dadoMembros.setText("Administrar Membros");
+        pnlMembers.add(dadoMembros, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 89, 400, 52));
 
         tblMembers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -241,14 +247,9 @@ public class ManageMembers extends javax.swing.JFrame {
                 tblMembersMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblMembers);
+        scrMembers.setViewportView(tblMembers);
 
-        pnlMembers.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 191, 548, 290));
-
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 30)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddNewBookIcons/icons8_Contact_26px.png"))); // NOI18N
-        jLabel2.setText("Administrar Membros");
-        pnlMembers.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 89, -1, -1));
+        pnlMembers.add(scrMembers, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 206, 550, 300));
 
         getContentPane().add(pnlMembers, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 562, 712));
 
@@ -476,12 +477,12 @@ public class ManageMembers extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbUser;
     private javax.swing.JLabel dadoEmail;
     private javax.swing.JLabel dadoID;
+    private javax.swing.JLabel dadoMembros;
     private javax.swing.JLabel dadoNome;
     private javax.swing.JLabel dadoUser;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlDados;
     private javax.swing.JPanel pnlMembers;
+    private javax.swing.JScrollPane scrMembers;
     private javax.swing.JTable tblMembers;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtID;

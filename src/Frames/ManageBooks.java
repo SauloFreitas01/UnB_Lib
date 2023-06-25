@@ -74,9 +74,9 @@ public class ManageBooks extends javax.swing.JFrame{
         btnNovo = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         pnlBooks = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        dadoLivros = new javax.swing.JLabel();
+        scrBooks = new javax.swing.JScrollPane();
         tblBooks = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ManageBooks");
@@ -86,10 +86,10 @@ public class ManageBooks extends javax.swing.JFrame{
         pnlDados.setPreferredSize(new java.awt.Dimension(320, 712));
         pnlDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dadoNome.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoNome.setForeground(new java.awt.Color(254, 254, 254));
-        dadoNome.setText("Nome do livro");
-        pnlDados.add(dadoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, -1));
+        dadoNome.setText("Nome do livro:");
+        pnlDados.add(dadoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, -1));
 
         txtNome.setBackground(new java.awt.Color(0, 0, 107));
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,9 +102,9 @@ public class ManageBooks extends javax.swing.JFrame{
         });
         pnlDados.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 30));
 
-        dadoGenero.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoGenero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoGenero.setForeground(new java.awt.Color(254, 254, 254));
-        dadoGenero.setText("Gênero");
+        dadoGenero.setText("Gênero:");
         pnlDados.add(dadoGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 120, -1));
 
         txtGenero.setBackground(new java.awt.Color(0, 0, 107));
@@ -112,9 +112,9 @@ public class ManageBooks extends javax.swing.JFrame{
         txtGenero.setToolTipText("Insira o gênero do livro");
         pnlDados.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 240, 30));
 
-        dadoAutor.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoAutor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoAutor.setForeground(new java.awt.Color(254, 254, 254));
-        dadoAutor.setText("Nome do autor");
+        dadoAutor.setText("Nome do autor:");
         pnlDados.add(dadoAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, -1));
 
         txtAutor.setBackground(new java.awt.Color(0, 0, 107));
@@ -122,10 +122,10 @@ public class ManageBooks extends javax.swing.JFrame{
         txtAutor.setToolTipText("Insira o autor do livro");
         pnlDados.add(txtAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 240, 30));
 
-        dadoQtd.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dadoQtd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoQtd.setForeground(new java.awt.Color(254, 254, 254));
-        dadoQtd.setText("Quantidade");
-        pnlDados.add(dadoQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 80, -1));
+        dadoQtd.setText("Quantidade:");
+        pnlDados.add(dadoQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 120, -1));
 
         txtQtd.setBackground(new java.awt.Color(0, 0, 107));
         txtQtd.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class ManageBooks extends javax.swing.JFrame{
         btnDeletar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDeletar.setForeground(new java.awt.Color(254, 254, 254));
         btnDeletar.setText("Deletar");
-        btnDeletar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDeletar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnDeletar.setBorderPainted(false);
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +149,7 @@ public class ManageBooks extends javax.swing.JFrame{
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(254, 254, 254));
         btnSalvar.setText("Salvar");
-        btnSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSalvar.setBorderPainted(false);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +162,7 @@ public class ManageBooks extends javax.swing.JFrame{
         btnAtualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAtualizar.setForeground(new java.awt.Color(254, 254, 254));
         btnAtualizar.setText("Atualizar");
-        btnAtualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAtualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnAtualizar.setBorderPainted(false);
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +175,7 @@ public class ManageBooks extends javax.swing.JFrame{
         btnNovo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNovo.setForeground(new java.awt.Color(254, 254, 254));
         btnNovo.setText("Novo");
-        btnNovo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNovo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnNovo.setBorderPainted(false);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +203,13 @@ public class ManageBooks extends javax.swing.JFrame{
         pnlBooks.setBackground(new java.awt.Color(254, 254, 254));
         pnlBooks.setAlignmentX(0.0F);
         pnlBooks.setAlignmentY(0.0F);
+        pnlBooks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dadoLivros.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        dadoLivros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dadoLivros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddNewBookIcons/icons8_Books_52px_1.png"))); // NOI18N
+        dadoLivros.setText("Administrar Livros");
+        pnlBooks.add(dadoLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 89, 400, 52));
 
         tblBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -235,34 +242,9 @@ public class ManageBooks extends javax.swing.JFrame{
                 tblBooksMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblBooks);
+        scrBooks.setViewportView(tblBooks);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 30)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddNewBookIcons/icons8_Books_52px_1.png"))); // NOI18N
-        jLabel2.setText("Administrar Livros");
-
-        javax.swing.GroupLayout pnlBooksLayout = new javax.swing.GroupLayout(pnlBooks);
-        pnlBooks.setLayout(pnlBooksLayout);
-        pnlBooksLayout.setHorizontalGroup(
-            pnlBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBooksLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBooksLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(89, 89, 89))
-        );
-        pnlBooksLayout.setVerticalGroup(
-            pnlBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBooksLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(jLabel2)
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
-        );
+        pnlBooks.add(scrBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 206, 550, 300));
 
         getContentPane().add(pnlBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 562, 712));
 
@@ -482,12 +464,12 @@ public class ManageBooks extends javax.swing.JFrame{
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel dadoAutor;
     private javax.swing.JLabel dadoGenero;
+    private javax.swing.JLabel dadoLivros;
     private javax.swing.JLabel dadoNome;
     private javax.swing.JLabel dadoQtd;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlBooks;
     private javax.swing.JPanel pnlDados;
+    private javax.swing.JScrollPane scrBooks;
     private javax.swing.JTable tblBooks;
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtGenero;
