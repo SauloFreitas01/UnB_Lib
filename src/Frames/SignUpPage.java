@@ -4,10 +4,20 @@
  */
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.lerArquivo;
 import static unblib.Controle.validadorEmail;
 import static unblib.Controle.validadorMatricula;
 import static unblib.Controle.validadorNome;
+import unblib.Member;
 
 /**
  *
@@ -41,7 +51,7 @@ public class SignUpPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        formularioRegistroTipoUsuario = new javax.swing.JComboBox<>();
+        formularioRegistroTipoUsuario = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -113,7 +123,7 @@ public class SignUpPage extends javax.swing.JFrame {
 
         formularioRegistroTipoUsuario.setBackground(new java.awt.Color(0, 0, 107));
         formularioRegistroTipoUsuario.setForeground(new java.awt.Color(254, 254, 254));
-        formularioRegistroTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discente", "Docente" }));
+        formularioRegistroTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Discente", "Docente" }));
         formularioRegistroTipoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(251, 251, 251)));
         formularioRegistroTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,13 +231,41 @@ public class SignUpPage extends javax.swing.JFrame {
         //Extrair os inputs do usuario **FASE DE TESTE**   
         String tipoUsuario = formularioRegistroTipoUsuario.getSelectedItem().toString();
         String matricula = formularioRegistroMatricula.getText();
+        formularioRegistroMatricula.setText("");
         String nome = formularioRegistroNome.getText();
+        formularioRegistroNome.setText("");
         String email = formularioRegistroEmail.getText();
+        formularioRegistroEmail.setText("");
         String senha = String.valueOf(formularioRegistroSenha.getPassword());
+        formularioRegistroSenha.setText("");
         
         //Validação do registro
         if (validadorNome(nome) && validadorMatricula(matricula) && validadorEmail(email)) {
-            //ADICIONAR SERILIZAÇÃO **
+            Member membroTeste = new Member();
+            membroTeste.setName(nome);
+            membroTeste.setId(matricula);
+            membroTeste.setEmail(email);
+            membroTeste.setPassword(senha);
+            membroTeste.setTipo(tipoUsuario);
+            
+            // Escreve membro registrado no arquivo usuarios.bin
+            try {
+                ArrayList<Member> listaUsuarios = lerArquivo("usuarios.bin");
+                
+                listaUsuarios.add(membroTeste);
+                escreverArquivo(listaUsuarios, "usuarios.bin");
+               
+            } catch (IOException ex) {
+                Logger.getLogger(SignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(SignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            AdminPage trocarTelaAdmin = new AdminPage();
+            this.dispose();
+            trocarTelaAdmin.setVisible(true);
+            
         } else {
             JOptionPane.showMessageDialog(null, "Informações inválidas", "Erro Cadastro", JOptionPane.ERROR_MESSAGE);
         }
@@ -236,7 +274,11 @@ public class SignUpPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException, IOException {
+        // Criacao lista de usuarios
+        //ArrayList<Member> listaUsuarios = new ArrayList<>();
+        
+        //escreverArquivo(listaUsuarios, "usuarios.bin");
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
