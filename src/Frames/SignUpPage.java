@@ -123,7 +123,7 @@ public class SignUpPage extends javax.swing.JFrame {
         cmbUser.setBackground(new java.awt.Color(0, 0, 107));
         cmbUser.setForeground(new java.awt.Color(254, 254, 254));
         cmbUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discente", "Docente" }));
-        cmbUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(251, 251, 251)));
+        cmbUser.setToolTipText("Selecione o tipo de usuário");
         cmbUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUserActionPerformed(evt);
@@ -138,6 +138,8 @@ public class SignUpPage extends javax.swing.JFrame {
 
         txtEmail.setBackground(new java.awt.Color(0, 0, 107));
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setToolTipText("Insira seu email");
+        txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlCadastro.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 234, 30));
 
         dadoMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -147,6 +149,8 @@ public class SignUpPage extends javax.swing.JFrame {
 
         txtMatricula.setBackground(new java.awt.Color(0, 0, 107));
         txtMatricula.setForeground(new java.awt.Color(255, 255, 255));
+        txtMatricula.setToolTipText("Insira sua matrícula");
+        txtMatricula.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlCadastro.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 234, 30));
 
         dadoNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -156,6 +160,8 @@ public class SignUpPage extends javax.swing.JFrame {
 
         txtNome.setBackground(new java.awt.Color(0, 0, 107));
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
+        txtNome.setToolTipText("Insira seu nome completo");
+        txtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlCadastro.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 234, 30));
 
         dadoSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -165,6 +171,8 @@ public class SignUpPage extends javax.swing.JFrame {
 
         txtSenha.setBackground(new java.awt.Color(0, 0, 107));
         txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setToolTipText("Insira sua senha");
+        txtSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlCadastro.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 234, 30));
 
         bntCadastro.setBackground(new java.awt.Color(0, 102, 0));

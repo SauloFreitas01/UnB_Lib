@@ -374,11 +374,11 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
     private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
-        new Records().setVisible(true);
+        new TeacherPage().setVisible(true);
     }//GEN-LAST:event_btnRegistrosActionPerformed
 
     private void btnEmitidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitidosActionPerformed
-        // TODO add your handling code here:
+        new Records().setVisible(true);
     }//GEN-LAST:event_btnEmitidosActionPerformed
 
     private void btnAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasadosActionPerformed

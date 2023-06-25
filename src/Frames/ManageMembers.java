@@ -97,7 +97,6 @@ public class ManageMembers extends javax.swing.JFrame {
         cmbUser.setForeground(new java.awt.Color(254, 254, 254));
         cmbUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discente", "Docente" }));
         cmbUser.setToolTipText("Selecione o tipo de usuário");
-        cmbUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(251, 251, 251)));
         cmbUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUserActionPerformed(evt);
@@ -112,6 +111,7 @@ public class ManageMembers extends javax.swing.JFrame {
 
         txtNome.setBackground(new java.awt.Color(0, 0, 107));
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
+        txtNome.setToolTipText("Insira o nome");
         txtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +127,8 @@ public class ManageMembers extends javax.swing.JFrame {
 
         txtID.setBackground(new java.awt.Color(0, 0, 107));
         txtID.setForeground(new java.awt.Color(255, 255, 255));
+        txtID.setToolTipText("Insira o ID");
+        txtID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlDados.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 240, 30));
 
         dadoEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -136,6 +138,8 @@ public class ManageMembers extends javax.swing.JFrame {
 
         txtEmail.setBackground(new java.awt.Color(0, 0, 107));
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setToolTipText("Insira o email");
+        txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlDados.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 240, 30));
 
         btnDeletar.setBackground(new java.awt.Color(255, 0, 0));

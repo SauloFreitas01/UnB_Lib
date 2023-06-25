@@ -152,8 +152,9 @@ public class IssueBook extends javax.swing.JFrame {
         pnlEmprestimo.add(dadoLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, -1));
 
         txtLivro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtLivro.setToolTipText("Insira o nome do livro");
         txtLivro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLivroActionPerformed(evt);
@@ -166,8 +167,9 @@ public class IssueBook extends javax.swing.JFrame {
         pnlEmprestimo.add(dadoMembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
 
         txtMembro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMembro.setToolTipText("Insira o ID");
         txtMembro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtMembro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtMembro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtMembro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMembroActionPerformed(evt);
@@ -180,8 +182,9 @@ public class IssueBook extends javax.swing.JFrame {
         pnlEmprestimo.add(dadoEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, -1));
 
         txtEmprestimo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEmprestimo.setToolTipText("Insira a data");
         txtEmprestimo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtEmprestimo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtEmprestimo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtEmprestimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmprestimoActionPerformed(evt);

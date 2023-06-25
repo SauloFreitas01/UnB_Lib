@@ -107,7 +107,6 @@ public class LateIssues extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
-        new LoginPage().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void tblAtrasosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAtrasosMouseClicked

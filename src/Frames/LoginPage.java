@@ -99,6 +99,8 @@ public class LoginPage extends javax.swing.JFrame {
 
         txtEmail.setBackground(new java.awt.Color(0, 0, 107));
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setToolTipText("Insira seu email");
+        txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -113,6 +115,8 @@ public class LoginPage extends javax.swing.JFrame {
 
         txtSenha.setBackground(new java.awt.Color(0, 0, 107));
         txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setToolTipText("Insira sua senha");
+        txtSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         pnlLogin.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 234, 30));
 
         btnLogin.setBackground(new java.awt.Color(0, 102, 0));
