@@ -9,7 +9,9 @@ import javax.swing.table.DefaultTableModel;
 import unblib.Book;
 import static unblib.Controle.escreverArquivo;
 import static unblib.Controle.inicializarListaLivros;
+import static unblib.Controle.lerArquivo;
 import static unblib.Controle.lerArquivoLivros;
+import unblib.Member;
 
 
 public class AdminPage extends javax.swing.JFrame {
@@ -25,8 +27,10 @@ public class AdminPage extends javax.swing.JFrame {
         if (livros.isFile()) {
             try {
                 ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
+                ArrayList<Member> listaMembers = lerArquivo("usuarios.bin");
                 this.escreverListaLivros(listaLivros);
                 this.qtdLivrosAcervo(listaLivros);
+                this.qtdMembrosAtivos(listaMembers);
             } catch (IOException ex) {
                 Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -52,6 +56,10 @@ public class AdminPage extends javax.swing.JFrame {
     
     public void qtdLivrosAcervo(ArrayList<Book> listaLivros) {
         qtdLivrosAcervo.setText(String.valueOf(listaLivros.size()));
+    }
+    
+    public void qtdMembrosAtivos(ArrayList<Member> listaMembers) {
+        qtdMembrosAtivos.setText(String.valueOf(listaMembers.size()));
     }
     
     @SuppressWarnings("unchecked")
@@ -80,7 +88,7 @@ public class AdminPage extends javax.swing.JFrame {
         qtdLivrosAcervo = new javax.swing.JLabel();
         txtMembros = new javax.swing.JLabel();
         pnlMembros = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        qtdMembrosAtivos = new javax.swing.JLabel();
         txtEmprestimos = new javax.swing.JLabel();
         pnlEmprestimos = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -297,9 +305,9 @@ public class AdminPage extends javax.swing.JFrame {
         pnlMembros.setBackground(new java.awt.Color(227, 227, 227));
         pnlMembros.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 0, 157)));
 
-        jLabel20.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_People_50px.png"))); // NOI18N
-        jLabel20.setText("10");
+        qtdMembrosAtivos.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
+        qtdMembrosAtivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_People_50px.png"))); // NOI18N
+        qtdMembrosAtivos.setText("10");
 
         javax.swing.GroupLayout pnlMembrosLayout = new javax.swing.GroupLayout(pnlMembros);
         pnlMembros.setLayout(pnlMembrosLayout);
@@ -307,14 +315,14 @@ public class AdminPage extends javax.swing.JFrame {
             pnlMembrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMembrosLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel20)
+                .addComponent(qtdMembrosAtivos)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         pnlMembrosLayout.setVerticalGroup(
             pnlMembrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMembrosLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel20)
+                .addComponent(qtdMembrosAtivos)
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -404,7 +412,14 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcervoActionPerformed
 
     private void btnMembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembrosActionPerformed
-        new ManageMembers().setVisible(true);
+        this.dispose();
+        try {
+            new ManageMembers().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnMembrosActionPerformed
 
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
@@ -482,7 +497,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JButton btnRegistros;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel pnlAcervo;
     private javax.swing.JPanel pnlAtrasos;
@@ -492,6 +506,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMembros;
     private javax.swing.JPanel pnlUnBLib;
     private javax.swing.JLabel qtdLivrosAcervo;
+    private javax.swing.JLabel qtdMembrosAtivos;
     private javax.swing.JScrollPane scrollBooks;
     private rojeru_san.complementos.RSTableMetro tblBooks;
     private javax.swing.JLabel txtAcervo;
