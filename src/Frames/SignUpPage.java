@@ -255,12 +255,10 @@ public class SignUpPage extends javax.swing.JFrame {
                 Logger.getLogger(SignUpPage.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso", "Cadastro concluido", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             new LoginPage().setVisible(true);
-            /*AdminPage trocarTelaAdmin = new AdminPage();
-            this.dispose();
-            trocarTelaAdmin.setVisible(true);*/
+            
             
         } else {
             JOptionPane.showMessageDialog(null, "Informações inválidas", "Erro Cadastro", JOptionPane.ERROR_MESSAGE);

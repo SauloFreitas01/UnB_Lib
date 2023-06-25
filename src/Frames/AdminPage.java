@@ -55,7 +55,11 @@ public class AdminPage extends javax.swing.JFrame {
     }
     
     public void qtdLivrosAcervo(ArrayList<Book> listaLivros) {
-        qtdLivrosAcervo.setText(String.valueOf(listaLivros.size()));
+        int qtdLivros = 0;
+        for (Book livro : listaLivros) {
+            qtdLivros += livro.getStock();
+        }
+        qtdLivrosAcervo.setText(String.valueOf(qtdLivros));
     }
     
     public void qtdMembrosAtivos(ArrayList<Member> listaMembers) {
@@ -397,6 +401,7 @@ public class AdminPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        this.dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
