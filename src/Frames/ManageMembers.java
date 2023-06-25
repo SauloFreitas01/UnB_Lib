@@ -44,10 +44,15 @@ public class ManageMembers extends javax.swing.JFrame {
     public void carregarTabelaMembers(){
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Tipo usuário", "Nome", "ID", "Email"}, 0);
         
-        String sel = (String) cmbUser.getSelectedItem();
+        String sel;
         
         //Adicionar combobox
         for(int i=0; i<listaMembers.size(); i++){
+            if (listaMembers.get(i).getTipo() != null) {
+                sel = listaMembers.get(i).getTipo();
+            } else {
+                sel = (String) cmbUser.getSelectedItem();
+            }
             Object linha[] = new Object[]{sel,
                                         listaMembers.get(i).getName(),
                                         listaMembers.get(i).getId(),
@@ -320,6 +325,7 @@ public class ManageMembers extends javax.swing.JFrame {
             
             if(botao.equals("novo")){
                 Member member = new Member(nome, id, email);
+                member.setTipo(tipo);
                 
                 listaMembers.add(member);
                 
