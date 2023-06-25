@@ -1,9 +1,15 @@
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import unblib.Member;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.lerArquivo;
 
 
 public class ManageMembers extends javax.swing.JFrame {
@@ -12,10 +18,12 @@ public class ManageMembers extends javax.swing.JFrame {
             
     String botao;
     
-    public ManageMembers() {
+   
+    public ManageMembers() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
         
-        listaMembers = new ArrayList();
+        listaMembers = lerArquivo("usuarios.bin");
+        carregarTabelaMembers();
         
         
         //Habilitar ou desabilitar botões
@@ -290,6 +298,12 @@ public class ManageMembers extends javax.swing.JFrame {
         txtID.setEnabled(false);
         txtEmail.setEnabled(false);
         
+        try {
+            escreverArquivo(listaMembers, "usuarios.bin");
+        } catch (IOException ex) {
+            Logger.getLogger(ManageMembers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(null, "Membro excluído com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -345,6 +359,12 @@ public class ManageMembers extends javax.swing.JFrame {
             txtNome.setEnabled(false);
             txtID.setEnabled(false);
             txtEmail.setEnabled(false);
+            
+            try {
+                escreverArquivo(listaMembers, "usuarios.bin");
+            } catch (IOException ex) {
+                Logger.getLogger(ManageMembers.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -428,6 +448,11 @@ public class ManageMembers extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
+        try {
+            new AdminPage().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(ManageMembers.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
@@ -467,7 +492,13 @@ public class ManageMembers extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageMembers().setVisible(true);
+                try {
+                    new ManageMembers().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ManageMembers.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ManageMembers.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
