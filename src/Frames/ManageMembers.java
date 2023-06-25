@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import static unblib.Controle.escreverArquivo;
 import static unblib.Controle.lerArquivo;
+import static unblib.Controle.validadorEmail;
+import static unblib.Controle.validadorMatricula;
 
 
 public class ManageMembers extends javax.swing.JFrame {
@@ -316,6 +318,9 @@ public class ManageMembers extends javax.swing.JFrame {
         if(txtNome.getText().equals("") || txtID.getText().equals("") ||
                 txtEmail.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser inseridos!", "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        
+        } else if(!validadorEmail(txtEmail.getText()) || !validadorMatricula(txtID.getText())) {
+            JOptionPane.showMessageDialog(null, "Informações inválidas", "Cadastro Inválido", JOptionPane.ERROR_MESSAGE);
         }else{
             String tipo = (String) cmbUser.getSelectedItem();
             String nome = txtNome.getText();
