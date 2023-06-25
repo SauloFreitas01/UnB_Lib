@@ -1,9 +1,16 @@
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import unblib.Book;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.lerArquivoLivros;
+import static unblib.Controle.validadorMatricula;
 
 
 public class ManageBooks extends javax.swing.JFrame{
@@ -12,12 +19,13 @@ public class ManageBooks extends javax.swing.JFrame{
     
     String botao;
     
-    public ManageBooks(){
+    public ManageBooks() throws IOException, IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
         
-        listaBooks = new ArrayList();
-        
-        
+        //Extrai a lista de livros do arquivo livros.bin
+        listaBooks = lerArquivoLivros("livros.bin");
+        carregarTabelaBooks();
+         
         //Habilitar ou desabilitar botões
         btnNovo.setEnabled(true);
         btnAtualizar.setEnabled(false);
@@ -282,6 +290,13 @@ public class ManageBooks extends javax.swing.JFrame{
         txtAutor.setEnabled(false);
         txtQtd.setEnabled(false);
         
+        //Carrega valores da lista no arquivo binário
+        try {
+            escreverArquivo(listaBooks, "livros.bin");
+        } catch (IOException ex) {
+            Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(null, "Livro excluído com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -289,6 +304,9 @@ public class ManageBooks extends javax.swing.JFrame{
         if(txtNome.getText().equals("") || txtGenero.getText().equals("") ||
                 txtAutor.getText().equals("") || txtQtd.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser inseridos!", "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        } else if(!validadorMatricula(txtQtd.getText())) {
+            JOptionPane.showMessageDialog(null, "Informações inválidas", "Registro inválido", JOptionPane.ERROR_MESSAGE);
+        
         }else{
             String nome = txtNome.getText();
             String genero = txtGenero.getText();
@@ -337,6 +355,13 @@ public class ManageBooks extends javax.swing.JFrame{
             txtGenero.setEnabled(false);
             txtAutor.setEnabled(false);
             txtQtd.setEnabled(false);
+            
+            //Carrega valores da lista no arquivo binário
+             try {
+                escreverArquivo(listaBooks, "livros.bin");
+            } catch (IOException ex) {
+                Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -417,7 +442,15 @@ public class ManageBooks extends javax.swing.JFrame{
     }//GEN-LAST:event_tblBooksMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        try {
+            AdminPage adminPage = new AdminPage();
+            adminPage.setVisible(true);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
@@ -451,7 +484,13 @@ public class ManageBooks extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run(){
-                new ManageBooks().setVisible(true);
+                try {
+                    new ManageBooks().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

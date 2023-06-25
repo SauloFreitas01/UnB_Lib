@@ -393,7 +393,14 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcervoActionPerformed
-        new ManageBooks().setVisible(true);
+        this.dispose();
+        try {
+            new ManageBooks().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAcervoActionPerformed
 
     private void btnMembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembrosActionPerformed
