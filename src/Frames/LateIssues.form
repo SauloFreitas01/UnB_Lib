@@ -129,7 +129,7 @@
                     <Column editable="false" title="Livro" type="java.lang.String"/>
                     <Column editable="false" title="Membro" type="java.lang.String"/>
                     <Column editable="false" title="Empr&#xe9;stimo" type="java.lang.Integer"/>
-                    <Column editable="true" title="Devolu&#xe7;&#xe3;o" type="java.lang.String"/>
+                    <Column editable="false" title="Devolu&#xe7;&#xe3;o" type="java.lang.String"/>
                     <Column editable="false" title="Status" type="java.lang.String"/>
                   </Table>
                 </Property>

@@ -1,11 +1,54 @@
 package Frames;
 
 import unblib.Alert;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import unblib.Book;
+import static unblib.Controle.checkAtraso;
+import static unblib.Controle.lerArquivoLivros;
 
 public class AlertPage extends javax.swing.JFrame {
-
-    public AlertPage() {
+    static ArrayList<Book> listaEmprestimos;
+    
+    public AlertPage() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
+        
+        listaEmprestimos = lerArquivoLivros("emprestimos.bin");
+        carregarTabelaAtrasos();
+    }
+
+    public void carregarTabelaAtrasos() {
+        String statusEmprestimo;
+        DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
+        
+        for (Book livro : listaEmprestimos) {
+            if (checkAtraso(livro.getDataRetorno())) {
+                statusEmprestimo = "Atrasado";
+                
+                Object linha[] = new Object[]{livro.getMember().getId(),
+                                        livro.getName(),
+                                        livro.getMember().getName(),
+                                        livro.getDataEmprestimo(),
+                                        livro.getDataRetorno(),
+                                        statusEmprestimo};
+            
+                modelo.addRow(linha);
+            }
+        }
+        
+        
+        //Tabela recebe modelo
+        tblAtrasos.setModel(modelo);
+        
+        tblAtrasos.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tblAtrasos.getColumnModel().getColumn(1).setPreferredWidth(5);
+        tblAtrasos.getColumnModel().getColumn(2).setPreferredWidth(5);
+        tblAtrasos.getColumnModel().getColumn(3).setPreferredWidth(5);
+        tblAtrasos.getColumnModel().getColumn(3).setPreferredWidth(5);
     }
 
     
@@ -26,7 +69,6 @@ public class AlertPage extends javax.swing.JFrame {
         txtMulta = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(882, 712));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlAtrasos.setBackground(new java.awt.Color(0, 0, 147));
@@ -45,15 +87,15 @@ public class AlertPage extends javax.swing.JFrame {
                 btnVoltarActionPerformed(evt);
             }
         });
-        pnlAtrasos.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 60));
+        pnlAtrasos.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
         dadoRegistro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         dadoRegistro.setForeground(new java.awt.Color(255, 255, 255));
         dadoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Library_32px.png"))); // NOI18N
         dadoRegistro.setText("Registro de Atrasos");
-        pnlAtrasos.add(dadoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 220, 60));
+        pnlAtrasos.add(dadoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 0, 220, 40));
 
-        getContentPane().add(pnlAtrasos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 882, 60));
+        getContentPane().add(pnlAtrasos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 882, 40));
 
         pnlTabela.setBackground(new java.awt.Color(254, 254, 254));
         pnlTabela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,13 +156,13 @@ public class AlertPage extends javax.swing.JFrame {
         });
         scrAtrasos.setViewportView(tblAtrasos);
 
-        pnlTabela.add(scrAtrasos, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 116, 650, 300));
+        pnlTabela.add(scrAtrasos, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 86, 650, 300));
 
         jScrollPane1.setViewportView(txtMulta);
 
         pnlTabela.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 190, 30));
 
-        getContentPane().add(pnlTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 882, 652));
+        getContentPane().add(pnlTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 882, 652));
 
         pack();
         setLocationRelativeTo(null);
@@ -171,7 +213,13 @@ public class AlertPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlertPage().setVisible(true);
+                try {
+                    new AlertPage().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(LateIssues.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(LateIssues.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

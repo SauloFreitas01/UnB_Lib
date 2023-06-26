@@ -120,6 +120,7 @@ public class AdminPage extends javax.swing.JFrame {
         tblBooks = new rojeru_san.complementos.RSTableMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 712));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlUnBLib.setBackground(new java.awt.Color(0, 0, 147));
@@ -472,7 +473,13 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrosActionPerformed
 
     private void btnEmitidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmitidosActionPerformed
-        new Records().setVisible(true);
+        try {
+            new Records().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEmitidosActionPerformed
 
     private void btnAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasadosActionPerformed

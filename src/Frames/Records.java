@@ -3,15 +3,64 @@ package Frames;
 import java.util.*;
 import com.toedter.calendar.JDateChooser;
 import java.text.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import unblib.Book;
+import static unblib.Controle.checkAtraso;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.formatadorData;
+import static unblib.Controle.lerArquivo;
+import static unblib.Controle.lerArquivoLivros;
+import unblib.Member;
 
 public class Records extends javax.swing.JFrame {
+    static ArrayList<Book> listaEmprestimos;
+    
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Records() {
+    public Records() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
         initComponents();
         
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        listaEmprestimos = lerArquivoLivros("emprestimos.bin");
+        carregarTabelaEmprestimos();
     }
 
+    
+    public void carregarTabelaEmprestimos(){
+        String statusEmprestimo = "Em dia";
+        DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
+        
+        for (Book livro : listaEmprestimos) {
+            if (checkAtraso(livro.getDataRetorno())) {
+                statusEmprestimo = "Atrasado";
+            }
+            
+            Object linha[] = new Object[]{livro.getMember().getId(),
+                                        livro.getName(),
+                                        livro.getMember().getName(),
+                                        livro.getDataEmprestimo(),
+                                        livro.getDataRetorno(),
+                                        statusEmprestimo};
+            
+            modelo.addRow(linha);
+        }
+        
+        
+        //Tabela recebe modelo
+        tblEmprestimos.setModel(modelo);
+        
+        tblEmprestimos.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tblEmprestimos.getColumnModel().getColumn(1).setPreferredWidth(5);
+        tblEmprestimos.getColumnModel().getColumn(2).setPreferredWidth(5);
+        tblEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(5);
+        tblEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(5);
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -30,7 +79,6 @@ public class Records extends javax.swing.JFrame {
         tblEmprestimos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 712));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlRegistros.setBackground(new java.awt.Color(0, 0, 147));
@@ -102,7 +150,7 @@ public class Records extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -122,6 +170,14 @@ public class Records extends javax.swing.JFrame {
             }
         });
         scrEmprestimos.setViewportView(tblEmprestimos);
+        if (tblEmprestimos.getColumnModel().getColumnCount() > 0) {
+            tblEmprestimos.getColumnModel().getColumn(0).setResizable(false);
+            tblEmprestimos.getColumnModel().getColumn(1).setResizable(false);
+            tblEmprestimos.getColumnModel().getColumn(2).setResizable(false);
+            tblEmprestimos.getColumnModel().getColumn(3).setResizable(false);
+            tblEmprestimos.getColumnModel().getColumn(4).setResizable(false);
+            tblEmprestimos.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         pnlEmprestimos.add(scrEmprestimos, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 226, 650, 350));
 
@@ -173,7 +229,13 @@ public class Records extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Records().setVisible(true);
+                try {
+                    new Records().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
