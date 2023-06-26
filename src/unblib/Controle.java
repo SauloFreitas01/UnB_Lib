@@ -69,16 +69,16 @@ public class Controle {
     public static ArrayList<Book> inicializarListaLivros() {
         ArrayList<Book> listaLivros = new ArrayList<>();
         
-        listaLivros.add(new Book("Effective Java", "Programação", "Joshua Bloch", 7));
-        listaLivros.add(new Book("Game of Thrones", "Fantasia", "George R.R. Martin", 5));
-        listaLivros.add(new Book("Crafting Interpreters", "Programação", "Robert Nystrom", 3));
-        listaLivros.add(new Book("The Faithful Executioner", "Biografia", "Joel F. Harrington", 2));
-        listaLivros.add(new Book("Introduction to Graph Theory", "Matemática", "Richard J. Trudeau", 4));
-        listaLivros.add(new Book("At the Mountains of Madness", "Terror", "H.P Lovecraft", 6));
-        listaLivros.add(new Book("The Black Cat", "Terror", "Edgar Allan Poe", 3));
-        listaLivros.add(new Book("The Divine Comedy", "Poesia", "Dante Alighieri", 1));
-        listaLivros.add(new Book("War and Peace", "Romance", "Leo Tolstoy", 2));
-        listaLivros.add(new Book("The Kamarazov Brothers", "Romance", "Fyodor Dostoevsky", 5));
+        listaLivros.add(new Book("Effective Java", "Programação", "Joshua Bloch", 7, "Em dia"));
+        listaLivros.add(new Book("Game of Thrones", "Fantasia", "George R.R. Martin", 5, "Em dia"));
+        listaLivros.add(new Book("Crafting Interpreters", "Programação", "Robert Nystrom", 3, "Em dia"));
+        listaLivros.add(new Book("The Faithful Executioner", "Biografia", "Joel F. Harrington", 2, "Em dia"));
+        listaLivros.add(new Book("Introduction to Graph Theory", "Matemática", "Richard J. Trudeau", 4, "Em dia"));
+        listaLivros.add(new Book("At the Mountains of Madness", "Terror", "H.P Lovecraft", 6, "Em dia"));
+        listaLivros.add(new Book("The Black Cat", "Terror", "Edgar Allan Poe", 3, "Em dia"));
+        listaLivros.add(new Book("The Divine Comedy", "Poesia", "Dante Alighieri", 1, "Em dia"));
+        listaLivros.add(new Book("War and Peace", "Romance", "Leo Tolstoy", 2, "Em dia"));
+        listaLivros.add(new Book("The Kamarazov Brothers", "Romance", "Fyodor Dostoevsky", 5, "Em dia"));
         
         return listaLivros;
     }

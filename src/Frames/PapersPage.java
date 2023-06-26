@@ -48,7 +48,7 @@ public class PapersPage extends javax.swing.JFrame {
         pnlAzul = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Professor");
+        setTitle("Artigos");
         setSize(new java.awt.Dimension(882, 710));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -61,7 +61,7 @@ public class PapersPage extends javax.swing.JFrame {
         dadoSub.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dadoSub.setForeground(new java.awt.Color(0, 107, 0));
         dadoSub.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dadoSub.setText("Submissão de Papers");
+        dadoSub.setText("Submissão de Artigos");
         pnlPapers.add(dadoSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 498, 40));
 
         dadoNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

@@ -17,6 +17,7 @@ import static unblib.Controle.formatadorData;
 import static unblib.Controle.lerArquivo;
 import static unblib.Controle.lerArquivoLivros;
 import unblib.Member;
+import static unblib.Controle.checkAtraso;
 
 /**
  *
@@ -86,6 +87,7 @@ public class ReturnBook extends javax.swing.JFrame {
         btnDevolucao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Devolução");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVoltar.setBackground(new java.awt.Color(0, 107, 0));
@@ -220,7 +222,7 @@ public class ReturnBook extends javax.swing.JFrame {
         txtLivro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtLivro.setToolTipText("Insira o nome");
         txtLivro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLivroActionPerformed(evt);
@@ -235,7 +237,7 @@ public class ReturnBook extends javax.swing.JFrame {
         txtMembro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMembro.setToolTipText("Insira o ID");
         txtMembro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtMembro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtMembro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtMembro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMembroActionPerformed(evt);
@@ -288,21 +290,21 @@ public class ReturnBook extends javax.swing.JFrame {
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
         String nomeLivro = txtLivro.getText();
         String idMembro = txtMembro.getText();
-        String dataEmprestimo = txtDevolucao.getText();
+        String dataDevolucao = txtDevolucao.getText();
         boolean livroEncontrado = false;
         boolean membroEncontrado = false;
         Book livroDisplay = null;
         Member membroDisplay = null;
         
-        if (dataEmprestimo.length() == 10) {
-            LocalDate data = LocalDate.parse(formatadorData(dataEmprestimo));
+        if (dataDevolucao.length() == 10) {
+            LocalDate data = LocalDate.parse(formatadorData(dataDevolucao));
            
-            // Limpa campos de texto
+            //Limpa campos de texto
             txtLivro.setText("");
             txtMembro.setText("");
             txtDevolucao.setText("");
             
-            // Busca o livro e o membro desejados
+            //Busca o livro e o membro desejados
             for (Book livro : listaEmprestimos) {
                 if (livro.getName().equals(nomeLivro)) {
                     livroEncontrado = true;
@@ -320,8 +322,12 @@ public class ReturnBook extends javax.swing.JFrame {
             }
             
           
-            //Realiza emprestimo e mostras as infomaçoes do livro e membro na tela
-            if (membroEncontrado && livroEncontrado ) {
+            //Realiza a devolução e mostra as infomações do livro e membro na tela
+            if (membroEncontrado && livroEncontrado) {
+                if(checkAtraso(livroDisplay.getDataRetorno())){
+                    JOptionPane.showMessageDialog(null, "Pague R$40,00 no guichê!", "Livro Atrasado", JOptionPane.PLAIN_MESSAGE);
+                }
+                
                 // Retira livro da lista de emprestimos
                 listaEmprestimos.remove(livroDisplay);
                 try {
@@ -330,7 +336,7 @@ public class ReturnBook extends javax.swing.JFrame {
                     Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
                 }
         
-                //Devolve livro ao catalogo
+                //Devolve livro ao catálogo
                 if (procurarLivro(listaLivros, livroDisplay)) {
                     for (Book livroLista : listaLivros) {
                         if (livroDisplay.getName().equals(livroLista.getName())) {
@@ -342,7 +348,9 @@ public class ReturnBook extends javax.swing.JFrame {
                                 Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
-                            //Informacoes livro
+                            JOptionPane.showMessageDialog(null, "Devolução realizada com sucesso!", "Devolução", JOptionPane.PLAIN_MESSAGE);
+                            
+                            //Informações livro
                             displayDNomeLivro.setText(livro.getName());
                             displayDAutor.setText(livro.getAuthor());
                             displayDGenero.setText(livro.getGenre());
@@ -364,11 +372,12 @@ public class ReturnBook extends javax.swing.JFrame {
                     }
                 }
                 
-                //Informacoes membro
+                //Informações membro
                 displayDID.setText(membroDisplay.getId());
                 displayDNome.setText(membroDisplay.getName());
                 displayDEmail.setText(membroDisplay.getEmail());
-                displayDUsuario.setText(membroDisplay.getTipo());
+                displayDUsuario.setText(membroDisplay.getTipo());              
+                
             } else if(!membroEncontrado && livroEncontrado) {
                 JOptionPane.showMessageDialog(null, "ID do usuário não encontrado", "ID Inválido", JOptionPane.ERROR_MESSAGE);
             } else if (membroEncontrado && !livroEncontrado) {

@@ -44,6 +44,7 @@ public class LoginPage extends javax.swing.JFrame {
         btnCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setBackground(new java.awt.Color(254, 254, 254));
         setSize(new java.awt.Dimension(882, 712));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

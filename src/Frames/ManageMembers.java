@@ -97,6 +97,7 @@ public class ManageMembers extends javax.swing.JFrame {
         tblMembers = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciar Membros");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlDados.setBackground(new java.awt.Color(0, 0, 157));

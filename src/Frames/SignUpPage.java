@@ -52,6 +52,7 @@ public class SignUpPage extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro");
         setBackground(new java.awt.Color(254, 254, 254));
         setMinimumSize(new java.awt.Dimension(800, 700));
         setSize(new java.awt.Dimension(882, 712));

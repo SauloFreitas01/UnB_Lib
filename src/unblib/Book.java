@@ -16,22 +16,24 @@ public class Book implements Serializable{
     private Member member;
     private LocalDate dataEmprestimo;
     private LocalDate dataRetorno;
-    //private String status;
+    private String status;
 
     
     //Constructor
-    public Book(String name, String genre, String author, int stock) {
+    public Book(String name, String genre, String author, int stock, String status) {
         this.name = name;
         this.genre = genre;
         this.author = author;
         this.stock = stock;
+        this.status = status;
     }
     
-    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataRetorno) {
+    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataRetorno, String status) {
         this.name = name;
         this.member = member;
         this.dataEmprestimo = dataEmprestimo;
         this.dataRetorno = dataRetorno;
+        this.status = status;
     }
     
 
@@ -116,11 +118,21 @@ public class Book implements Serializable{
         this.dataRetorno = dataRetorno;
     }
 
-    /*public String getStatus() {
+    public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }*/
+    }
+    
+    public String toString(){
+        return "Nome: " + name + "\n" +
+                "Gênero: " + genre + "\n" +
+                "Autor: " + author + "\n" +
+                "Quantidade: " + stock + "\n" +                
+                "Status: " + status +
+                "Empréstimo: " + dataEmprestimo +
+                "Devolução: " + dataRetorno;
+    }
 }

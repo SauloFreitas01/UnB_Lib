@@ -87,7 +87,7 @@ public class ManageBooks extends javax.swing.JFrame{
         tblBooks = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ManageBooks");
+        setTitle("Gerenciar Livros");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlDados.setBackground(new java.awt.Color(0, 0, 157));
@@ -315,7 +315,7 @@ public class ManageBooks extends javax.swing.JFrame{
             
             
             if(botao.equals("novo")){
-                Book book = new Book(nome, genero, autor, qtd);
+                Book book = new Book(nome, genero, autor, qtd, "Em dia");
                 
                 listaBooks.add(book);
                 

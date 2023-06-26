@@ -12,19 +12,17 @@ public class Library{
     List<Book> bookCatalog = new ArrayList<Book>();
     List<Paper> paperCatalog = new ArrayList<Paper>();
     List<Member> memberList = new ArrayList<Member>();
-    List<Alert> recordList = new ArrayList<Alert>();
     
     
     
     //Constructor
     public Library(String name, String address, List<Book> bookCatalog, 
-            List<Paper> paperCatalog, List<Member> memberList, List<Alert> recordList) {
+            List<Paper> paperCatalog, List<Member> memberList) {
         this.name = name;
         this.address = address;
         this.bookCatalog = bookCatalog;
         this.paperCatalog = paperCatalog;
         this.memberList = memberList;
-        this.recordList = recordList;
     }
 
     
@@ -69,13 +67,6 @@ public class Library{
 
     public void setMemberList(List<Member> memberList) {
         this.memberList = memberList;
-    }
-    public List<Alert> getRecordList() {
-        return recordList;
-    }
-
-    public void setRecordList(List<Alert> recordList) {
-        this.recordList = recordList;
     }
 
 

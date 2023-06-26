@@ -20,7 +20,6 @@ import unblib.Member;
 public class Borrowed extends javax.swing.JFrame {
     static ArrayList<Book> listaEmprestimos;
     static ArrayList<Book> listaBusca;
-    String status = "Em dia";
 
     public Borrowed() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
         initComponents();
@@ -35,8 +34,10 @@ public class Borrowed extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
         
         for (Book livro : listaEmprestimos) {
+            livro.setStatus("Em dia");
+            
             if (checkAtraso(livro.getDataRetorno())) {
-                status = "Atrasado";
+                livro.setStatus("Atrasado");
             }
             
             Object linha[] = new Object[]{livro.getMember().getId(),
@@ -44,7 +45,7 @@ public class Borrowed extends javax.swing.JFrame {
                                         livro.getMember().getName(),
                                         livro.getDataEmprestimo(),
                                         livro.getDataRetorno(),
-                                        status};
+                                        livro.getStatus()};
             
             modelo.addRow(linha);
         }
@@ -64,8 +65,10 @@ public class Borrowed extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
         
         for (Book livro : listaBusca) {
+            livro.setStatus("Em dia");
+            
             if (checkAtraso(livro.getDataRetorno())) {
-                status = "Atrasado";
+                livro.setStatus("Atrasado");
             }
             
             Object linha[] = new Object[]{livro.getMember().getId(),
@@ -73,7 +76,7 @@ public class Borrowed extends javax.swing.JFrame {
                                         livro.getMember().getName(),
                                         livro.getDataEmprestimo(),
                                         livro.getDataRetorno(),
-                                        status};
+                                        livro.getStatus()};
             
             modelo.addRow(linha);
         }
@@ -104,6 +107,7 @@ public class Borrowed extends javax.swing.JFrame {
         tblEmprestimos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registros de Empréstimos");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlRegistros.setBackground(new java.awt.Color(0, 0, 147));
@@ -231,33 +235,7 @@ public class Borrowed extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tblEmprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmprestimosMouseClicked
-        int i = tblEmprestimos.getSelectedRow();
         
-        if(i >= 0 && i < listaEmprestimos.size()){
-            Book liv = listaEmprestimos.get(i);
-            
-            //Verifica atraso
-            if(checkAtraso(liv.getDataRetorno())){
-                //Se atrasado, direciona para a página de multa
-                try {
-                new FinePage().setVisible(true);
-            } catch (IOException ex) {
-                Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-                }else{
-                //Se não, direciona para a página de devolução
-                try {
-                new ReturnBook().setVisible(true);
-            } catch (IOException ex) {
-                Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            }
-        }
     }//GEN-LAST:event_tblEmprestimosMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

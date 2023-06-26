@@ -94,7 +94,6 @@ public class AdminPage extends javax.swing.JFrame {
         txtUnBLib = new javax.swing.JLabel();
         pnlControle = new javax.swing.JPanel();
         txtControle = new javax.swing.JLabel();
-        btnPaginaInicial = new javax.swing.JButton();
         btnAcervo = new javax.swing.JButton();
         btnMembros = new javax.swing.JButton();
         btnEmprestimo = new javax.swing.JButton();
@@ -119,7 +118,7 @@ public class AdminPage extends javax.swing.JFrame {
         tblBooks = new rojeru_san.complementos.RSTableMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 712));
+        setTitle("Gestão UnB Lib");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlUnBLib.setBackground(new java.awt.Color(0, 0, 147));
@@ -127,7 +126,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         txtUnBLib.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         txtUnBLib.setForeground(new java.awt.Color(255, 255, 255));
-        txtUnBLib.setText("UnB LIB");
+        txtUnBLib.setText("UnB Lib");
         pnlUnBLib.add(txtUnBLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 110, 40));
 
         getContentPane().add(pnlUnBLib, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 40));
@@ -139,19 +138,6 @@ public class AdminPage extends javax.swing.JFrame {
         txtControle.setForeground(new java.awt.Color(255, 255, 255));
         txtControle.setText("Controle");
         pnlControle.add(txtControle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
-
-        btnPaginaInicial.setBackground(new java.awt.Color(0, 102, 0));
-        btnPaginaInicial.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnPaginaInicial.setForeground(new java.awt.Color(254, 254, 254));
-        btnPaginaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/home_24px.png"))); // NOI18N
-        btnPaginaInicial.setText("Página Inicial");
-        btnPaginaInicial.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPaginaInicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPaginaInicialActionPerformed(evt);
-            }
-        });
-        pnlControle.add(btnPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 210, 40));
 
         btnAcervo.setBackground(new java.awt.Color(0, 102, 0));
         btnAcervo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -478,15 +464,6 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnArtigosActionPerformed
 
-    private void btnPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaInicialActionPerformed
-        this.dispose();
-        try {
-            new AdminPage().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnPaginaInicialActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -535,7 +512,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton btnEmprestimo;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMembros;
-    private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JPanel pnlAcervo;
     private javax.swing.JPanel pnlAtrasos;
     private javax.swing.JPanel pnlControle;

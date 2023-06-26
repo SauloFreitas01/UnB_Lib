@@ -78,6 +78,7 @@ public class IssueBook extends javax.swing.JFrame {
         btnEmprestimo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Empréstimo");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVoltar.setBackground(new java.awt.Color(0, 0, 157));
@@ -325,13 +326,15 @@ public class IssueBook extends javax.swing.JFrame {
                 }
                 
                 //Adiciona livro na lista de livros emprestados
-                Book livroEmprestado = new Book(nomeLivro, membroDisplay, data, dataRetorno);
+                Book livroEmprestado = new Book(nomeLivro, membroDisplay, data, dataRetorno, "Em dia");
                 listaEmprestimos.add(livroEmprestado);
                 try {
                     escreverArquivo(listaEmprestimos, "emprestimos.bin");
                 } catch (IOException ex) {
                     Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
+                JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso!", "Empréstimo", JOptionPane.PLAIN_MESSAGE);
                 
                 //Informacoes livro
                 displayNomeLivro.setText(livroDisplay.getName());
