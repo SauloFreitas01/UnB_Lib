@@ -88,6 +88,7 @@ public class ManageBooks extends javax.swing.JFrame{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar Livros");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Books_26px.png")).getImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlDados.setBackground(new java.awt.Color(0, 0, 157));

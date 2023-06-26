@@ -7,8 +7,8 @@ public class Paper extends Book{
 
     
     //Constructor
-    public Paper(String name, String genre, String author, int stock, String topic) {
-        super(name, genre, author, stock);
+    public Paper(String name, String genre, String author, int stock, String status, String topic) {
+        super(name, genre, author, stock, status);
         this.topic = topic;
     }
 

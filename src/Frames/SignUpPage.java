@@ -52,8 +52,9 @@ public class SignUpPage extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro");
+        setTitle("UnB Lib");
         setBackground(new java.awt.Color(254, 254, 254));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/Logo_UnB.png")).getImage());
         setMinimumSize(new java.awt.Dimension(800, 700));
         setSize(new java.awt.Dimension(882, 712));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

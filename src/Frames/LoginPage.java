@@ -46,6 +46,7 @@ public class LoginPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(254, 254, 254));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Read_Online_26px.png")).getImage());
         setSize(new java.awt.Dimension(882, 712));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

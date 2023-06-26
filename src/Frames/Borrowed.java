@@ -108,6 +108,7 @@ public class Borrowed extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registros de Empréstimos");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Book_26px.png")).getImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlRegistros.setBackground(new java.awt.Color(0, 0, 147));

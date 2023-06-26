@@ -98,6 +98,7 @@ public class ManageMembers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Membros");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Conference_26px.png")).getImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlDados.setBackground(new java.awt.Color(0, 0, 157));

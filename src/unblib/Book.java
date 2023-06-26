@@ -125,14 +125,4 @@ public class Book implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    public String toString(){
-        return "Nome: " + name + "\n" +
-                "Gênero: " + genre + "\n" +
-                "Autor: " + author + "\n" +
-                "Quantidade: " + stock + "\n" +                
-                "Status: " + status +
-                "Empréstimo: " + dataEmprestimo +
-                "Devolução: " + dataRetorno;
-    }
 }

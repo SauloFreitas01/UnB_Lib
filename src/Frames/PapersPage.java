@@ -49,6 +49,7 @@ public class PapersPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Artigos");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_View_Details_26px.png")).getImage());
         setSize(new java.awt.Dimension(882, 710));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -204,7 +205,7 @@ public class PapersPage extends javax.swing.JFrame {
         int qtd = Integer.parseInt(txtQtd.getText());
         String artigo = txtQtd.getText();
         
-        Paper paper = new Paper(nome, autor, genero, qtd, artigo);
+        Paper paper = new Paper(nome, autor, genero, qtd, "Em dia", artigo);
         
         listaBooks.add(paper);
         

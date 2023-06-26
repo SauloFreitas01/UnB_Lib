@@ -119,6 +119,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão UnB Lib");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Library_26px_1.png")).getImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlUnBLib.setBackground(new java.awt.Color(0, 0, 147));

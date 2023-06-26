@@ -79,6 +79,7 @@ public class IssueBook extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Empréstimo");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Sell_26px.png")).getImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVoltar.setBackground(new java.awt.Color(0, 0, 157));
