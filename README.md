@@ -1,2 +1,2 @@
 # UnB_Lib
- aplicação de gestão de biblioteca em Java para disciplina de TP1
+ Aplicação de gestão de biblioteca em Java para disciplina de TP1
