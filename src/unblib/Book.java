@@ -16,6 +16,7 @@ public class Book implements Serializable{
     private Member member;
     private LocalDate dataEmprestimo;
     private LocalDate dataRetorno;
+    //private String status;
 
     
     //Constructor
@@ -114,6 +115,12 @@ public class Book implements Serializable{
     public void setDataRetorno(LocalDate dataRetorno) {
         this.dataRetorno = dataRetorno;
     }
-    
-    
+
+    /*public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }*/
 }

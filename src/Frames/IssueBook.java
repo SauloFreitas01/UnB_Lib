@@ -361,6 +361,13 @@ public class IssueBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmprestimoActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        try {
+            AdminPage adminPage = new AdminPage();
+            adminPage.setVisible(true);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
 

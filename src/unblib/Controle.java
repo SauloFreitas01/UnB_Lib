@@ -93,8 +93,4 @@ public class Controle {
             return true;
         } return false;
     }
-    
-    
-    
-    
 }

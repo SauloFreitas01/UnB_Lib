@@ -11,10 +11,10 @@ import unblib.Book;
 import static unblib.Controle.checkAtraso;
 import static unblib.Controle.lerArquivoLivros;
 
-public class AlertPage extends javax.swing.JFrame {
+public class FinePage extends javax.swing.JFrame {
     static ArrayList<Book> listaEmprestimos;
     
-    public AlertPage() throws IOException, FileNotFoundException, ClassNotFoundException {
+    public FinePage() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
         
         listaEmprestimos = lerArquivoLivros("emprestimos.bin");
@@ -197,14 +197,18 @@ public class AlertPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AlertPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FinePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AlertPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FinePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AlertPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FinePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AlertPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FinePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -214,11 +218,11 @@ public class AlertPage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new AlertPage().setVisible(true);
+                    new FinePage().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(LateIssues.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FinePage.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(LateIssues.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FinePage.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

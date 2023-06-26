@@ -101,7 +101,6 @@ public class AdminPage extends javax.swing.JFrame {
         btnDevolucao = new javax.swing.JButton();
         btnArtigos = new javax.swing.JButton();
         btnEmprestados = new javax.swing.JButton();
-        btnAtrasados = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         pnlDados = new javax.swing.JPanel();
         txtAtrasos = new javax.swing.JLabel();
@@ -152,7 +151,7 @@ public class AdminPage extends javax.swing.JFrame {
                 btnPaginaInicialActionPerformed(evt);
             }
         });
-        pnlControle.add(btnPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 210, 43));
+        pnlControle.add(btnPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 210, 40));
 
         btnAcervo.setBackground(new java.awt.Color(0, 102, 0));
         btnAcervo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -165,7 +164,7 @@ public class AdminPage extends javax.swing.JFrame {
                 btnAcervoActionPerformed(evt);
             }
         });
-        pnlControle.add(btnAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 210, 43));
+        pnlControle.add(btnAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 210, 40));
 
         btnMembros.setBackground(new java.awt.Color(0, 102, 0));
         btnMembros.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -178,7 +177,7 @@ public class AdminPage extends javax.swing.JFrame {
                 btnMembrosActionPerformed(evt);
             }
         });
-        pnlControle.add(btnMembros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 210, 43));
+        pnlControle.add(btnMembros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 210, 40));
 
         btnEmprestimo.setBackground(new java.awt.Color(0, 102, 0));
         btnEmprestimo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -191,7 +190,7 @@ public class AdminPage extends javax.swing.JFrame {
                 btnEmprestimoActionPerformed(evt);
             }
         });
-        pnlControle.add(btnEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 210, 43));
+        pnlControle.add(btnEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 210, 40));
 
         btnDevolucao.setBackground(new java.awt.Color(0, 102, 0));
         btnDevolucao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -204,12 +203,12 @@ public class AdminPage extends javax.swing.JFrame {
                 btnDevolucaoActionPerformed(evt);
             }
         });
-        pnlControle.add(btnDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 210, 43));
+        pnlControle.add(btnDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 210, 40));
 
         btnArtigos.setBackground(new java.awt.Color(0, 102, 0));
         btnArtigos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnArtigos.setForeground(new java.awt.Color(254, 254, 254));
-        btnArtigos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Book_26px.png"))); // NOI18N
+        btnArtigos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_View_Details_26px.png"))); // NOI18N
         btnArtigos.setText("Artigos");
         btnArtigos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnArtigos.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +216,7 @@ public class AdminPage extends javax.swing.JFrame {
                 btnArtigosActionPerformed(evt);
             }
         });
-        pnlControle.add(btnArtigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 210, 43));
+        pnlControle.add(btnArtigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 210, 40));
 
         btnEmprestados.setBackground(new java.awt.Color(0, 102, 0));
         btnEmprestados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -230,20 +229,7 @@ public class AdminPage extends javax.swing.JFrame {
                 btnEmprestadosActionPerformed(evt);
             }
         });
-        pnlControle.add(btnEmprestados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 210, 43));
-
-        btnAtrasados.setBackground(new java.awt.Color(0, 102, 0));
-        btnAtrasados.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAtrasados.setForeground(new java.awt.Color(254, 254, 254));
-        btnAtrasados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Library_26px_1.png"))); // NOI18N
-        btnAtrasados.setText("Atrasados");
-        btnAtrasados.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAtrasados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtrasadosActionPerformed(evt);
-            }
-        });
-        pnlControle.add(btnAtrasados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 210, 43));
+        pnlControle.add(btnEmprestados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 210, 40));
 
         btnLogout.setBackground(new java.awt.Color(0, 102, 0));
         btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -256,9 +242,9 @@ public class AdminPage extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        pnlControle.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 210, 43));
+        pnlControle.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 592, 210, 40));
 
-        getContentPane().add(pnlControle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 210, 960));
+        getContentPane().add(pnlControle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 210, 672));
 
         pnlDados.setBackground(new java.awt.Color(254, 254, 254));
         pnlDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -449,6 +435,7 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMembrosActionPerformed
 
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
+        this.dispose();
         try {
             new IssueBook().setVisible(true);
         } catch (IOException ex) {
@@ -459,6 +446,7 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmprestimoActionPerformed
 
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
+        this.dispose();
         try {
             new ReturnBook().setVisible(true);
         } catch (IOException ex) {
@@ -469,8 +457,9 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
     private void btnEmprestadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestadosActionPerformed
+        this.dispose();
         try {
-            new Records().setVisible(true);
+            new Borrowed().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -479,8 +468,9 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmprestadosActionPerformed
 
     private void btnArtigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArtigosActionPerformed
+        this.dispose();
         try {
-            new TeacherPage().setVisible(true);
+            new PapersPage().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -496,16 +486,6 @@ public class AdminPage extends javax.swing.JFrame {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPaginaInicialActionPerformed
-
-    private void btnAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasadosActionPerformed
-        try {
-            new LateIssues().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAtrasadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,7 +530,6 @@ public class AdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcervo;
     private javax.swing.JButton btnArtigos;
-    private javax.swing.JButton btnAtrasados;
     private javax.swing.JButton btnDevolucao;
     private javax.swing.JButton btnEmprestados;
     private javax.swing.JButton btnEmprestimo;

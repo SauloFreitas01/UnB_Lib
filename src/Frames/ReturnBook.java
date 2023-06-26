@@ -218,6 +218,7 @@ public class ReturnBook extends javax.swing.JFrame {
         pnlDevolucao.add(dadoLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, -1));
 
         txtLivro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtLivro.setToolTipText("Insira o nome");
         txtLivro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +233,7 @@ public class ReturnBook extends javax.swing.JFrame {
         pnlDevolucao.add(dadoMembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
 
         txtMembro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtMembro.setToolTipText("Insira o ID");
         txtMembro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtMembro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtMembro.addActionListener(new java.awt.event.ActionListener() {
@@ -246,8 +248,9 @@ public class ReturnBook extends javax.swing.JFrame {
         pnlDevolucao.add(dadoDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, -1));
 
         txtDevolucao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDevolucao.setToolTipText("Insira a data");
         txtDevolucao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtDevolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtDevolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtDevolucao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDevolucaoActionPerformed(evt);
@@ -384,6 +387,13 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDevolucaoActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        try {
+            AdminPage adminPage = new AdminPage();
+            adminPage.setVisible(true);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
 

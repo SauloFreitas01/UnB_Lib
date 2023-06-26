@@ -14,11 +14,11 @@ import static unblib.Controle.lerArquivoLivros;
 import static unblib.Controle.validadorMatricula;
 
 
-public class TeacherPage extends javax.swing.JFrame {
+public class PapersPage extends javax.swing.JFrame {
     
     static ArrayList<Book> listaBooks;
 
-    public TeacherPage() throws IOException, IOException, FileNotFoundException, ClassNotFoundException {
+    public PapersPage() throws IOException, IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
         
         listaBooks = lerArquivoLivros("livros.bin");
@@ -44,6 +44,7 @@ public class TeacherPage extends javax.swing.JFrame {
         dadoLogo = new javax.swing.JLabel();
         dadoUnB = new javax.swing.JLabel();
         dadoImagem = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
         pnlAzul = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,7 +62,7 @@ public class TeacherPage extends javax.swing.JFrame {
         dadoSub.setForeground(new java.awt.Color(0, 107, 0));
         dadoSub.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dadoSub.setText("Submissão de Papers");
-        pnlPapers.add(dadoSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 0, 450, 40));
+        pnlPapers.add(dadoSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 498, 40));
 
         dadoNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoNome.setForeground(new java.awt.Color(0, 0, 157));
@@ -156,6 +157,20 @@ public class TeacherPage extends javax.swing.JFrame {
         dadoImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/library-icon-teacher.png"))); // NOI18N
         pnlPapers.add(dadoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 360, 270));
 
+        btnVoltar.setBackground(new java.awt.Color(0, 102, 0));
+        btnVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(254, 254, 254));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-return.png"))); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVoltar.setBorderPainted(false);
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        pnlPapers.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+
         getContentPane().add(pnlPapers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 588, 712));
 
         pnlAzul.setBackground(new java.awt.Color(0, 0, 157));
@@ -205,6 +220,17 @@ public class TeacherPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtArtigoActionPerformed
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        try {
+            AdminPage adminPage = new AdminPage();
+            adminPage.setVisible(true);
+
+        } catch (IOException ex) {
+            Logger.getLogger(PapersPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -222,14 +248,16 @@ public class TeacherPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TeacherPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PapersPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TeacherPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PapersPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TeacherPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PapersPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TeacherPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PapersPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -249,6 +277,7 @@ public class TeacherPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInserir;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel dadoArtigo;
     private javax.swing.JLabel dadoAutor;
     private javax.swing.JLabel dadoGenero;
