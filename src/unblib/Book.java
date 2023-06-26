@@ -1,6 +1,7 @@
 package unblib;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Book implements Serializable{
@@ -13,6 +14,8 @@ public class Book implements Serializable{
     private Date returnDate;    
     private boolean inLibrarian;
     private Member member;
+    private LocalDate dataEmprestimo;
+    private LocalDate dataRetorno;
 
     
     //Constructor
@@ -21,6 +24,13 @@ public class Book implements Serializable{
         this.genre = genre;
         this.author = author;
         this.stock = stock;
+    }
+    
+    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataRetorno) {
+        this.name = name;
+        this.member = member;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataRetorno = dataRetorno;
     }
     
 
@@ -88,4 +98,22 @@ public class Book implements Serializable{
     public void setInLibrarian(boolean inLibrarian) {
         this.inLibrarian = inLibrarian;
     }
+
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public LocalDate getDataRetorno() {
+        return dataRetorno;
+    }
+
+    public void setDataRetorno(LocalDate dataRetorno) {
+        this.dataRetorno = dataRetorno;
+    }
+    
+    
 }

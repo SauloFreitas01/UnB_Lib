@@ -4,19 +4,45 @@
  */
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import unblib.Book;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.formatadorData;
+import static unblib.Controle.lerArquivo;
+import static unblib.Controle.lerArquivoLivros;
+import unblib.Member;
+
 /**
  *
  * @author Lucas
  */
 public class ReturnBook extends javax.swing.JFrame {
-
+    ArrayList<Book> listaEmprestimos = lerArquivoLivros("emprestimos.bin");
+    ArrayList<Member> listaMembros = lerArquivo("usuarios.bin");
+    ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
+    
     /**
      * Creates new form IssueBook
      */
-    public ReturnBook() {
+    public ReturnBook() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
     }
-
+    
+    public boolean procurarLivro(ArrayList<Book> listaLivros, Book livro) {
+        for (Book livroLista : listaLivros) {
+            if (livro.getName().equals(livroLista.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +60,10 @@ public class ReturnBook extends javax.swing.JFrame {
         dadoAutor = new javax.swing.JLabel();
         dadoGenero = new javax.swing.JLabel();
         dadoQtd = new javax.swing.JLabel();
+        displayDAutor = new javax.swing.JLabel();
+        displayDGenero = new javax.swing.JLabel();
+        displayDQuantidade = new javax.swing.JLabel();
+        displayDNomeLivro = new javax.swing.JLabel();
         pnlMembros = new javax.swing.JPanel();
         dadoTituloMembro = new javax.swing.JLabel();
         pnlLinhaMembro = new javax.swing.JPanel();
@@ -41,6 +71,10 @@ public class ReturnBook extends javax.swing.JFrame {
         dadoNome = new javax.swing.JLabel();
         dadoEmail = new javax.swing.JLabel();
         dadoUsuario = new javax.swing.JLabel();
+        displayDID = new javax.swing.JLabel();
+        displayDNome = new javax.swing.JLabel();
+        displayDEmail = new javax.swing.JLabel();
+        displayDUsuario = new javax.swing.JLabel();
         pnlDevolucao = new javax.swing.JPanel();
         dadoTitulo = new javax.swing.JLabel();
         dadoLivro = new javax.swing.JLabel();
@@ -101,6 +135,22 @@ public class ReturnBook extends javax.swing.JFrame {
         dadoQtd.setText("Quantidade:");
         pnlLivro.add(dadoQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 403, -1, -1));
 
+        displayDAutor.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDAutor.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayDAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 200, 30));
+
+        displayDGenero.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDGenero.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayDGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 180, 30));
+
+        displayDQuantidade.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDQuantidade.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayDQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 140, 30));
+
+        displayDNomeLivro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDNomeLivro.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayDNomeLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 140, 30));
+
         getContentPane().add(pnlLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 294, 712));
 
         pnlMembros.setBackground(new java.awt.Color(0, 107, 0));
@@ -135,6 +185,22 @@ public class ReturnBook extends javax.swing.JFrame {
         dadoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         dadoUsuario.setText("Usuário:");
         pnlMembros.add(dadoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 403, -1, -1));
+
+        displayDID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDID.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayDID, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 220, 30));
+
+        displayDNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDNome.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayDNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 190, 30));
+
+        displayDEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDEmail.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayDEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 190, 30));
+
+        displayDUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayDUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 180, 30));
 
         getContentPane().add(pnlMembros, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 0, 294, 712));
 
@@ -218,6 +284,99 @@ public class ReturnBook extends javax.swing.JFrame {
 
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
         // TODO add your handling code here:
+        String nomeLivro = txtLivro.getText();
+        String idMembro = txtMembro.getText();
+        String dataEmprestimo = txtDevolucao.getText();
+        boolean livroEncontrado = false;
+        boolean membroEncontrado = false;
+        Book livroDisplay = null;
+        Member membroDisplay = null;
+        
+        if (dataEmprestimo.length() == 10) {
+            LocalDate data = LocalDate.parse(formatadorData(dataEmprestimo));
+           
+            // Limpa campos de texto
+            txtLivro.setText("");
+            txtMembro.setText("");
+            txtDevolucao.setText("");
+            
+            // Busca o livro e o membro desejados
+            for (Book livro : listaEmprestimos) {
+                if (livro.getName().equals(nomeLivro)) {
+                    livroEncontrado = true;
+                    livroDisplay = livro;
+                    break;
+                }
+            }
+            
+            for (Member membro : listaMembros) {
+                if (membro.getId().equals(idMembro)) {
+                    membroEncontrado = true;
+                    membroDisplay = membro;
+                    break;
+                }
+            }
+            
+          
+            //Realiza emprestimo e mostras as infomaçoes do livro e membro na tela
+            if (membroEncontrado && livroEncontrado ) {
+                // Retira livro da lista de emprestimos
+                listaEmprestimos.remove(livroDisplay);
+                try {
+                    escreverArquivo(listaEmprestimos, "emprestimos.bin");
+                } catch (IOException ex) {
+                    Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+                //Devolve livro ao catalogo
+                if (procurarLivro(listaLivros, livroDisplay)) {
+                    for (Book livroLista : listaLivros) {
+                        if (livroDisplay.getName().equals(livroLista.getName())) {
+                            Book livro = livroLista;
+                            livro.setStock(livro.getStock()+1);
+                            try {
+                                escreverArquivo(listaLivros, "livros.bin");
+                            } catch (IOException ex) {
+                                Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                            //Informacoes livro
+                            displayDNomeLivro.setText(livro.getName());
+                            displayDAutor.setText(livro.getAuthor());
+                            displayDGenero.setText(livro.getGenre());
+                            displayDQuantidade.setText(String.valueOf(livro.getStock()));
+                        }
+                    }
+                    
+                } else {
+                    livroDisplay.setDataRetorno(null);
+                    livroDisplay.setDataEmprestimo(null);
+                    livroDisplay.setMember(null);
+                    livroDisplay.setStock(livroDisplay.getStock()+1);
+                    listaLivros.add(livroDisplay);
+                    
+                    try {
+                        escreverArquivo(listaLivros, "livros.bin");
+                    } catch (IOException ex) {
+                        Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                
+                //Informacoes membro
+                displayDID.setText(membroDisplay.getId());
+                displayDNome.setText(membroDisplay.getName());
+                displayDEmail.setText(membroDisplay.getEmail());
+                displayDUsuario.setText(membroDisplay.getTipo());
+            } else if(!membroEncontrado && livroEncontrado) {
+                JOptionPane.showMessageDialog(null, "ID do usuário não encontrado", "ID Inválido", JOptionPane.ERROR_MESSAGE);
+            } else if (membroEncontrado && !livroEncontrado) {
+                JOptionPane.showMessageDialog(null, "Livro não encontrado", "Nome Inválido", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Informações inválidas", "Registro Inválido", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Formato de data inválido", "Data Inválida", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
     private void txtDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDevolucaoActionPerformed
@@ -261,7 +420,13 @@ public class ReturnBook extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReturnBook().setVisible(true);
+                try {
+                    new ReturnBook().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ReturnBook.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -283,6 +448,14 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JLabel dadoTituloLivro;
     private javax.swing.JLabel dadoTituloMembro;
     private javax.swing.JLabel dadoUsuario;
+    private javax.swing.JLabel displayDAutor;
+    private javax.swing.JLabel displayDEmail;
+    private javax.swing.JLabel displayDGenero;
+    private javax.swing.JLabel displayDID;
+    private javax.swing.JLabel displayDNome;
+    private javax.swing.JLabel displayDNomeLivro;
+    private javax.swing.JLabel displayDQuantidade;
+    private javax.swing.JLabel displayDUsuario;
     private javax.swing.JPanel pnlDevolucao;
     private javax.swing.JPanel pnlLinhaLivros;
     private javax.swing.JPanel pnlLinhaMembro;

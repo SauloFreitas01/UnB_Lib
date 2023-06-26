@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import unblib.Book;
+import static unblib.Controle.checkAtraso;
 import static unblib.Controle.escreverArquivo;
 import static unblib.Controle.inicializarListaLivros;
 import static unblib.Controle.lerArquivo;
@@ -28,9 +29,12 @@ public class AdminPage extends javax.swing.JFrame {
             try {
                 ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
                 ArrayList<Member> listaMembers = lerArquivo("usuarios.bin");
+                ArrayList<Book> listaEmprestimos = lerArquivoLivros("emprestimos.bin");
                 this.escreverListaLivros(listaLivros);
                 this.qtdLivrosAcervo(listaLivros);
                 this.qtdMembrosAtivos(listaMembers);
+                this.qtdEmprestimos(listaEmprestimos);
+                this.qtdAtrasos(listaEmprestimos);
             } catch (IOException ex) {
                 Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -62,6 +66,22 @@ public class AdminPage extends javax.swing.JFrame {
         qtdLivrosAcervo.setText(String.valueOf(qtdLivros));
     }
     
+    public void qtdEmprestimos(ArrayList<Book> listaAtrasos) {
+        qtdEmprestimos.setText(String.valueOf(listaAtrasos.size()));
+    }
+    
+    public void qtdAtrasos(ArrayList<Book> listaAtrasos) {
+        int contadorAtrasos = 0;
+        
+        for (Book livro : listaAtrasos) {
+            if (checkAtraso(livro.getDataRetorno())) {
+                contadorAtrasos += 1;
+            }
+        }
+        
+        qtdAtrasos.setText(String.valueOf(contadorAtrasos));
+    }
+    
     public void qtdMembrosAtivos(ArrayList<Member> listaMembers) {
         qtdMembrosAtivos.setText(String.valueOf(listaMembers.size()));
     }
@@ -86,7 +106,7 @@ public class AdminPage extends javax.swing.JFrame {
         pnlDados = new javax.swing.JPanel();
         txtAtrasos = new javax.swing.JLabel();
         pnlAtrasos = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        qtdAtrasos = new javax.swing.JLabel();
         txtAcervo = new javax.swing.JLabel();
         pnlAcervo = new javax.swing.JPanel();
         qtdLivrosAcervo = new javax.swing.JLabel();
@@ -95,7 +115,7 @@ public class AdminPage extends javax.swing.JFrame {
         qtdMembrosAtivos = new javax.swing.JLabel();
         txtEmprestimos = new javax.swing.JLabel();
         pnlEmprestimos = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
+        qtdEmprestimos = new javax.swing.JLabel();
         scrollBooks = new javax.swing.JScrollPane();
         tblBooks = new rojeru_san.complementos.RSTableMetro();
 
@@ -249,9 +269,9 @@ public class AdminPage extends javax.swing.JFrame {
         pnlAtrasos.setBackground(new java.awt.Color(227, 227, 227));
         pnlAtrasos.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 0, 157)));
 
-        jLabel17.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_List_of_Thumbnails_50px.png"))); // NOI18N
-        jLabel17.setText("10");
+        qtdAtrasos.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
+        qtdAtrasos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_List_of_Thumbnails_50px.png"))); // NOI18N
+        qtdAtrasos.setText("10");
 
         javax.swing.GroupLayout pnlAtrasosLayout = new javax.swing.GroupLayout(pnlAtrasos);
         pnlAtrasos.setLayout(pnlAtrasosLayout);
@@ -259,14 +279,14 @@ public class AdminPage extends javax.swing.JFrame {
             pnlAtrasosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAtrasosLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel17)
+                .addComponent(qtdAtrasos)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         pnlAtrasosLayout.setVerticalGroup(
             pnlAtrasosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAtrasosLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabel17)
+                .addComponent(qtdAtrasos)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -339,9 +359,9 @@ public class AdminPage extends javax.swing.JFrame {
         pnlEmprestimos.setBackground(new java.awt.Color(227, 227, 227));
         pnlEmprestimos.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 0, 0, new java.awt.Color(0, 102, 0)));
 
-        jLabel22.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Sell_50px.png"))); // NOI18N
-        jLabel22.setText("10");
+        qtdEmprestimos.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
+        qtdEmprestimos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Sell_50px.png"))); // NOI18N
+        qtdEmprestimos.setText("10");
 
         javax.swing.GroupLayout pnlEmprestimosLayout = new javax.swing.GroupLayout(pnlEmprestimos);
         pnlEmprestimos.setLayout(pnlEmprestimosLayout);
@@ -349,14 +369,14 @@ public class AdminPage extends javax.swing.JFrame {
             pnlEmprestimosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEmprestimosLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel22)
+                .addComponent(qtdEmprestimos)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         pnlEmprestimosLayout.setVerticalGroup(
             pnlEmprestimosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEmprestimosLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel22)
+                .addComponent(qtdEmprestimos)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -428,11 +448,23 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMembrosActionPerformed
 
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
-        new IssueBook().setVisible(true);
+        try {
+            new IssueBook().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEmprestimoActionPerformed
 
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
-        new ReturnBook().setVisible(true);
+        try {
+            new ReturnBook().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
     private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
@@ -444,11 +476,22 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmitidosActionPerformed
 
     private void btnAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasadosActionPerformed
-        new LateIssues().setVisible(true);
+        try {
+            new LateIssues().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAtrasadosActionPerformed
 
     private void btnPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaginaInicialActionPerformed
-        new LoginPage().setVisible(true);
+        this.dispose();
+        try {
+            new AdminPage().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPaginaInicialActionPerformed
 
     /**
@@ -501,8 +544,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton btnMembros;
     private javax.swing.JButton btnPaginaInicial;
     private javax.swing.JButton btnRegistros;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel pnlAcervo;
     private javax.swing.JPanel pnlAtrasos;
     private javax.swing.JPanel pnlControle;
@@ -510,6 +551,8 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlEmprestimos;
     private javax.swing.JPanel pnlMembros;
     private javax.swing.JPanel pnlUnBLib;
+    private javax.swing.JLabel qtdAtrasos;
+    private javax.swing.JLabel qtdEmprestimos;
     private javax.swing.JLabel qtdLivrosAcervo;
     private javax.swing.JLabel qtdMembrosAtivos;
     private javax.swing.JScrollPane scrollBooks;
