@@ -4,17 +4,35 @@
  */
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import unblib.Book;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.formatadorData;
+import static unblib.Controle.lerArquivo;
+import static unblib.Controle.lerArquivoLivros;
+import unblib.Member;
+
 /**
  *
  * @author Lucas
  */
 public class IssueBook extends javax.swing.JFrame {
-
+    ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
+    ArrayList<Member> listaMembros = lerArquivo("usuarios.bin");
+    ArrayList<Book> listaEmprestimos = lerArquivoLivros("emprestimos.bin");
+    
     /**
      * Creates new form IssueBook
      */
-    public IssueBook() {
+    public IssueBook() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
         initComponents();
+        
     }
 
     /**
@@ -34,6 +52,10 @@ public class IssueBook extends javax.swing.JFrame {
         dadoAutor = new javax.swing.JLabel();
         dadoGenero = new javax.swing.JLabel();
         dadoQtd = new javax.swing.JLabel();
+        displayQuantidade = new javax.swing.JLabel();
+        displayNomeLivro = new javax.swing.JLabel();
+        displayName = new javax.swing.JLabel();
+        displayGenero = new javax.swing.JLabel();
         pnlMembros = new javax.swing.JPanel();
         dadoTituloMembro = new javax.swing.JLabel();
         pnlLinhaMembro = new javax.swing.JPanel();
@@ -41,6 +63,10 @@ public class IssueBook extends javax.swing.JFrame {
         dadoNome = new javax.swing.JLabel();
         dadoEmail = new javax.swing.JLabel();
         dadoUsuario = new javax.swing.JLabel();
+        displayID = new javax.swing.JLabel();
+        displayNome = new javax.swing.JLabel();
+        displayEmail = new javax.swing.JLabel();
+        displayUsuario = new javax.swing.JLabel();
         pnlEmprestimo = new javax.swing.JPanel();
         dadoTitulo = new javax.swing.JLabel();
         dadoLivro = new javax.swing.JLabel();
@@ -101,6 +127,22 @@ public class IssueBook extends javax.swing.JFrame {
         dadoQtd.setText("Quantidade:");
         pnlLivro.add(dadoQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 403, -1, -1));
 
+        displayQuantidade.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayQuantidade.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 130, 30));
+
+        displayNomeLivro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayNomeLivro.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayNomeLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 140, 30));
+
+        displayName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayName.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 190, 30));
+
+        displayGenero.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayGenero.setForeground(new java.awt.Color(255, 255, 255));
+        pnlLivro.add(displayGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 180, 30));
+
         getContentPane().add(pnlLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 294, 712));
 
         pnlMembros.setBackground(new java.awt.Color(0, 0, 157));
@@ -135,6 +177,22 @@ public class IssueBook extends javax.swing.JFrame {
         dadoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         dadoUsuario.setText("Usuário:");
         pnlMembros.add(dadoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 403, -1, -1));
+
+        displayID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayID.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayID, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 220, 30));
+
+        displayNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayNome.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 190, 30));
+
+        displayEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayEmail.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 190, 30));
+
+        displayUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        displayUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        pnlMembros.add(displayUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 180, 30));
 
         getContentPane().add(pnlMembros, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 0, 294, 712));
 
@@ -221,6 +279,81 @@ public class IssueBook extends javax.swing.JFrame {
 
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
         // TODO add your handling code here:
+        String nomeLivro = txtLivro.getText();
+        String idMembro = txtMembro.getText();
+        String dataEmprestimo = txtEmprestimo.getText();
+        boolean livroEncontrado = false;
+        boolean membroEncontrado = false;
+        Book livroDisplay = null;
+        Member membroDisplay = null;
+        
+        if (dataEmprestimo.length() == 10) {
+            LocalDate data = LocalDate.parse(formatadorData(dataEmprestimo));
+            LocalDate dataRetorno = data.plusDays(7);
+           
+            // Limpa campos de texto
+            txtLivro.setText("");
+            txtMembro.setText("");
+            txtEmprestimo.setText("");
+            
+            // Busca o livro e o membro desejados
+            for (Book livro : listaLivros) {
+                if (livro.getName().equals(nomeLivro)) {
+                    livroEncontrado = true;
+                    livroDisplay = livro;
+                    break;
+                }
+            }
+            
+            for (Member membro : listaMembros) {
+                if (membro.getId().equals(idMembro)) {
+                    membroEncontrado = true;
+                    membroDisplay = membro;
+                    break;
+                }
+            }
+            
+          
+            //Realiza emprestimo e mostras as infomaçoes do livro e membro na tela
+            if (membroEncontrado && livroEncontrado ) {
+                // Retira 1 livro do estoque e atualiza a lista de livros
+                livroDisplay.setStock(livroDisplay.getStock()-1);
+                try {
+                    escreverArquivo(listaLivros, "livros.bin");
+                } catch (IOException ex) {
+                    Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                //Adiciona livro na lista de livros emprestados
+                Book livroEmprestado = new Book(nomeLivro, membroDisplay, data, dataRetorno);
+                listaEmprestimos.add(livroEmprestado);
+                try {
+                    escreverArquivo(listaEmprestimos, "emprestimos.bin");
+                } catch (IOException ex) {
+                    Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                //Informacoes livro
+                displayNomeLivro.setText(livroDisplay.getName());
+                displayName.setText(livroDisplay.getAuthor());
+                displayGenero.setText(livroDisplay.getGenre());
+                displayQuantidade.setText(String.valueOf(livroDisplay.getStock()));
+                
+                //Informacoes membro
+                displayID.setText(membroDisplay.getId());
+                displayNome.setText(membroDisplay.getName());
+                displayEmail.setText(membroDisplay.getEmail());
+                displayUsuario.setText(membroDisplay.getTipo());
+            } else if(!membroEncontrado && livroEncontrado) {
+                JOptionPane.showMessageDialog(null, "ID do usuário não encontrado", "ID Inválido", JOptionPane.ERROR_MESSAGE);
+            } else if (membroEncontrado && !livroEncontrado) {
+                JOptionPane.showMessageDialog(null, "Livro não encontrado", "Nome Inválido", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Informações inválidas", "Registro Inválido", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Formato de data inválido", "Data Inválida", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEmprestimoActionPerformed
 
     private void txtEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmprestimoActionPerformed
@@ -262,7 +395,13 @@ public class IssueBook extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IssueBook().setVisible(true);
+                try {
+                    new IssueBook().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -284,6 +423,14 @@ public class IssueBook extends javax.swing.JFrame {
     private javax.swing.JLabel dadoTituloLivro;
     private javax.swing.JLabel dadoTituloMembro;
     private javax.swing.JLabel dadoUsuario;
+    private javax.swing.JLabel displayEmail;
+    private javax.swing.JLabel displayGenero;
+    private javax.swing.JLabel displayID;
+    private javax.swing.JLabel displayName;
+    private javax.swing.JLabel displayNome;
+    private javax.swing.JLabel displayNomeLivro;
+    private javax.swing.JLabel displayQuantidade;
+    private javax.swing.JLabel displayUsuario;
     private javax.swing.JPanel pnlEmprestimo;
     private javax.swing.JPanel pnlLinhaLivros;
     private javax.swing.JPanel pnlLinhaMembro;

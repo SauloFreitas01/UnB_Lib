@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -81,4 +82,19 @@ public class Controle {
         
         return listaLivros;
     }
+    
+    public static String formatadorData(String data) { 
+        String novaData = data.substring(6) + "-" + data.substring(3,5) + "-" + data.substring(0,2);
+        return novaData;
+    }
+    
+    public static boolean checkAtraso(LocalDate dataRetorno) {
+        if (LocalDate.now().isAfter(dataRetorno)) {
+            return true;
+        } return false;
+    }
+    
+    
+    
+    
 }

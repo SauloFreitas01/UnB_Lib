@@ -4,17 +4,43 @@
  */
 package Frames;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import unblib.Book;
+import static unblib.Controle.checkAtraso;
+import static unblib.Controle.lerArquivoLivros;
+
 /**
  *
  * @author saulo
  */
 public class LateIssues extends javax.swing.JFrame {
-
+    ArrayList<Book> listaEmprestimos = lerArquivoLivros("emprestimos.bin");
+    
+    public void escreverTabela() {
+        String statusEmprestimo;
+        DefaultTableModel modelo = (DefaultTableModel) tblAtrasos.getModel();
+        
+        for (Book livro : listaEmprestimos) {
+            if (checkAtraso(livro.getDataRetorno())) {
+                statusEmprestimo = "Atrasado";
+                modelo.addRow(new Object[]{livro.getMember().getId(), livro.getName(), livro.getMember().getName(),0, livro.getDataRetorno().toString(), statusEmprestimo});
+            }
+        }
+    }
+    
+    
     /**
      * Creates new form Records
      */
-    public LateIssues() {
+    public LateIssues() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
+        
+        escreverTabela();
     }
 
     /**
@@ -144,7 +170,13 @@ public class LateIssues extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LateIssues().setVisible(true);
+                try {
+                    new LateIssues().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(LateIssues.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(LateIssues.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
