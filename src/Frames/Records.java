@@ -1,11 +1,9 @@
 package Frames;
 
 import java.util.*;
-import com.toedter.calendar.JDateChooser;
 import java.text.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +19,8 @@ import unblib.Member;
 
 public class Records extends javax.swing.JFrame {
     static ArrayList<Book> listaEmprestimos;
+    static ArrayList<Book> listaBusca;
+    String statusEmprestimo = "Em dia";        
     
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -28,12 +28,12 @@ public class Records extends javax.swing.JFrame {
         initComponents();
         
         listaEmprestimos = lerArquivoLivros("emprestimos.bin");
+        listaBusca = new ArrayList<>();
         carregarTabelaEmprestimos();
     }
 
     
     public void carregarTabelaEmprestimos(){
-        String statusEmprestimo = "Em dia";
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
         
         for (Book livro : listaEmprestimos) {
@@ -41,6 +41,31 @@ public class Records extends javax.swing.JFrame {
                 statusEmprestimo = "Atrasado";
             }
             
+            Object linha[] = new Object[]{livro.getMember().getId(),
+                                        livro.getName(),
+                                        livro.getMember().getName(),
+                                        livro.getDataEmprestimo(),
+                                        livro.getDataRetorno(),
+                                        statusEmprestimo};
+            
+            modelo.addRow(linha);
+        }
+        
+        
+        //Tabela recebe modelo
+        tblEmprestimos.setModel(modelo);
+        
+        tblEmprestimos.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tblEmprestimos.getColumnModel().getColumn(1).setPreferredWidth(5);
+        tblEmprestimos.getColumnModel().getColumn(2).setPreferredWidth(5);
+        tblEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(5);
+        tblEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(5);
+    }
+    
+    public void carregarTabelaBusca(){
+        DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
+        
+        for (Book livro : listaBusca) {
             Object linha[] = new Object[]{livro.getMember().getId(),
                                         livro.getName(),
                                         livro.getMember().getName(),
@@ -70,10 +95,8 @@ public class Records extends javax.swing.JFrame {
         dadoRegistros = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         pnlEmprestimos = new javax.swing.JPanel();
-        dadoEmprestimo = new javax.swing.JLabel();
-        dateEmprestimo = new com.toedter.calendar.JDateChooser();
-        dadoDevolucao = new javax.swing.JLabel();
-        dateDevolucao = new com.toedter.calendar.JDateChooser();
+        dadoNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         scrEmprestimos = new javax.swing.JScrollPane();
         tblEmprestimos = new javax.swing.JTable();
@@ -110,21 +133,21 @@ public class Records extends javax.swing.JFrame {
         pnlEmprestimos.setBackground(new java.awt.Color(254, 254, 254));
         pnlEmprestimos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dadoEmprestimo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dadoEmprestimo.setText("Data do empréstimo:");
-        pnlEmprestimos.add(dadoEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 180, 30));
+        dadoNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dadoNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dadoNome.setText("Nome do membro:");
+        pnlEmprestimos.add(dadoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 20, 210, 30));
 
-        dateEmprestimo.setDateFormatString("dd/MM/yyyy");
-        dateEmprestimo.setName("dataEmprestimo"); // NOI18N
-        pnlEmprestimos.add(dateEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 234, 30));
-
-        dadoDevolucao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        dadoDevolucao.setText("Data de devolução:");
-        pnlEmprestimos.add(dadoDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 180, 30));
-
-        dateDevolucao.setDateFormatString("dd/MM/yyyy");
-        dateDevolucao.setName("dataEmprestimo"); // NOI18N
-        pnlEmprestimos.add(dateDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, 234, 30));
+        txtNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNome.setToolTipText("Insira nome do membro");
+        txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        pnlEmprestimos.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 50, 210, 30));
 
         btnBuscar.setBackground(new java.awt.Color(0, 102, 0));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -188,7 +211,41 @@ public class Records extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String nomeMembro = txtNome.getText();
         
+        for(Book livro : listaEmprestimos){
+            if(livro.getMember().getName().equals(nomeMembro)){
+                listaBusca.add(livro);
+            }
+            
+            carregarTabelaBusca();
+        }
+        /*String dataEmprestimo = txtEmprestimo.getText();
+        String dataDevolucao = txtNome.getText();
+        String statusEmprestimo = "";
+        LocalDate dataEmp
+        
+        if (dataEmprestimo.length() == 10 && dataDevolucao.length() == 10) {
+            LocalDate dataEmp = LocalDate.parse(formatadorData(dataEmprestimo));
+            LocalDate dataDev = LocalDate.parse(formatadorData(dataDevolucao));
+        
+            System.out.println("Empréstimo: " + dataEmp);
+            System.out.println("Devolução: " + dataDev);
+        }
+
+        for (Book livro : listaEmprestimos) {
+            if (dataEmp.equals(livro.getDataEmprestimo())) {
+            
+                Object linha[] = new Object[]{livro.getMember().getId(),
+                                            livro.getName(),
+                                            livro.getMember().getName(),
+                                            livro.getDataEmprestimo(),
+                                            livro.getDataRetorno(),
+                                            statusEmprestimo};
+
+                modelo.addRow(linha);
+            }
+        }*/
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tblEmprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmprestimosMouseClicked
@@ -198,6 +255,10 @@ public class Records extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,14 +304,12 @@ public class Records extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel dadoDevolucao;
-    private javax.swing.JLabel dadoEmprestimo;
+    private javax.swing.JLabel dadoNome;
     private javax.swing.JLabel dadoRegistros;
-    private com.toedter.calendar.JDateChooser dateDevolucao;
-    private com.toedter.calendar.JDateChooser dateEmprestimo;
     private javax.swing.JPanel pnlEmprestimos;
     private javax.swing.JPanel pnlRegistros;
     private javax.swing.JScrollPane scrEmprestimos;
     private javax.swing.JTable tblEmprestimos;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

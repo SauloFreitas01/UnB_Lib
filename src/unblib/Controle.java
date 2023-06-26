@@ -84,7 +84,7 @@ public class Controle {
     }
     
     public static String formatadorData(String data) { 
-        String novaData = data.substring(6) + "/" + data.substring(3,5) + "/" + data.substring(0,2);
+        String novaData = data.substring(6) + "-" + data.substring(3,5) + "-" + data.substring(0,2);
         return novaData;
     }
     

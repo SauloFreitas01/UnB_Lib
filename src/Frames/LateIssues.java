@@ -97,7 +97,7 @@ public class LateIssues extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"
+                "ID", "Livro", "Membro", "EmprÃ©stimo", "DevoluÃ§Ã£o", "Status"
             }
         ) {
             Class[] types = new Class [] {

@@ -1,10 +1,27 @@
 package Frames;
 
+import unblib.Paper;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import unblib.Book;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import static unblib.Controle.escreverArquivo;
+import static unblib.Controle.lerArquivoLivros;
+import static unblib.Controle.validadorMatricula;
+
 
 public class TeacherPage extends javax.swing.JFrame {
+    
+    static ArrayList<Book> listaBooks;
 
-    public TeacherPage() {
+    public TeacherPage() throws IOException, IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
+        
+        listaBooks = lerArquivoLivros("livros.bin");
     }
 
     @SuppressWarnings("unchecked")
@@ -19,6 +36,8 @@ public class TeacherPage extends javax.swing.JFrame {
         txtAutor = new javax.swing.JTextField();
         dadoGenero = new javax.swing.JLabel();
         txtGenero = new javax.swing.JTextField();
+        dadoQtd = new javax.swing.JLabel();
+        txtQtd = new javax.swing.JTextField();
         dadoArtigo = new javax.swing.JLabel();
         txtArtigo = new javax.swing.JTextField();
         btnInserir = new javax.swing.JButton();
@@ -83,10 +102,23 @@ public class TeacherPage extends javax.swing.JFrame {
         });
         pnlPapers.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 200, -1));
 
+        dadoQtd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dadoQtd.setForeground(new java.awt.Color(0, 0, 157));
+        dadoQtd.setText("Quantidade:");
+        pnlPapers.add(dadoQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 200, 30));
+
+        txtQtd.setToolTipText("Digite seu nome");
+        txtQtd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtdActionPerformed(evt);
+            }
+        });
+        pnlPapers.add(txtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 200, -1));
+
         dadoArtigo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoArtigo.setForeground(new java.awt.Color(0, 0, 157));
-        dadoArtigo.setText("Artigos:");
-        pnlPapers.add(dadoArtigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 200, 30));
+        dadoArtigo.setText("Artigo:");
+        pnlPapers.add(dadoArtigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 200, 30));
 
         txtArtigo.setToolTipText("Digite seu nome");
         txtArtigo.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +126,7 @@ public class TeacherPage extends javax.swing.JFrame {
                 txtArtigoActionPerformed(evt);
             }
         });
-        pnlPapers.add(txtArtigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 200, -1));
+        pnlPapers.add(txtArtigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 200, -1));
 
         btnInserir.setBackground(new java.awt.Color(0, 102, 0));
         btnInserir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -107,7 +139,7 @@ public class TeacherPage extends javax.swing.JFrame {
                 btnInserirActionPerformed(evt);
             }
         });
-        pnlPapers.add(btnInserir, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 200, 50));
+        pnlPapers.add(btnInserir, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 200, 50));
 
         dadoLogo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dadoLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -146,13 +178,32 @@ public class TeacherPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGeneroActionPerformed
 
+    private void txtQtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtdActionPerformed
+
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        String nome = txtNome.getText();
+        String autor = txtAutor.getText();
+        String genero = txtGenero.getText();
+        int qtd = Integer.parseInt(txtQtd.getText());
+        String artigo = txtQtd.getText();
+        
+        Paper paper = new Paper(nome, autor, genero, qtd, artigo);
+        
+        listaBooks.add(paper);
+        
+        //Carrega valores da lista no arquivo binário
+        try {
+           escreverArquivo(listaBooks, "livros.bin");
+       } catch (IOException ex) {
+           Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_btnInserirActionPerformed
+
     private void txtArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtArtigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtArtigoActionPerformed
-
-    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
-        
-    }//GEN-LAST:event_btnInserirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,7 +236,13 @@ public class TeacherPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TeacherPage().setVisible(true);
+                try {
+                    new ManageBooks().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -198,6 +255,7 @@ public class TeacherPage extends javax.swing.JFrame {
     private javax.swing.JLabel dadoImagem;
     private javax.swing.JLabel dadoLogo;
     private javax.swing.JLabel dadoNome;
+    private javax.swing.JLabel dadoQtd;
     private javax.swing.JLabel dadoSub;
     private javax.swing.JLabel dadoUnB;
     private javax.swing.JPanel pnlAzul;
@@ -206,5 +264,6 @@ public class TeacherPage extends javax.swing.JFrame {
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtQtd;
     // End of variables declaration//GEN-END:variables
 }
