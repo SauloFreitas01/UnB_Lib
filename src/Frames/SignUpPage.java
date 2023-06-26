@@ -15,6 +15,7 @@ import static unblib.Controle.validadorEmail;
 import static unblib.Controle.validadorMatricula;
 import static unblib.Controle.validadorNome;
 import unblib.Member;
+//import unblib.Book;
 
 
 public class SignUpPage extends javax.swing.JFrame {
@@ -257,7 +258,7 @@ public class SignUpPage extends javax.swing.JFrame {
                 Logger.getLogger(SignUpPage.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso", "Cadastro concluido", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso", "Cadastro concluído", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             new LoginPage().setVisible(true);
             
@@ -277,9 +278,13 @@ public class SignUpPage extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws IOException, IOException {
         // Criacao lista de usuarios
-        //ArrayList<Member> listaUsuarios = new ArrayList<>();
+        /*ArrayList<Member> listaUsuarios = new ArrayList<>();
+        ArrayList<Book> listaLivros = new ArrayList<>();
+        ArrayList<Book> listaEmprestimos = new ArrayList<>();
         
-        //escreverArquivo(listaUsuarios, "usuarios.bin");
+        escreverArquivo(listaUsuarios, "usuarios.bin");
+        escreverArquivo(listaLivros, "livros.bin");
+        escreverArquivo(listaEmprestimos, "emprestimos.bin");*/
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

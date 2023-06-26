@@ -18,6 +18,8 @@ import unblib.Member;
 
 public class LoginPage extends javax.swing.JFrame {
 
+    public static boolean isAdmin;
+    
     public LoginPage() {
         initComponents();
     }
@@ -174,9 +176,20 @@ public class LoginPage extends javax.swing.JFrame {
         String adminEmail = "docente@gmail.com";
         String adminSenha = "12345";
         
+        
+        
          // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
         email = txtEmail.getText();
+        
+        if(email.equals("docente@gmail.com")){
+            isAdmin = true;
+            
+        }else{
+            isAdmin = false;
+        }
+        
         txtEmail.setText("");
+        
         
         /* A senha é formatada pois o input senha é entregue pela biblioteca como
         um array de chars.
@@ -196,6 +209,7 @@ public class LoginPage extends javax.swing.JFrame {
                     AdminPage trocaTelaAdmin = new AdminPage();
                     this.dispose();
                     trocaTelaAdmin.setVisible(true);
+                    
                 } else {
                      JOptionPane.showMessageDialog(null,  "Email ou senha inválidos", "Informações inválidas", JOptionPane.ERROR_MESSAGE);
                 }
@@ -204,7 +218,8 @@ public class LoginPage extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+        
+            
         } else {
             JOptionPane.showMessageDialog(null,  "Formato de email inválido", "Email inválido", JOptionPane.ERROR_MESSAGE );
         }

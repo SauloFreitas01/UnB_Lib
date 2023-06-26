@@ -13,6 +13,7 @@ import static unblib.Controle.inicializarListaLivros;
 import static unblib.Controle.lerArquivo;
 import static unblib.Controle.lerArquivoLivros;
 import unblib.Member;
+import Frames.LoginPage;
 
 
 public class AdminPage extends javax.swing.JFrame {
@@ -21,6 +22,8 @@ public class AdminPage extends javax.swing.JFrame {
         initComponents();
         
         File livros = new File("livros.bin");
+        
+        adminButtons(LoginPage.isAdmin);
                 
         /* Verifica se o arquivo livros.bin já foi criado, caso já tenha sido criado ele simplesmente pega a lista e
         caso contrário ele cria uma nova lista com os valores predefinidos do metodo inicializarListaLivros().
@@ -48,7 +51,27 @@ public class AdminPage extends javax.swing.JFrame {
             escreverArquivo(listaLivros, "livros.bin");
         }
     }
-
+    
+    //Verifica se é admin
+    public void adminButtons(boolean isAdmin){
+        if(isAdmin == true){
+            btnAcervo.setVisible(true);
+            btnMembros.setVisible(true);
+            btnEmprestimo.setVisible(true);
+            btnDevolucao.setVisible(true);
+            btnArtigos.setVisible(true);
+            btnEmprestados.setVisible(true);
+        
+        }else{
+            btnAcervo.setVisible(false);
+            btnMembros.setVisible(false);
+            btnEmprestimo.setVisible(true);
+            btnDevolucao.setVisible(true);
+            btnArtigos.setVisible(true);
+            btnEmprestados.setVisible(true);
+        }
+    }
+    
     // Escreve lista de livros na tabela
     public void escreverListaLivros(ArrayList<Book> listaLivros) {
         DefaultTableModel modelo = (DefaultTableModel) tblBooks.getModel();
