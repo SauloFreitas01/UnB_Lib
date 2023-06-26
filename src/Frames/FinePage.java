@@ -111,7 +111,6 @@ public class FinePage extends javax.swing.JFrame {
         btnDevolucao.setBackground(new java.awt.Color(0, 102, 0));
         btnDevolucao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDevolucao.setForeground(new java.awt.Color(254, 254, 254));
-        btnDevolucao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Return_Purchase_26px.png"))); // NOI18N
         btnDevolucao.setText("Realizar devolução");
         btnDevolucao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnDevolucao.addActionListener(new java.awt.event.ActionListener() {

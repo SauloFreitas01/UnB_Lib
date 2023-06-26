@@ -286,7 +286,6 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMembroActionPerformed
 
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
-        // TODO add your handling code here:
         String nomeLivro = txtLivro.getText();
         String idMembro = txtMembro.getText();
         String dataEmprestimo = txtDevolucao.getText();

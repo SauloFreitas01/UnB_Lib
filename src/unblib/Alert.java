@@ -3,22 +3,18 @@ package unblib;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import static unblib.Controle.checkAtraso;
 
 public class Alert{
     //Atributes
-    private LocalDate issueDate;
-    private Member member;
-    private String bookName;
+    private LocalDate dataEmprestimo;    
     private LocalDate returnDate;
-    private String status;
-    private int fine;
+    private double fine;
 
     
     //Constructor
-    public Alert(LocalDate issueDate, Member member, String bookName, LocalDate returnDate,String status ,int fine) {
-        this.issueDate = issueDate;
-        this.member = member;
-        this.bookName = bookName;
+    public Alert(LocalDate dataEmprestimo, LocalDate returnDate, double fine) {
+        this.dataEmprestimo = dataEmprestimo;
         this.returnDate = returnDate;
         this.fine = fine;
     }
@@ -29,28 +25,12 @@ public class Alert{
     
 
     //Getters e setters for issueDate, member, bookName, returnDate and fine
-    public LocalDate getIssueDate() {
-        return issueDate;
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
     }
 
-    public void setIssueDate(LocalDate issueDate) {
-        this.issueDate = issueDate;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
-    }
-
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
     public LocalDate getReturnDate() {
@@ -61,24 +41,22 @@ public class Alert{
         this.returnDate = returnDate;
     }
 
-    public int getFine() {
+    public double getFine() {
         return fine;
     }
 
-    public void setFine(int fine) {
+    public void setFine(double fine) {
         this.fine = fine;
     }
+    
 
     
     //Métodos
-    public void fineCal(){
-        long dif = ChronoUnit.DAYS.between(issueDate, returnDate);
-        double multa = 0.0;
-        
-        if (dif > 7){
-            multa = dif * 1.0;
+    public void fineCalc(LocalDate dataDevolucao){
+        if(checkAtraso(dataDevolucao)){
+            long dif = ChronoUnit.DAYS.between(dataDevolucao, LocalDate.now());
+            
+            double fine = dif * 1.5;
         }
-        
-        System.out.println("A multa pelo atraso de " + dif + " dias é: R$" + multa);
     }
 }
