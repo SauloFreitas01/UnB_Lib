@@ -17,7 +17,7 @@ import unblib.Member;
 
 
 public class LoginPage extends javax.swing.JFrame {
-
+    //Atributo para verificar o tipo de usuário
     public static boolean isAdmin;
     
     public LoginPage() {
@@ -181,6 +181,7 @@ public class LoginPage extends javax.swing.JFrame {
          // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
         email = txtEmail.getText();
         
+        //Método para verificar se o usuário é admnistrador
         if(email.equals("docente@gmail.com")){
             isAdmin = true;
             
@@ -188,6 +189,7 @@ public class LoginPage extends javax.swing.JFrame {
             isAdmin = false;
         }
         
+        //Limpar os campos de texto
         txtEmail.setText("");
         
         
@@ -197,11 +199,7 @@ public class LoginPage extends javax.swing.JFrame {
         senhaFormatada = String.valueOf(txtSenha.getPassword());
         txtSenha.setText("");
         
-        /* Metodo para mudar para a tela de admin caso o usuario e senha estejam corretos
-        AVISO: FALTA ADICIONAR FORMATAÇÃO DE EMAIL
-        */
-        
-        // VALIDACAO EMAIL
+        //Validação Email
         if (validadorEmail(email)) {
             try {
                 ArrayList<Member> listaUsuarios = lerArquivo("usuarios.bin");
@@ -232,9 +230,15 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        SignUpPage trocaTelaRegistro = new SignUpPage();
-        this.dispose(); 
-        trocaTelaRegistro.setVisible(true);
+        //Vai para a tela de Cadastro
+        this.dispose();
+        try {
+            new SignUpPage().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**

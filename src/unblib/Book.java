@@ -19,7 +19,11 @@ public class Book implements Serializable{
     private String status;
 
     
-    //Constructor
+    //Constructors
+    public Book(){
+        
+    }
+    
     public Book(String name, String genre, String author, int stock, String status) {
         this.name = name;
         this.genre = genre;

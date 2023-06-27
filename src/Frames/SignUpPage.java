@@ -20,7 +20,7 @@ import unblib.Member;
 
 public class SignUpPage extends javax.swing.JFrame {
 
-    public SignUpPage() {
+    public SignUpPage() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
         initComponents();
     }
 
@@ -124,7 +124,7 @@ public class SignUpPage extends javax.swing.JFrame {
         pnlCadastro.add(dadoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 80, -1));
 
         cmbUser.setBackground(new java.awt.Color(0, 0, 107));
-        cmbUser.setForeground(new java.awt.Color(254, 254, 254));
+        cmbUser.setForeground(new java.awt.Color(255, 255, 255));
         cmbUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discente", "Docente" }));
         cmbUser.setToolTipText("Selecione o tipo de usuário");
         cmbUser.addActionListener(new java.awt.event.ActionListener() {
@@ -220,20 +220,25 @@ public class SignUpPage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbUserActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        //Direciona para a tela de Login
         LoginPage trocaTelaLogin = new LoginPage();
         this.dispose();
         trocaTelaLogin.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void bntCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCadastroActionPerformed
+        //Cadastra um novo membro
         String tipoUsuario = cmbUser.getSelectedItem().toString();
         String matricula = txtMatricula.getText();
-        txtMatricula.setText("");
         String nome = txtNome.getText();
-        txtNome.setText("");
         String email = txtEmail.getText();
-        txtEmail.setText("");
         String senha = String.valueOf(txtSenha.getPassword());
+        
+        
+        //Limpar os campos de texto
+        txtMatricula.setText("");
+        txtNome.setText("");
+        txtEmail.setText("");
         txtSenha.setText("");
         
         //Validação do registro
@@ -245,7 +250,7 @@ public class SignUpPage extends javax.swing.JFrame {
             membroTeste.setPassword(senha);
             membroTeste.setTipo(tipoUsuario);
             
-            // Escreve membro registrado no arquivo usuarios.bin
+            //Escreve membro registrado no arquivo usuarios.bin
             try {
                 ArrayList<Member> listaUsuarios = lerArquivo("usuarios.bin");
                 
@@ -269,6 +274,7 @@ public class SignUpPage extends javax.swing.JFrame {
     }//GEN-LAST:event_bntCadastroActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        //Volta para a tela de Login
         this.setVisible(false);
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -277,7 +283,7 @@ public class SignUpPage extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) throws IOException, IOException {
-        // Criacao lista de usuarios
+        //Criação dos arquivos ".bin"
         /*ArrayList<Member> listaUsuarios = new ArrayList<>();
         ArrayList<Book> listaLivros = new ArrayList<>();
         ArrayList<Book> listaEmprestimos = new ArrayList<>();
@@ -311,7 +317,13 @@ public class SignUpPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignUpPage().setVisible(true);
+                try {
+                    new SignUpPage().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(SignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(SignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -34,7 +34,7 @@ public class Member implements Serializable{
     }    
     
 
-    // Getters and Setters for name and id
+    // Getters and Setters
     public String getName(){
         return name;
     }

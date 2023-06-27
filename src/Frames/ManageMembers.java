@@ -24,6 +24,7 @@ public class ManageMembers extends javax.swing.JFrame {
     public ManageMembers() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
         
+        //Extrai a lista de membros do arquivo usuarios.bin
         listaMembers = lerArquivo("usuarios.bin");
         carregarTabelaMembers();
         

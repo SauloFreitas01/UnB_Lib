@@ -447,7 +447,7 @@ public class AdminPage extends javax.swing.JFrame {
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
         this.dispose();
         try {
-            new IssueBook().setVisible(true);
+            new RequestBook().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -469,7 +469,7 @@ public class AdminPage extends javax.swing.JFrame {
     private void btnEmprestadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestadosActionPerformed
         this.dispose();
         try {
-            new Borrowed().setVisible(true);
+            new Requested().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

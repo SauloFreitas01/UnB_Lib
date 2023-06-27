@@ -17,29 +17,37 @@ import static unblib.Controle.lerArquivo;
 import static unblib.Controle.lerArquivoLivros;
 import unblib.Member;
 
-public class Borrowed extends javax.swing.JFrame {
+public class Requested extends javax.swing.JFrame {
+    //inicia as listas de empréstimos e busca
     static ArrayList<Book> listaEmprestimos;
     static ArrayList<Book> listaBusca;
 
-    public Borrowed() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
+    public Requested() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
         initComponents();
         
+        //Insere na lista os empréstimos que estão no arquivo
         listaEmprestimos = lerArquivoLivros("emprestimos.bin");
         listaBusca = new ArrayList<>();
+        
+        //Atualiza a tabela com os empréstimos
         carregarTabelaEmprestimos();
     }
 
     
     public void carregarTabelaEmprestimos(){
+        //Define o modelo da tabela
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
         
+        //Percorre os empréstimos da lista
         for (Book livro : listaEmprestimos) {
             livro.setStatus("Em dia");
             
+            //Verifica se o empréstimo está atrasado
             if (checkAtraso(livro.getDataRetorno())) {
                 livro.setStatus("Atrasado");
             }
             
+            //Adiciona os dados às colunas da tabela
             Object linha[] = new Object[]{livro.getMember().getId(),
                                         livro.getName(),
                                         livro.getMember().getName(),
@@ -47,6 +55,7 @@ public class Borrowed extends javax.swing.JFrame {
                                         livro.getDataRetorno(),
                                         livro.getStatus()};
             
+            //Adiciona a linhan na tabela
             modelo.addRow(linha);
         }
         
@@ -54,6 +63,7 @@ public class Borrowed extends javax.swing.JFrame {
         //Tabela recebe modelo
         tblEmprestimos.setModel(modelo);
         
+        //Define o tamanho das colunas
         tblEmprestimos.getColumnModel().getColumn(0).setPreferredWidth(5);
         tblEmprestimos.getColumnModel().getColumn(1).setPreferredWidth(5);
         tblEmprestimos.getColumnModel().getColumn(2).setPreferredWidth(5);
@@ -62,15 +72,19 @@ public class Borrowed extends javax.swing.JFrame {
     }
     
     public void carregarTabelaBusca(){
+        //Define o modelo da tabela
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
         
+        //Percorre os empréstimos da lista
         for (Book livro : listaBusca) {
             livro.setStatus("Em dia");
             
+            //Verifica se o empréstimo está atrasado
             if (checkAtraso(livro.getDataRetorno())) {
                 livro.setStatus("Atrasado");
             }
             
+            //Adiciona os dados às colunas da tabela
             Object linha[] = new Object[]{livro.getMember().getId(),
                                         livro.getName(),
                                         livro.getMember().getName(),
@@ -78,6 +92,7 @@ public class Borrowed extends javax.swing.JFrame {
                                         livro.getDataRetorno(),
                                         livro.getStatus()};
             
+            //Adiciona a linhan na tabela
             modelo.addRow(linha);
         }
         
@@ -85,6 +100,7 @@ public class Borrowed extends javax.swing.JFrame {
         //Tabela recebe modelo
         tblEmprestimos.setModel(modelo);
         
+        //Define o tamanho das colunas
         tblEmprestimos.getColumnModel().getColumn(0).setPreferredWidth(5);
         tblEmprestimos.getColumnModel().getColumn(1).setPreferredWidth(5);
         tblEmprestimos.getColumnModel().getColumn(2).setPreferredWidth(5);
@@ -218,18 +234,23 @@ public class Borrowed extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        //Verifica se o campo de texto está vazio
         if(txtNome.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!", "Nome inválido", JOptionPane.PLAIN_MESSAGE);
         
         }else{
             String nomeMembro = txtNome.getText();
-
+            
+            //Define o tamanho das colunas
             for(Book livro : listaEmprestimos){
+                //Verifica se o membro consta na lista
                 if(livro.getMember().getName().equals(nomeMembro)){
+                    //Se sim, adiciona o livro à lista
                     listaBusca.add(livro);
                 }
             }
             
+            //Atualiza a tabela de acordo com o membro informado
             carregarTabelaBusca();
             
         }
@@ -240,12 +261,13 @@ public class Borrowed extends javax.swing.JFrame {
     }//GEN-LAST:event_tblEmprestimosMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        //Volta para a tela de Gestão
         try {
             AdminPage adminPage = new AdminPage();
             adminPage.setVisible(true);
 
         } catch (IOException ex) {
-            Logger.getLogger(Borrowed.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Requested.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -271,14 +293,16 @@ public class Borrowed extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Borrowed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requested.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Borrowed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requested.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Borrowed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requested.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Borrowed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Requested.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -286,11 +310,11 @@ public class Borrowed extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Borrowed().setVisible(true);
+                    new Requested().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(Borrowed.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Requested.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Borrowed.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Requested.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

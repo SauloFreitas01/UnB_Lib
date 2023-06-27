@@ -42,6 +42,7 @@ public class ManageBooks extends javax.swing.JFrame{
     
     
     public void carregarTabelaBooks(){
+        
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Nome livro", "Gênero", "Autor", "Quantidade"}, 0);
         
         for(int i=0; i<listaBooks.size(); i++){
@@ -450,8 +451,7 @@ public class ManageBooks extends javax.swing.JFrame{
         } catch (IOException ex) {
             Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(false);
-        
+        this.setVisible(false);        
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
