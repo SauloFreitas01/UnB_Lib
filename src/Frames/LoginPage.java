@@ -173,7 +173,7 @@ public class LoginPage extends javax.swing.JFrame {
         String senhaFormatada;
         
         // CONSTANTE APENAS PARA TESTES:
-        String adminEmail = "docente@gmail.com";
+        String adminEmail = "admin@gmail.com";
         String adminSenha = "12345";
         
         
@@ -182,7 +182,7 @@ public class LoginPage extends javax.swing.JFrame {
         email = txtEmail.getText();
         
         //Método para verificar se o usuário é admnistrador
-        if(email.equals("docente@gmail.com")){
+        if(email.equals("admin@gmail.com")){
             isAdmin = true;
             
         }else{
@@ -254,10 +254,10 @@ public class LoginPage extends javax.swing.JFrame {
 
 
             Member membroTeste = new Member();
-            membroTeste.setEmail("docente@gmail.com");
+            membroTeste.setEmail("admin@gmail.com");
             membroTeste.setPassword("12345");
-            membroTeste.setId("15264654564");
-            membroTeste.setName("docente");
+            membroTeste.setId("1");
+            membroTeste.setName("Admin");
             membroTeste.setTipo("Docente");
 
             ArrayList<Member> listaUsuarios = lerArquivo("usuarios.bin");

@@ -15,7 +15,7 @@ public class Book implements Serializable{
     private boolean inLibrarian;
     private Member member;
     private LocalDate dataEmprestimo;
-    private LocalDate dataRetorno;
+    private LocalDate dataDevolucao;
     private String status;
 
     
@@ -32,11 +32,11 @@ public class Book implements Serializable{
         this.status = status;
     }
     
-    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataRetorno, String status) {
+    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataDevolucao, String status) {
         this.name = name;
         this.member = member;
         this.dataEmprestimo = dataEmprestimo;
-        this.dataRetorno = dataRetorno;
+        this.dataDevolucao = dataDevolucao;
         this.status = status;
     }
     
@@ -114,12 +114,12 @@ public class Book implements Serializable{
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public LocalDate getDataRetorno() {
-        return dataRetorno;
+    public LocalDate getDataDevolucao() {
+        return dataDevolucao;
     }
 
-    public void setDataRetorno(LocalDate dataRetorno) {
-        this.dataRetorno = dataRetorno;
+    public void setDataDevolucao(LocalDate dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 
     public String getStatus() {

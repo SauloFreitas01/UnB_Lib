@@ -4,6 +4,7 @@ import java.util.*;
 import java.text.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,7 +44,7 @@ public class Requested extends javax.swing.JFrame {
             livro.setStatus("Em dia");
             
             //Verifica se o empréstimo está atrasado
-            if (checkAtraso(livro.getDataRetorno())) {
+            if (checkAtraso(LocalDate.now(), livro.getDataDevolucao())) {
                 livro.setStatus("Atrasado");
             }
             
@@ -52,7 +53,7 @@ public class Requested extends javax.swing.JFrame {
                                         livro.getName(),
                                         livro.getMember().getName(),
                                         livro.getDataEmprestimo(),
-                                        livro.getDataRetorno(),
+                                        livro.getDataDevolucao(),
                                         livro.getStatus()};
             
             //Adiciona a linhan na tabela
@@ -80,7 +81,7 @@ public class Requested extends javax.swing.JFrame {
             livro.setStatus("Em dia");
             
             //Verifica se o empréstimo está atrasado
-            if (checkAtraso(livro.getDataRetorno())) {
+            if (checkAtraso(LocalDate.now(), livro.getDataDevolucao())) {
                 livro.setStatus("Atrasado");
             }
             
@@ -89,7 +90,7 @@ public class Requested extends javax.swing.JFrame {
                                         livro.getName(),
                                         livro.getMember().getName(),
                                         livro.getDataEmprestimo(),
-                                        livro.getDataRetorno(),
+                                        livro.getDataDevolucao(),
                                         livro.getStatus()};
             
             //Adiciona a linhan na tabela

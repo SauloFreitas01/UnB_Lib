@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import unblib.Book;
 import static unblib.Controle.escreverArquivo;
@@ -22,6 +23,19 @@ public class RequestBook extends javax.swing.JFrame {
     public RequestBook() throws IOException, FileNotFoundException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException {
         initComponents();
         
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>(){
+            @Override
+            public String toString(){
+                return "Nome: ";
+            }
+        };
+        
+        for(Book livro : listaLivros){
+            String nome = livro.getName();
+            modelo.addElement(nome);
+        }
+        
+        cmbBooks.setModel(modelo);
     }
 
     
@@ -55,12 +69,12 @@ public class RequestBook extends javax.swing.JFrame {
         pnlEmprestimo = new javax.swing.JPanel();
         dadoTitulo = new javax.swing.JLabel();
         dadoLivro = new javax.swing.JLabel();
-        txtLivro = new javax.swing.JTextField();
         dadoMembro = new javax.swing.JLabel();
         txtMembro = new javax.swing.JTextField();
         dadoEmprestimo = new javax.swing.JLabel();
         txtEmprestimo = new javax.swing.JTextField();
         btnEmprestimo = new javax.swing.JButton();
+        cmbBooks = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Empréstimo");
@@ -196,17 +210,6 @@ public class RequestBook extends javax.swing.JFrame {
         dadoLivro.setText("Nome do livro");
         pnlEmprestimo.add(dadoLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, -1));
 
-        txtLivro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLivro.setToolTipText("Insira o nome do livro");
-        txtLivro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtLivro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLivroActionPerformed(evt);
-            }
-        });
-        pnlEmprestimo.add(txtLivro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 240, 30));
-
         dadoMembro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dadoMembro.setText("ID do membro");
         pnlEmprestimo.add(dadoMembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
@@ -250,15 +253,16 @@ public class RequestBook extends javax.swing.JFrame {
         });
         pnlEmprestimo.add(btnEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 240, 40));
 
+        cmbBooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cmbBooks.setSelectedIndex(-1);
+        cmbBooks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlEmprestimo.add(cmbBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 240, 30));
+
         getContentPane().add(pnlEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 0, 294, 712));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLivroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLivroActionPerformed
 
     private void txtMembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMembroActionPerformed
         // TODO add your handling code here:
@@ -266,7 +270,7 @@ public class RequestBook extends javax.swing.JFrame {
 
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
         // TODO add your handling code here:
-        String nomeLivro = txtLivro.getText();
+        String nomeLivro = cmbBooks.getSelectedItem().toString();
         String idMembro = txtMembro.getText();
         String dataEmprestimo = txtEmprestimo.getText();
         boolean livroEncontrado = false;
@@ -276,10 +280,10 @@ public class RequestBook extends javax.swing.JFrame {
         
         if (dataEmprestimo.length() == 10) {
             LocalDate data = LocalDate.parse(formatadorData(dataEmprestimo));
-            LocalDate dataRetorno = data.plusDays(7);
+            LocalDate dataDevolucaoCriada = data.plusDays(7);
            
             // Limpa campos de texto
-            txtLivro.setText("");
+            cmbBooks.setSelectedItem("");
             txtMembro.setText("");
             txtEmprestimo.setText("");
             
@@ -312,7 +316,7 @@ public class RequestBook extends javax.swing.JFrame {
                 }
                 
                 //Adiciona livro na lista de livros emprestados
-                Book livroEmprestado = new Book(nomeLivro, membroDisplay, data, dataRetorno, "Em dia");
+                Book livroEmprestado = new Book(nomeLivro, membroDisplay, data, dataDevolucaoCriada, "Em dia");
                 listaEmprestimos.add(livroEmprestado);
                 try {
                     escreverArquivo(listaEmprestimos, "emprestimos.bin");
@@ -389,6 +393,10 @@ public class RequestBook extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -407,6 +415,7 @@ public class RequestBook extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEmprestimo;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> cmbBooks;
     private javax.swing.JLabel dadoAutor;
     private javax.swing.JLabel dadoEmail;
     private javax.swing.JLabel dadoEmprestimo;
@@ -435,7 +444,6 @@ public class RequestBook extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLivro;
     private javax.swing.JPanel pnlMembros;
     private javax.swing.JTextField txtEmprestimo;
-    private javax.swing.JTextField txtLivro;
     private javax.swing.JTextField txtMembro;
     // End of variables declaration//GEN-END:variables
 }

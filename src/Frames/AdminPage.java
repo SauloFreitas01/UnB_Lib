@@ -14,6 +14,7 @@ import static unblib.Controle.lerArquivo;
 import static unblib.Controle.lerArquivoLivros;
 import unblib.Member;
 import Frames.LoginPage;
+import java.time.LocalDate;
 
 
 public class AdminPage extends javax.swing.JFrame {
@@ -97,7 +98,7 @@ public class AdminPage extends javax.swing.JFrame {
         int contadorAtrasos = 0;
         
         for (Book livro : listaAtrasos) {
-            if (checkAtraso(livro.getDataRetorno())) {
+            if (checkAtraso(LocalDate.now(), livro.getDataDevolucao())) {
                 contadorAtrasos += 1;
             }
         }
