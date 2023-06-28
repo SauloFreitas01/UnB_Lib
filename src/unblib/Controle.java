@@ -69,9 +69,9 @@ public class Controle{
     public static ArrayList<Book> inicializarListaLivros(){
         ArrayList<Book> listaLivros = new ArrayList<>();
         
-        listaLivros.add(new Book("Manual da Sinuca", "Educação", "Baianinho", 5, "Em dia"));        
-        listaLivros.add(new Book("Cálculo 2", "Educação", "Ricardo F.", 8, "Em dia"));        
-        listaLivros.add(new Book("Hidrografia do Brasil", "Educação", "Jorge C. L.", 3, "Em dia"));        
+        listaLivros.add(new Book("Manual da Sinuca", "Educação", "Baianinho", 5));        
+        listaLivros.add(new Book("Cálculo 2", "Educação", "Ricardo F.", 8));        
+        listaLivros.add(new Book("Hidrografia do Brasil", "Educação", "Jorge C. L.", 3));        
         
         return listaLivros;
     }

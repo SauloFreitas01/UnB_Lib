@@ -205,7 +205,7 @@ public class PapersPage extends javax.swing.JFrame {
         int qtd = Integer.parseInt(txtQtd.getText());
         String artigo = txtQtd.getText();
         
-        Paper paper = new Paper(nome, autor, genero, qtd, "Em dia", artigo);
+        Paper paper = new Paper(nome, autor, genero, qtd, artigo);
         
         listaBooks.add(paper);
         
@@ -257,6 +257,10 @@ public class PapersPage extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PapersPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

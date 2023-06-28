@@ -317,7 +317,7 @@ public class ManageBooks extends javax.swing.JFrame{
             
             
             if(botao.equals("novo")){
-                Book book = new Book(nome, genero, autor, qtd, "Em dia");
+                Book book = new Book(nome, genero, autor, qtd);
                 
                 listaBooks.add(book);
                 
@@ -479,6 +479,8 @@ public class ManageBooks extends javax.swing.JFrame{
         } catch (javax.swing.UnsupportedLookAndFeelException ex){
             java.util.logging.Logger.getLogger(ManageBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

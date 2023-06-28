@@ -24,20 +24,20 @@ public class Book implements Serializable{
         
     }
     
-    public Book(String name, String genre, String author, int stock, String status) {
+    public Book(String name, String genre, String author, int stock) {
         this.name = name;
         this.genre = genre;
         this.author = author;
         this.stock = stock;
-        this.status = status;
+        this.status = "Em dia";
     }
     
-    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataDevolucao, String status) {
+    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
         this.name = name;
         this.member = member;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
-        this.status = status;
+        this.status = "Em dia";
     }
     
 
