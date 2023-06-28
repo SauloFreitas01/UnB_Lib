@@ -15,7 +15,7 @@ import static unblib.Controle.validadorEmail;
 import static unblib.Controle.validadorMatricula;
 import static unblib.Controle.validadorNome;
 import unblib.Member;
-import unblib.Book;
+//import unblib.Book;
 
 
 public class SignUpPage extends javax.swing.JFrame {
