@@ -53,7 +53,7 @@ public class Teacher extends Member{
     public void checkoutBook(Book book, Teacher teacher) {
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
-            book.setIssueDate(new Date());
+            book.setRequestDate(new Date());
             book.setMember(teacher);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + teacher.getName());
         }else{
@@ -68,7 +68,7 @@ public class Teacher extends Member{
         System.out.println("O livro " + book.getName() + " foi devolvido por " + teacher.getName());
     }
 
-    public void issuePaper() {
+    public void RequestPaper() {
         // Implementation for issuing a paper
     }
 }

@@ -35,7 +35,7 @@ public class Student extends Member{
     public void checkoutBook(Book book, Student student){
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
-            book.setIssueDate(new Date());
+            book.setRequestDate(new Date());
             book.setMember(student);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + student.getName());
         }else{

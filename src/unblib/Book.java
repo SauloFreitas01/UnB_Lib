@@ -10,7 +10,7 @@ public class Book implements Serializable{
     private String genre;
     private String author;
     private int stock;
-    private Date issueDate;
+    private Date requestDate;
     private Date returnDate;    
     private boolean inLibrarian;
     private Member member;
@@ -66,12 +66,12 @@ public class Book implements Serializable{
         this.stock = stock;
     }
 
-    public Date getIssueDate() {
-        return issueDate;
+    public Date getRequestDate() {
+        return requestDate;
     }
 
-    public void setIssueDate(Date issueDate) {
-        this.issueDate = issueDate;
+    public void setRequestDate(Date requestDate) {
+        this.requestDate = requestDate;
     }
 
     public Date getReturnDate() {
