@@ -44,6 +44,7 @@ public class ManageMembers extends javax.swing.JFrame {
     }
     
     
+    //Método para carregar a tabela de membros
     public void carregarTabelaMembers(){
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Tipo usuário", "Nome", "ID", "Email"}, 0);
         
@@ -279,6 +280,7 @@ public class ManageMembers extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Função do botão Deletar
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         int index = tblMembers.getSelectedRow();
         
@@ -317,6 +319,7 @@ public class ManageMembers extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Membro excluído com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnDeletarActionPerformed
 
+    //Função do botão Salvar
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         if(txtNome.getText().equals("") || txtID.getText().equals("") ||
                 txtEmail.getText().equals("")){
@@ -382,6 +385,7 @@ public class ManageMembers extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    //Função do botão Atualizar
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         botao = "atualizar";
         
@@ -410,6 +414,7 @@ public class ManageMembers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbUserActionPerformed
 
+    //Função do botão Novo
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         botao = "novo";
         
@@ -436,6 +441,7 @@ public class ManageMembers extends javax.swing.JFrame {
         txtNome.requestFocus();
     }//GEN-LAST:event_btnNovoActionPerformed
 
+    //Função do clique do mouse na tabela
     private void tblMembersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMembersMouseClicked
         int i = tblMembers.getSelectedRow();
         
@@ -460,6 +466,7 @@ public class ManageMembers extends javax.swing.JFrame {
         txtEmail.setEnabled(false);
     }//GEN-LAST:event_tblMembersMouseClicked
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
         try {

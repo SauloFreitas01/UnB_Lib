@@ -19,7 +19,7 @@ import static unblib.Controle.lerArquivoLivros;
 import unblib.Member;
 
 public class Requested extends javax.swing.JFrame {
-    //inicia as listas de empréstimos e busca
+    //Inicia as listas de empréstimos e busca
     static ArrayList<Book> listaEmprestimos;
     static ArrayList<Book> listaBusca;
 
@@ -35,6 +35,7 @@ public class Requested extends javax.swing.JFrame {
     }
 
     
+    //Método para carregar a tabela de empréstimos
     public void carregarTabelaEmprestimos(){
         //Define o modelo da tabela
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
@@ -72,6 +73,7 @@ public class Requested extends javax.swing.JFrame {
         tblEmprestimos.getColumnModel().getColumn(3).setPreferredWidth(5);
     }
     
+    //Método para carregar a tabela de busca
     public void carregarTabelaBusca(){
         //Define o modelo da tabela
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"ID", "Livro", "Membro", "Empréstimo", "Devolução", "Status"}, 0);
@@ -234,6 +236,7 @@ public class Requested extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Função do botão Buscar
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         //Limpa a lista de busca
         listaBusca.clear();
@@ -265,6 +268,7 @@ public class Requested extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tblEmprestimosMouseClicked
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         //Volta para a tela de Gestão
         try {

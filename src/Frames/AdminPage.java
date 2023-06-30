@@ -22,8 +22,10 @@ public class AdminPage extends javax.swing.JFrame {
     public AdminPage() throws IOException {
         initComponents();
         
+        //Cria o arquivo "livros.bin"
         File livros = new File("livros.bin");
         
+        //Configuração de botões caso seja um administrador
         adminButtons(LoginPage.isAdmin);
                 
         /* Verifica se o arquivo livros.bin já foi criado, caso já tenha sido criado ele simplesmente pega a lista e
@@ -73,7 +75,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }
     
-    // Escreve lista de livros na tabela
+    //Escreve lista de livros na tabela
     public void escreverListaLivros(ArrayList<Book> listaLivros) {
         DefaultTableModel modelo = (DefaultTableModel) tblBooks.getModel();
         
@@ -82,6 +84,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }
     
+    //Atualiza a quantidade de livros
     public void qtdLivrosAcervo(ArrayList<Book> listaLivros) {
         int qtdLivros = 0;
         for (Book livro : listaLivros) {
@@ -90,10 +93,12 @@ public class AdminPage extends javax.swing.JFrame {
         qtdLivrosAcervo.setText(String.valueOf(qtdLivros));
     }
     
+    //Atualiza a quantidade de empréstimos
     public void qtdEmprestimos(ArrayList<Book> listaAtrasos) {
         qtdEmprestimos.setText(String.valueOf(listaAtrasos.size()));
     }
     
+    //Atualiza a quantidade de atrasos
     public void qtdAtrasos(ArrayList<Book> listaAtrasos) {
         int contadorAtrasos = 0;
         
@@ -106,6 +111,7 @@ public class AdminPage extends javax.swing.JFrame {
         qtdAtrasos.setText(String.valueOf(contadorAtrasos));
     }
     
+    //Atualiza a quantidade de membros
     public void qtdMembrosAtivos(ArrayList<Member> listaMembers) {
         qtdMembrosAtivos.setText(String.valueOf(listaMembers.size()));
     }
@@ -418,11 +424,19 @@ public class AdminPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Função do botão Logout
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         this.dispose();
-        new LoginPage().setVisible(true);
+        try {
+            new ManageBooks().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    //Função do botão Acervo
     private void btnAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcervoActionPerformed
         this.dispose();
         try {
@@ -434,6 +448,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAcervoActionPerformed
 
+    //Função do botão Membros
     private void btnMembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMembrosActionPerformed
         this.dispose();
         try {
@@ -445,6 +460,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMembrosActionPerformed
 
+    //Função do botão Empréstimo
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
         this.dispose();
         try {
@@ -456,6 +472,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEmprestimoActionPerformed
 
+    //Função do botão Devolução
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
         this.dispose();
         try {
@@ -467,6 +484,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
+    //Função do botão Emprestados
     private void btnEmprestadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestadosActionPerformed
         this.dispose();
         try {
@@ -478,6 +496,7 @@ public class AdminPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEmprestadosActionPerformed
 
+    //Função do botão Artigos
     private void btnArtigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArtigosActionPerformed
         this.dispose();
         try {

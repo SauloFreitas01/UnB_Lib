@@ -18,6 +18,7 @@ import static unblib.Controle.lerArquivoLivros;
 import unblib.Member;
 
 public class RequestBook extends javax.swing.JFrame {
+    //Adiciona os dados de livros, usuários e empréstimos nas respectivas listas
     ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
     ArrayList<Member> listaMembros = lerArquivo("usuarios.bin");
     ArrayList<Book> listaEmprestimos = lerArquivoLivros("emprestimos.bin");
@@ -262,7 +263,9 @@ public class RequestBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMembroActionPerformed
 
+    //Função do botão Empréstimo
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
+        //Cria a formatação da data
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
         String nomeLivro = cmbBooks.getSelectedItem().toString();
@@ -344,6 +347,7 @@ public class RequestBook extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEmprestimoActionPerformed
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         try {
             AdminPage adminPage = new AdminPage();

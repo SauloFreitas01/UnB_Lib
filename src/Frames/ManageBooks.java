@@ -41,6 +41,7 @@ public class ManageBooks extends javax.swing.JFrame{
     }
     
     
+    //Método para carregar a tabela de livros
     public void carregarTabelaBooks(){
         
         DefaultTableModel modelo = new DefaultTableModel(new Object[]{"Nome livro", "Gênero", "Autor", "Quantidade"}, 0);
@@ -262,6 +263,7 @@ public class ManageBooks extends javax.swing.JFrame{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    ////Função do botão Deletar
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         int index = tblBooks.getSelectedRow();
         
@@ -302,6 +304,7 @@ public class ManageBooks extends javax.swing.JFrame{
         JOptionPane.showMessageDialog(null, "Livro excluído com sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnDeletarActionPerformed
 
+    //Função do botão Salvar
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         if(txtNome.getText().equals("") || txtGenero.getText().equals("") ||
                 txtAutor.getText().equals("") || txtQtd.getText().equals("")){
@@ -367,6 +370,7 @@ public class ManageBooks extends javax.swing.JFrame{
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    //Função do botão Atualizar
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         botao = "atualizar";
         
@@ -391,6 +395,7 @@ public class ManageBooks extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
+    //Função do botão Novo
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         botao = "novo";
         
@@ -418,6 +423,7 @@ public class ManageBooks extends javax.swing.JFrame{
         txtNome.requestFocus();
     }//GEN-LAST:event_btnNovoActionPerformed
 
+    //Função do clique do mouse na tabela
     private void tblBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBooksMouseClicked
         int i = tblBooks.getSelectedRow();
         
@@ -443,6 +449,7 @@ public class ManageBooks extends javax.swing.JFrame{
         txtQtd.setEnabled(false);
     }//GEN-LAST:event_tblBooksMouseClicked
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         try {
             AdminPage adminPage = new AdminPage();

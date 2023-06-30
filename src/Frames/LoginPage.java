@@ -165,20 +165,20 @@ public class LoginPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
+    //Método para extrair os inputs email e senha do usuario na tela LoginPage
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        //TODO add your handling code here:
         String email;
         String senha;
         String senhaFormatada;
         
-        // CONSTANTE APENAS PARA TESTES:
+        //CONSTANTE APENAS PARA TESTES:
         String adminEmail = "admin@gmail.com";
         String adminSenha = "12345";
         
         
         
-         // Metodo para extrair os inputs email e senha do usuario na tela LoginPage
+        //Método para extrair os inputs email e senha do usuario na tela LoginPage
         email = txtEmail.getText();
         
         //Método para verificar se o usuário é admnistrador
@@ -225,10 +225,10 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-        
+        //TODO add your handling code here:        
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    //Função do botão Cadastro
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
         //Vai para a tela de Cadastro
         this.dispose();
@@ -245,9 +245,11 @@ public class LoginPage extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) throws IOException, FileNotFoundException, ClassNotFoundException {
+        //Cria os arquivos "usuarios.bin" e "emprestimos.bin"
         File usuarios = new File("usuarios.bin");
         File emprestimos = new File("emprestimos.bin");
         
+        //Adiciona a lista de usuários em "usuarios.bin"
         if (!usuarios.isFile()) {
             ArrayList<Member> listaUsers = new ArrayList<>();
             escreverArquivo(listaUsers, "usuarios.bin");
@@ -265,6 +267,7 @@ public class LoginPage extends javax.swing.JFrame {
             escreverArquivo(listaUsuarios, "usuarios.bin");
         }
         
+        //Adiciona a lista de emprestimos em "emprestimos.bin"
         if (!emprestimos.isFile()) {
             ArrayList<Book> listaEmprestimos = new ArrayList<>();
             escreverArquivo(listaEmprestimos, "emprestimos.bin");

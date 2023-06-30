@@ -19,6 +19,7 @@ import unblib.Member;
 import static unblib.Controle.checkAtraso;
 
 public class ReturnBook extends javax.swing.JFrame {
+    //Adiciona os dados de livros, usuários e empréstimos nas respectivas listas
     ArrayList<Book> listaEmprestimos = lerArquivoLivros("emprestimos.bin");
     ArrayList<Member> listaMembros = lerArquivo("usuarios.bin");
     ArrayList<Book> listaLivros = lerArquivoLivros("livros.bin");
@@ -41,6 +42,7 @@ public class ReturnBook extends javax.swing.JFrame {
         cmbBooks.setModel(modelo);
     }
     
+    //Método para procuar livro
     public boolean procurarLivro(ArrayList<Book> listaLivros, Book livro) {
         for (Book livroLista : listaLivros) {
             if (livro.getName().equals(livroLista.getName())) {
@@ -272,7 +274,9 @@ public class ReturnBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMembroActionPerformed
 
+    //Função do botão Devolução
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
+        //Cria a formatação da data
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
         String nomeLivro = cmbBooks.getSelectedItem().toString();
@@ -377,6 +381,7 @@ public class ReturnBook extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         try {
             AdminPage adminPage = new AdminPage();

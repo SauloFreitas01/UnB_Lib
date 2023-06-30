@@ -198,6 +198,7 @@ public class PapersPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQtdActionPerformed
 
+    //Função do botão Inserir
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         String nome = txtNome.getText();
         String autor = txtAutor.getText();
@@ -221,6 +222,7 @@ public class PapersPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtArtigoActionPerformed
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         try {
             AdminPage adminPage = new AdminPage();

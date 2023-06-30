@@ -219,6 +219,7 @@ public class SignUpPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbUserActionPerformed
 
+    //Função do botão Login
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         //Direciona para a tela de Login
         LoginPage trocaTelaLogin = new LoginPage();
@@ -226,6 +227,7 @@ public class SignUpPage extends javax.swing.JFrame {
         trocaTelaLogin.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    //Função do botão Cadatro
     private void bntCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCadastroActionPerformed
         //Cadastra um novo membro
         String tipoUsuario = cmbUser.getSelectedItem().toString();
@@ -273,6 +275,7 @@ public class SignUpPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntCadastroActionPerformed
 
+    //Função do botão Voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         //Volta para a tela de Login
         this.setVisible(false);
