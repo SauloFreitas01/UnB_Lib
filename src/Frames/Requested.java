@@ -235,6 +235,10 @@ public class Requested extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        //Limpa a lista de busca
+        listaBusca.clear();
+        
+
         //Verifica se o campo de texto está vazio
         if(txtNome.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!", "Nome inválido", JOptionPane.PLAIN_MESSAGE);
