@@ -90,7 +90,7 @@ public class Library{
     }
     //remove book given its id
     
-    public static void removeBookById(List<Book> bookCatalog, String name) {
+    public static void removeBookByName(List<Book> bookCatalog, String name) {
         // Iterate over the book catalog
         for (Book book : bookCatalog) {
             // Check if the book has the matching id
@@ -102,13 +102,13 @@ public class Library{
         }
     }
     
-    //Method to issue books
+    //Method to request books
     //empresta livro a usuario
-    public void issueBooks(Book book, Member member) {
+    public void requestBook(Book book, Member member) {
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
             
-            book.setIssueDate(new Date());
+            book.setRequestDate(new Date());
             book.setMember(member);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
         }else{
@@ -116,13 +116,13 @@ public class Library{
         }
     }
  //Method to search for a book
-    public void searchBook(Book book) {
+    public boolean searchBook(Book book) {
         //metodo de checagem se livro está em catalogo
         if(book.isInLibrarian()){
-            System.out.println("Livro encontrado na Biblioteca!");
+            return true;
             //retorna infos do livro 
         }else{
-            System.out.println("Livro não encontrado na Biblioteca");
+            return false;
         }
     }
 
@@ -133,9 +133,9 @@ public class Library{
        // adiciona livro ao estoque.
     }
     
-    // redundante, issueBook cumpriria a função
-    //Method to issue papers
-    public void issuePaper(Book book, Member member) {
+    // redundante, requestBook cumpriria a função
+    //Method to request papers
+    public void requestPaper(Book book, Member member) {
         // usuario Teacher Adiciona obj Paper ao catalogo 
         book.setStock(book.getStock() + 1);
         book.setReturnDate(new Date());

@@ -2,8 +2,10 @@ package Frames;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -82,7 +84,7 @@ public class ReturnBook extends javax.swing.JFrame {
         dadoMembro = new javax.swing.JLabel();
         txtMembro = new javax.swing.JTextField();
         dadoDevolucao = new javax.swing.JLabel();
-        txtDevolucao = new javax.swing.JTextField();
+        dateDevolucao = new com.toedter.calendar.JDateChooser();
         btnDevolucao = new javax.swing.JButton();
         cmbBooks = new javax.swing.JComboBox<>();
 
@@ -239,16 +241,9 @@ public class ReturnBook extends javax.swing.JFrame {
         dadoDevolucao.setText("Data da devolução");
         pnlDevolucao.add(dadoDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, -1));
 
-        txtDevolucao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtDevolucao.setToolTipText("Insira a data");
-        txtDevolucao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtDevolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDevolucaoActionPerformed(evt);
-            }
-        });
-        pnlDevolucao.add(txtDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 240, 30));
+        dateDevolucao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        dateDevolucao.setDateFormatString("yyyy-MM-dd");
+        pnlDevolucao.add(dateDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 240, 30));
 
         btnDevolucao.setBackground(new java.awt.Color(0, 102, 0));
         btnDevolucao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -264,7 +259,6 @@ public class ReturnBook extends javax.swing.JFrame {
         pnlDevolucao.add(btnDevolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 240, 40));
 
         cmbBooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cmbBooks.setSelectedIndex(-1);
         cmbBooks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlDevolucao.add(cmbBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 240, 30));
 
@@ -279,21 +273,23 @@ public class ReturnBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMembroActionPerformed
 
     private void btnDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
         String nomeLivro = cmbBooks.getSelectedItem().toString();
         String idMembro = txtMembro.getText();
-        String dataDevolucao = txtDevolucao.getText();
+        Date dataInformada = dateDevolucao.getDate();
+        String dataSDF = sdf.format(dataInformada);
         boolean livroEncontrado = false;
         boolean membroEncontrado = false;
         Book livroDisplay = null;
         Member membroDisplay = null;
         
-        if (dataDevolucao.length() == 10) {
-            LocalDate data = LocalDate.parse(formatadorData(dataDevolucao));
+        if (dataSDF.length() == 10) {
+            LocalDate dataDevolucao = LocalDate.parse(formatadorData(dataSDF));
            
             //Limpa campos de texto
             cmbBooks.setSelectedItem("");
             txtMembro.setText("");
-            txtDevolucao.setText("");
             
             //Busca o livro e o membro desejados
             for (Book livro : listaEmprestimos) {
@@ -315,7 +311,7 @@ public class ReturnBook extends javax.swing.JFrame {
           
             //Realiza a devolução e mostra as infomações do livro e membro na tela
             if (membroEncontrado && livroEncontrado) {
-                if(checkAtraso(data, livroDisplay.getDataDevolucao())){
+                if(checkAtraso(dataDevolucao, livroDisplay.getDataDevolucao())){
                     JOptionPane.showMessageDialog(null, "Pague R$40,00 no guichê!", "Livro Atrasado", JOptionPane.PLAIN_MESSAGE);
                 }
                 
@@ -381,10 +377,6 @@ public class ReturnBook extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDevolucaoActionPerformed
 
-    private void txtDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDevolucaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDevolucaoActionPerformed
-
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         try {
             AdminPage adminPage = new AdminPage();
@@ -429,6 +421,14 @@ public class ReturnBook extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -462,6 +462,7 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JLabel dadoTituloLivro;
     private javax.swing.JLabel dadoTituloMembro;
     private javax.swing.JLabel dadoUsuario;
+    private com.toedter.calendar.JDateChooser dateDevolucao;
     private javax.swing.JLabel displayDAutor;
     private javax.swing.JLabel displayDEmail;
     private javax.swing.JLabel displayDGenero;
@@ -475,7 +476,6 @@ public class ReturnBook extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLinhaMembro;
     private javax.swing.JPanel pnlLivro;
     private javax.swing.JPanel pnlMembros;
-    private javax.swing.JTextField txtDevolucao;
     private javax.swing.JTextField txtMembro;
     // End of variables declaration//GEN-END:variables
 }

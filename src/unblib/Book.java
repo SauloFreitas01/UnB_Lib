@@ -10,7 +10,7 @@ public class Book implements Serializable{
     private String genre;
     private String author;
     private int stock;
-    private Date issueDate;
+    private Date requestDate;
     private Date returnDate;    
     private boolean inLibrarian;
     private Member member;
@@ -24,20 +24,20 @@ public class Book implements Serializable{
         
     }
     
-    public Book(String name, String genre, String author, int stock, String status) {
+    public Book(String name, String genre, String author, int stock) {
         this.name = name;
         this.genre = genre;
         this.author = author;
         this.stock = stock;
-        this.status = status;
+        this.status = "Em dia";
     }
     
-    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataDevolucao, String status) {
+    public Book(String name, Member member, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
         this.name = name;
         this.member = member;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
-        this.status = status;
+        this.status = "Em dia";
     }
     
 
@@ -66,12 +66,12 @@ public class Book implements Serializable{
         this.stock = stock;
     }
 
-    public Date getIssueDate() {
-        return issueDate;
+    public Date getRequestDate() {
+        return requestDate;
     }
 
-    public void setIssueDate(Date issueDate) {
-        this.issueDate = issueDate;
+    public void setRequestDate(Date requestDate) {
+        this.requestDate = requestDate;
     }
 
     public Date getReturnDate() {

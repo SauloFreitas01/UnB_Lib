@@ -2,8 +2,10 @@ package Frames;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -72,7 +74,7 @@ public class RequestBook extends javax.swing.JFrame {
         dadoMembro = new javax.swing.JLabel();
         txtMembro = new javax.swing.JTextField();
         dadoEmprestimo = new javax.swing.JLabel();
-        txtEmprestimo = new javax.swing.JTextField();
+        dateEmprestimo = new com.toedter.calendar.JDateChooser();
         btnEmprestimo = new javax.swing.JButton();
         cmbBooks = new javax.swing.JComboBox<>();
 
@@ -229,16 +231,9 @@ public class RequestBook extends javax.swing.JFrame {
         dadoEmprestimo.setText("Data do empréstimo");
         pnlEmprestimo.add(dadoEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, -1));
 
-        txtEmprestimo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEmprestimo.setToolTipText("Insira a data");
-        txtEmprestimo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtEmprestimo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtEmprestimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmprestimoActionPerformed(evt);
-            }
-        });
-        pnlEmprestimo.add(txtEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 240, 30));
+        dateEmprestimo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        dateEmprestimo.setDateFormatString("yyyy-MM-dd");
+        pnlEmprestimo.add(dateEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 240, 30));
 
         btnEmprestimo.setBackground(new java.awt.Color(0, 102, 0));
         btnEmprestimo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -254,7 +249,6 @@ public class RequestBook extends javax.swing.JFrame {
         pnlEmprestimo.add(btnEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 240, 40));
 
         cmbBooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cmbBooks.setSelectedIndex(-1);
         cmbBooks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlEmprestimo.add(cmbBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 240, 30));
 
@@ -269,23 +263,24 @@ public class RequestBook extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMembroActionPerformed
 
     private void btnEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestimoActionPerformed
-        // TODO add your handling code here:
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
         String nomeLivro = cmbBooks.getSelectedItem().toString();
         String idMembro = txtMembro.getText();
-        String dataEmprestimo = txtEmprestimo.getText();
+        Date dataInformada = dateEmprestimo.getDate();
+        String dataSDF = sdf.format(dataInformada);
         boolean livroEncontrado = false;
         boolean membroEncontrado = false;
         Book livroDisplay = null;
         Member membroDisplay = null;
         
-        if (dataEmprestimo.length() == 10) {
-            LocalDate data = LocalDate.parse(formatadorData(dataEmprestimo));
-            LocalDate dataDevolucaoCriada = data.plusDays(7);
+        if (dataSDF.length() == 10) {
+            LocalDate dataEmprestimo = LocalDate.parse(formatadorData(dataSDF));
+            LocalDate dataDevolucaoCriada = dataEmprestimo.plusDays(7);
            
             // Limpa campos de texto
             cmbBooks.setSelectedItem("");
             txtMembro.setText("");
-            txtEmprestimo.setText("");
             
             // Busca o livro e o membro desejados
             for (Book livro : listaLivros) {
@@ -316,7 +311,7 @@ public class RequestBook extends javax.swing.JFrame {
                 }
                 
                 //Adiciona livro na lista de livros emprestados
-                Book livroEmprestado = new Book(nomeLivro, membroDisplay, data, dataDevolucaoCriada, "Em dia");
+                Book livroEmprestado = new Book(nomeLivro, membroDisplay, dataEmprestimo, dataDevolucaoCriada);
                 listaEmprestimos.add(livroEmprestado);
                 try {
                     escreverArquivo(listaEmprestimos, "emprestimos.bin");
@@ -348,10 +343,6 @@ public class RequestBook extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Formato de data inválido", "Data Inválida", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnEmprestimoActionPerformed
-
-    private void txtEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmprestimoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmprestimoActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         try {
@@ -397,6 +388,14 @@ public class RequestBook extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -430,6 +429,7 @@ public class RequestBook extends javax.swing.JFrame {
     private javax.swing.JLabel dadoTituloLivro;
     private javax.swing.JLabel dadoTituloMembro;
     private javax.swing.JLabel dadoUsuario;
+    private com.toedter.calendar.JDateChooser dateEmprestimo;
     private javax.swing.JLabel displayEmail;
     private javax.swing.JLabel displayGenero;
     private javax.swing.JLabel displayID;
@@ -443,7 +443,6 @@ public class RequestBook extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLinhaMembro;
     private javax.swing.JPanel pnlLivro;
     private javax.swing.JPanel pnlMembros;
-    private javax.swing.JTextField txtEmprestimo;
     private javax.swing.JTextField txtMembro;
     // End of variables declaration//GEN-END:variables
 }

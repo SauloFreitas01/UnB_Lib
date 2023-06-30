@@ -88,7 +88,7 @@ public class Member implements Serializable{
     public void requestBook(Book book, Member member){
         if (book.getStock() > 0){
             book.setStock(book.getStock() - 1);
-            book.setIssueDate(new Date());
+            book.setRequestDate(new Date());
             book.setMember(member);
             System.out.println("O livro " + book.getName() + " foi emprestado para " + member.getName());
         }else{
