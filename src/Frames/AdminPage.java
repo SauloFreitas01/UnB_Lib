@@ -428,7 +428,7 @@ public class AdminPage extends javax.swing.JFrame {
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         this.dispose();
         try {
-            new ManageBooks().setVisible(true);
+            new SignUpPage().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
