@@ -418,7 +418,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         pnlDados.add(scrollBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 270, 830, 290));
 
-        getContentPane().add(pnlDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 990, 650));
+        getContentPane().add(pnlDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 990, 672));
 
         pack();
         setLocationRelativeTo(null);
